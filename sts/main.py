@@ -1,0 +1,255 @@
+"""
+SERVER PYTHON - VOICE BOT (STT + Rasa + TTS)
+UPDATED: 05/08/2026
+"""
+
+import asyncio
+import io
+import librosa
+import requests
+import time
+import wave
+import websockets
+
+import scipy.signal as signal
+
+from faster_whisper import WhisperModel
+from vieneu import Vieneu
+
+from rasa_utils import *
+from config import *
+from utils import *
+
+# MARK: LOAD MODELS
+log(f"device: {MODEL_PATH}", "INFO")
+
+model = WhisperModel(MODEL_PATH, device=DEVICE, compute_type=COMPUTE_TYPE)
+log(f"LOADED model FasterWhisper at {MODEL_PATH}", "INFO")
+
+tts = Vieneu(mode="turbo_gpu")
+log(f"LOADED model Vieneu", "INFO")
+
+rasa_session = requests.Session()
+log(f"LOADED model Vieneu", "INFO")
+
+
+# MARK: STS FLOW
+def load_and_validate_audio_buffer(raw_bytes: bytes, expected_sr: int = 16000):
+    """Đọc buffer WAV và trả về numpy array"""
+    with wave.open(io.BytesIO(raw_bytes), "r") as wf:
+        sr = wf.getframerate()
+        channels = wf.getnchannels()
+        sampwidth = wf.getsampwidth()
+        frames = wf.readframes(wf.getnframes())
+
+    data = np.frombuffer(frames, dtype=np.int16).astype(np.float32) / 32768.0
+
+    log(
+        f"Nhận audio: {len(raw_bytes)/1024:.1f} KB | {sr}Hz | {channels}ch | {len(data)/sr:.2f}s",
+        "AUDIO",
+    )
+
+    # Resample chuẩn về 16kHz nếu nhận 8kHz từ bareSIP
+    if sr != expected_sr:
+        log(f"Resampling {sr}Hz → {expected_sr}Hz bằng scipy...", "AUDIO")
+        data = signal.resample_poly(data, up=expected_sr, down=sr).astype(np.float32)
+        sr = expected_sr
+        log(f"Resample xong: {len(data)/sr:.2f}s", "AUDIO")
+
+    if channels != 1:
+        log(f"Warning: Audio không phải Mono ({channels} channels)", "ERROR")
+
+    return data, sr
+
+
+def preprocess_audio(audio_data: np.ndarray, sr: int) -> np.ndarray:
+    """Normalize + trim silence"""
+    # Normalize
+    max_val = np.max(np.abs(audio_data))
+    if max_val > 0:
+        audio_data = audio_data / max_val
+
+    # Trim silence
+    threshold = 0.008
+    non_silent = np.where(np.abs(audio_data) > threshold)[0]
+    if len(non_silent) > 0:
+        start = max(0, non_silent[0] - sr // 10)
+        end = min(len(audio_data), non_silent[-1] + sr // 10)
+        audio_data = audio_data[start:end]
+
+    return audio_data
+
+
+def transcribe_faster_whisper(
+    audio_data: np.ndarray, initial_prompt: str = None, hotwords: str = None
+):
+    start = time.perf_counter()
+    segments, info = model.transcribe(
+        audio_data,
+        language=LANGUAGE,
+        beam_size=2,
+        vad_filter=True,
+        vad_parameters=dict(min_silence_duration_ms=300),
+        condition_on_previous_text=False,
+        initial_prompt=initial_prompt or "Đây là cuộc hội thoại tiếng Việt.",
+        hotwords=hotwords,
+        no_speech_threshold=0.6,
+    )
+
+    text = ""
+    for seg in segments:
+        text += seg.text.strip() + " "
+        log(f"[{seg.start:.1f}s → {seg.end:.1f}s] {seg.text.strip()}", "STT")
+
+    duration = len(audio_data) / 16000
+    log(
+        f"STT hoàn thành: '{text.strip()}' | RTF: {(time.perf_counter()-start)/duration:.2f}x",
+        "STT",
+    )
+    return clean_text(text).strip()
+
+
+def request_to_rasa(text: str) -> str:
+    if not text or not text.strip():
+        return "default|Bạn nói gì vậy?"
+
+    start = time.perf_counter()
+    try:
+        payload = {"sender": SENDER_ID, "message": text.strip()}
+        response = requests.post(RASA_URL, json=payload, timeout=8)
+        response_data = response.json()
+
+        rasa_text = ""
+        for msg in response_data:
+            if "text" in msg:
+                rasa_text += msg["text"] + " "
+
+        log(f"Rasa response: {rasa_text.strip()[:100]}...", "RASA")
+        log(f"Rasa time: {time.perf_counter()-start:.2f}s", "RASA")
+        return rasa_text.strip()
+
+    except Exception as e:
+        log(f"Lỗi kết nối Rasa: {e}", "ERROR")
+        return "default|Xin lỗi, tôi đang gặp vấn đề kỹ thuật. Bạn nói lại được không?"
+
+
+async def text_to_wav_bytes(text: str) -> bytes:
+    # 1. Synthesize (từ vieNeu tts)
+    # voice_codes = tts.get_preset_voice("Ly")
+    audio = tts.infer(text=text, voice="Đoan Trang")
+
+    # 2. Xử lý khoảng lặng (padding) 350ms
+    sample_rate = 48000
+    padding_samples = int(0.35 * sample_rate)
+    silence = np.zeros(padding_samples, dtype=np.float32)
+    audio = np.concatenate([silence, audio, silence])
+
+    # 3. Chuyển đổi về 8kHz (Resampling)
+    # Dùng librosa.resample thay vì librosa.load vì audio đã ở dạng array rồi
+    audio_8k = librosa.resample(audio, orig_sr=sample_rate, target_sr=8000)
+
+    # 4. Chuyển đổi về 16-bit PCM (int16)
+    audio_int16 = np.clip(audio_8k * 32767, -32768, 32767).astype(np.int16)
+
+    # 5. Ghi vào bytes (Memory Buffer) thay vì file vật lý
+    wav_io = io.BytesIO()
+    with wave.open(wav_io, "wb") as wf:
+        wf.setnchannels(1)  # Mono
+        wf.setsampwidth(2)  # 16-bit = 2 bytes
+        wf.setframerate(8000)  # 8kHz
+        wf.writeframes(audio_int16.tobytes())
+
+    return wav_io.getvalue()
+
+
+# MARK: WARMUP
+def warmup_models():
+    """Chạy 1 lượt inference 'mồi' cho từng model để CUDA kernel/cudnn autotune xảy ra
+    lúc khởi động thay vì ở request đầu tiên của người dùng thật (tránh spike latency).
+    """
+    try:
+        dummy = np.zeros(TARGET_SR, dtype=np.float32)  # 1s silence @ 16kHz
+        preprocess_audio(dummy, TARGET_SR)
+        list(model.transcribe(dummy, language=LANGUAGE, beam_size=BEAM_SIZE)[0])
+        tts.infer(text="xin chào", voice="Đoan Trang")
+        log(f"[{datetime.now().strftime('%H:%M:%S')}] Warmup models hoàn tất!", "INFO")
+    except Exception as e:
+        log(
+            f"[{datetime.now().strftime('%H:%M:%S')}] Warmup lỗi (bỏ qua): {e}", "ERROR"
+        )
+
+
+def warmup_rasa():
+    payload = {"sender": SENDER_ID, "message": "xin chào"}
+    res_post = rasa_session.post(RASA_URL, json=payload, timeout=8)
+    if res_post.status_code == 200:
+        log(f"PORT:{RASA_URL} is available", "RASA")
+    else:
+        log(f"PORT:{RASA_URL} not available", "ERROR")
+
+
+# MARK: WEBSOCKET
+# ====================== WEBSOCKET HANDLER ======================
+async def handle_client(websocket):
+    client_addr = websocket.remote_address
+    rasa_prompt = RasaPrompt()
+    try:
+        async for message in websocket:
+            if not isinstance(message, bytes):
+                log("Nhận dữ liệu không phải bytes!", "ERROR")
+                continue
+            # ==================== PIPELINE ====================
+            # 1. Nhận & validate audio
+            audio_data, sr = load_and_validate_audio_buffer(message)
+            # 2. Preprocess
+            processed = preprocess_audio(audio_data, sr)
+            # 3. Speech-to-Text
+            transcript = transcribe_faster_whisper(
+                processed,
+                initial_prompt=rasa_prompt.initial_prompt,
+                hotwords=rasa_prompt.hot_word,
+            )
+            # 4. Rasa Dialog
+            rasa_raw = request_to_rasa(transcript)
+            # 4b. Parse state + text thật, đồng thời cập nhật prompt/hotword cho turn kế tiếp
+            state, rasa_text = rasa_prompt.compile_text(rasa_raw)
+            # 5. Text-to-Speech
+            wav_bytes = await text_to_wav_bytes(rasa_text)
+            # 6. Gửi về Flutter
+            await websocket.send(wav_bytes)
+    except websockets.exceptions.ConnectionClosed:
+        log(f"Client disconnected: {client_addr}", "INFO")
+    except Exception as e:
+        log(f"Lỗi xử lý client: {e}", "ERROR")
+    finally:
+        log(f"Đóng kết nối với {client_addr}", "INFO")
+
+
+# MARK: MAIN
+# ====================== MAIN ======================
+async def main():
+    rasa_scripts()
+    warmup_rasa(rasa_session)
+    print("=" * 70)
+    print("          SERVER VOICE BOT WEBSOCKET ĐÃ KHỞI ĐỘNG")
+    print(f"          Listening on ws://0.0.0.0:8765")
+    print("=" * 70 + "\n")
+
+    async with websockets.serve(
+        handle_client,
+        "0.0.0.0",
+        8765,
+        max_size=20_000_000,  # Tăng buffer
+        ping_interval=20,
+        ping_timeout=30,
+    ):
+        await asyncio.Future()  # Chạy mãi mãi
+
+
+if __name__ == "__main__":
+    try:
+        asyncio.run(main())
+    except KeyboardInterrupt:
+        print("\nServer stopped by user.")
+    except Exception as e:
+        print(f"Server error: {e}")
