@@ -114,6 +114,6 @@ Chạy full luồng(CMD):
 		chạy file whisper_server.py 
 		
 	server rasa (folder rasa)
-		rasa run actions 								/// bật actions 
+		rasa run actions -vv							/// bật actions 
 		rasa run --enable-api --cors "*" -vv			/// bật server ( đoạn --log kia để lấy log runtime ra file trong /logs)
 		
