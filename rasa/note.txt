@@ -10,6 +10,7 @@ Chuẩn bị trước khi chạy sv rasa
 
 Chạy sv Rasa
 	server rasa (folder rasa)
+        chạy venv
 		rasa run actions 								/// bật actions 
 		rasa run --enable-api --cors "*" -vv			/// bật server ( đoạn --log kia để lấy log runtime ra file trong /logs)
 		
