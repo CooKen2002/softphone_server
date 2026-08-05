@@ -1,0 +1,15 @@
+Chuẩn bị trước khi chạy sv rasa
+    - cài venv và activate rasa (py < 3.11)
+    - pip install -r requirements.txt
+    - Nếu chưa có model: 
+        Train full(core và nlu): chạy python utils/rasa_utils.py
+    - Chưa có bộ phrases&placholder (hoặc chỉnh sửa)
+        Trong utils/example -> thêm/sửa file txt -> quay lại /utils chạy file gen_txt_json.py
+    - Train model ( chỉ nlu, core hoặc full)
+        sửa ở main trong utils/rasa_utils -> chạy ( kể cả khi bật sv)
+
+Chạy sv Rasa
+	server rasa (folder rasa)
+		rasa run actions 								/// bật actions 
+		rasa run --enable-api --cors "*" -vv			/// bật server ( đoạn --log kia để lấy log runtime ra file trong /logs)
+		
