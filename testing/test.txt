@@ -1,0 +1,1 @@
+D:\softphone_server\sts\.venv_sts\Scripts\activate
