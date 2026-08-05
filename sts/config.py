@@ -70,6 +70,7 @@ ZCR_MAX = 0.30  # zero-crossing rate tối đa
 SPEECH_BAND_MIN = 0.40  # tối thiểu 40% năng lượng trong 300-3400 Hz
 
 # rasa
+RASA_PATH = "../rasa"
 SENDER_ID = "hà lan"
 RASA_URL = "http://localhost:5005/webhooks/rest/webhook"
 RASA_BASE_URL = "http://localhost:5005"

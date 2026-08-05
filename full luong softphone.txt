@@ -1,0 +1,119 @@
+FULL LUỒNG SOFTPHONE
+
+USER -> HOTLINE-FLUTTER: VAD -> VOICE -> STT(Faster whisper):TEXT -> RASA: TEXT_RESPONSE -> TTS
+
+Cấu trúc thư mục (các folders & files key)
+├── full luong softphone.txt
+├── LỘ TRÌNH XE HÀ LAN.docx
+│
+├── rasa\
+│   ├── config.yml
+│   ├── credentials.yml
+│   ├── domain.yml
+│   ├── endpoints.yml
+│   ├── requirements.txt
+│   ├── actions\
+│   │   ├── actions.py
+│   │   ├── constants.py
+│   │   ├── http_ulti.py
+│   │   ├── models.py
+│   │   ├── services.py
+│   │   ├── utils.py
+│   │   └── __init__.py
+│   ├── components\
+│   │   ├── postProcess.py
+│   │   └── sks_tokenizer\
+│   │       ├── aliases.json
+│   │       ├── entities.json
+│   │       ├── phrases.txt
+│   │       ├── phrases_runtime.txt
+│   │       ├── placeholder.json
+│   │       └── sks_tokenizer.py
+│   ├── data\
+│   │   ├── rules.yml
+│   │   ├── stories.yml
+│   │   └── nlu\
+│   │       ├── lookup_tables.yml
+│   │       ├── regex.yml
+│   │       ├── synonyms.yml
+│   │       └── intents\
+│   │           ├── booking.yml
+│   │           ├── correcting.yml
+│   │           ├── others.yml
+│   │           └── providing.yml
+│   ├── models\
+│   └── utils\
+│       ├── gen_txt_json.py
+│       ├── load.py
+│       ├── rasa_utils.py
+│       ├── utils.py
+│       ├── __init__.py
+│       └── examples\
+│           ├── dia_diem.json
+│           ├── dia_diem.txt
+│           ├── ho_ten.json
+│           ├── ho_ten.txt
+│           ├── intent.txt
+│           └── word.txt
+│
+├── sts\
+│   ├── config.py
+│   ├── postprocess.py
+│   ├── rasa_suggest.py
+│   ├── requirements.txt
+│   ├── utils.py
+│   └── whisper_server.py
+│
+└── sks talkie\
+
+Chuẩn bị trước khi chạy sv
+	- cài venv và activate (rasa (py < 3.11) riêng sts (py version có thể lấy phiên bản > 3.10) riêng do incompitable về một số lib)
+	
+	- sts
+		- pip install sts/requirements.txt
+		- khai baos model:
+			tts = Vieneu()
+		- các đối số của Vieneu: 
+			- voice:
+				"Minh Đức"
+				"Phạm Tuyên"
+				"Thái Sơn"
+				"Xuân Vĩnh"
+				"Thanh Bình"
+				"Trúc Ly"
+				"Ngọc Linh"
+				"Đoan Trang"
+				"Mai Anh"
+				"Thục Đoan"
+				"Minh Triết"
+				"Thùy Dung"
+				"Quang Sơn"
+				"Ngọc Trân"
+
+			- style:
+				"tu nhien"
+				"tin tuc"
+				"doc_truyen"
+	
+	- Rasa:
+		- pip install rasa/requirements.txt
+		- Nếu chưa có model: 
+			Train full(core và nlu): chạy python utils/rasa_utils.py
+		- Chưa có bộ phrases&placholder (hoặc chỉnh sửa)
+			Trong utils/example -> thêm/sửa file txt -> quay lại /utils chạy file gen_txt_json.py
+		- Train model ( chỉ nlu, core hoặc full)
+			sửa ở main trong utils/rasa_utils -> chạy ( kể cả khi bật sv)
+			
+Chạy full luồng(CMD):
+	client hotline: FLUTTER (sks talkie)
+		- flutter clean
+		- flutter pub get
+		- flutter run -d window
+		
+	server faster whisper (folder sts)
+		chạy file whisper_server.py 
+		
+	server rasa (folder rasa)
+		rasa run actions 								/// bật actions 
+		rasa run --enable-api --cors "*" -vv			/// bật server ( đoạn --log kia để lấy log runtime ra file trong /logs)
+		
