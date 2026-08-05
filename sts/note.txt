@@ -46,4 +46,5 @@ Chuẩn bị trước khi chạy sv
 				"tu nhien"
 				"tin tuc"
 				"doc_truyen"
-	
+
+chạy file main.py trong sts ( có thể tắt scripts rasa trong __main__)
