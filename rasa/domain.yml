@@ -1,0 +1,192 @@
+version: "3.1"
+
+intents:
+  - cung_cap_thong_tin
+  - dat_ve
+  - dong_y
+  - huy
+  - tu_choi
+  - sua_thong_tin
+  - chao_hoi
+
+entities:
+  - dia_diem
+  - thoi_gian
+  - loai_xe
+  - so_luong
+  - ho_ten
+  - dien_thoai
+
+slots:
+  diem_don:
+    type: text
+    mappings:
+      - type: custom
+  diem_den:
+    type: text
+    mappings:
+      - type: custom
+  thoi_gian:
+    type: text
+    mappings:
+      - type: custom
+  loai_xe:
+    type: text
+    mappings:
+      - type: custom
+    initial_value: "xe limousine"
+  so_luong:
+    type: text
+    mappings:
+      - type: custom
+  ho_ten:
+    type: text
+    mappings:
+      - type: custom
+  dien_thoai:
+    type: text
+    mappings:
+      - type: custom
+  # Biến lưu thông tin lấy được ở server
+  list_tickets:
+    type: any
+    mappings:
+      - type: custom
+  # Biến dùng để xác định có thông tin cần sửa
+  has_lists:
+    type: bool
+    mappings:
+      - type: custom
+  # Biến dùng để đánh dấu xác nhận form
+  confirm_form:
+    type: bool
+    initial_value: false
+    mappings:
+      - type: custom
+  # Biến đùng để đánh dấu trạng thái form
+  status_form:
+    type: text
+    mappings:
+      - type: custom
+  # Biến dùng để phân biệt các form
+  flag_form:
+    type: text
+    mappings:
+      - type: custom
+forms:
+  form_dat_ve:
+    ignored_intents:
+      - chao_hoi
+    required_slots:
+      - diem_don
+      - diem_den
+      - thoi_gian
+      - loai_xe
+      - so_luong
+      - ho_ten
+      - dien_thoai
+
+responses:
+  utter_ask_form_dat_ve_diem_don:
+    - text: "diem_don|Anh chị muốn được đón ở đâu ạ"
+
+  utter_ask_form_dat_ve_diem_den:
+    - text: "diem_den|Anh chị muốn đi đến đâu ạ"
+
+  utter_ask_form_dat_ve_thoi_gian:
+    - text: "thoi_gian|Anh chị muốn đón vào lúc nào ạ"
+
+  utter_ask_form_dat_ve_loai_xe:
+    - text: "loai_xe|Anh chị muốn loại xe nào ạ"
+
+  utter_ask_form_dat_ve_so_luong:
+    - text: "so_luong|Anh chị đi bao nhiêu người ạ"
+
+  utter_ask_form_dat_ve_ho_ten:
+    - text: "ho_ten|Anh chị vui lòng cung cấp họ tên ạ"
+
+  utter_ask_form_dat_ve_dien_thoai:
+    - text: "dien_thoai|Anh chị vui lòng cung cấp số điện thoại ạ"
+
+  utter_ask_form_sua_ve_diem_don:
+    - text: "diem_don|[Sửa] Anh chị muốn được đón ở đâu ạ"
+
+  utter_ask_form_sua_ve_diem_den:
+    - text: "diem_den|[Sửa] Anh chị muốn đi đến đâu ạ"
+
+  utter_ask_form_sua_ve_thoi_gian:
+    - text: "thoi_gian|[Sửa] Anh chị muốn đón vào lúc nào ạ"
+
+  utter_ask_form_sua_ve_loai_xe:
+    - text: "loai_xe|[Sửa] Anh chị muốn loại xe nào ạ"
+
+  utter_ask_form_sua_ve_so_luong:
+    - text: "so_luong|[Sửa] Anh chị đi bao nhiêu người ạ"
+
+  utter_ask_form_sua_ve_ho_ten:
+    - text: "ho_ten|[Sửa] Anh chị vui lòng cung cấp họ tên ạ"
+
+  utter_ask_form_sua_ve_dien_thoai:
+    - text: "dien_thoai|[Sửa] Anh chị vui lòng cung cấp số điện thoại ạ"
+
+  utter_ask_form_huy_ve_dien_thoai:
+    - text: "dien_thoai|[Hủy] Anh chị vui lòng cung cấp số điện thoại lúc đặt vé ạ"
+
+  utter_ask_form_huy_ve_thoi_gian:
+    - text: "thoi_gian|[Hủy] Vui lòng anh chị cung cấp thời gian đi ạ"
+
+  utter_ask_form_huy_ve_ho_ten:
+    - text: "ho_ten|[Hủy] Vui lòng anh chị cung cấp họ tên người đặt vé ạ"
+
+  utter_ask_form_huy_ve_diem_don:
+    - text: "diem_don|[Hủy] Vui lòng anh chị cung cấp điểm đón ạ"
+
+  utter_ask_form_huy_ve_diem_den:
+    - text: "diem_den|[Hủy] Vui lòng anh chị cung cấp điểm đến ạ"
+
+  utter_ask_form_huy_ve_so_luong:
+    - text: "so_luong|[Hủy] Anh chị muốn hủy bao nhiêu vé"
+
+  utter_huy_dat_ve_trong_form_thanh_cong:
+    - text: "finished|Xác nhận hủy thao tác, Anh chị có muốn hỗ trợ gì thêm không"
+
+  utter_dat_ve_sai:
+    - text: "modifi_process|Anh chị muốn thay đổi thông tin gì ạ"
+
+  utter_xac_nhan_huy_dat_ve_trong_form:
+    - text: "confirm_form|Anh chị chắc chắn hủy đặt xe ạ"
+
+  utter_fallback:
+    - text: "default|Xin lỗi, tôi chưa hiểu ý anh, chị. Anh, chị có thể nói lại không ạ"
+
+  utter_default_fallback:
+    - text: "default|Xin lỗi, tôi chưa hiểu ý anh, chị. Anh, chị có thể nói lại không ạ"
+
+  utter_default:
+    - text: "default|Tổng đài xin chào quý khách, em giúp gì cho anh chị ạ"
+
+  utter_chao_hoi:
+    - text: "default|Tổng đài đặt xe tự động xin chào quý khách, em giúp gì cho anh chị ạ"
+
+actions:
+  - validate_form_dat_ve
+  - action_tra_cuu_ve
+  - action_submit_form_dat_ve
+  - action_xac_nhan_form_dat_ve
+  - action_sua_thong_tin_form_dat_ve
+
+  - action_submit_form_huy_ve
+  - action_xac_nhan_form_huy_ve
+  - action_sua_thong_tin_form_huy_ve
+
+  - action_submit_form_sua_ve
+  - action_xac_nhan_form_sua_ve
+  - action_sua_thong_tin_form_sua_ve
+  - action_reset_form
+
+  - action_chao_hoi
+  - action_route_action
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

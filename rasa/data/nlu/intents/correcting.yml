@@ -1,0 +1,12 @@
+# version: "3.1"
+
+# nlu:
+# - intent: sua_thong_tin
+#   examples: |
+#     # --- ý định sửa chung  ---
+#     - Sửa thông tin đặt xe của tôi
+#     - Tôi muốn sửa thông tin đặt xe
+#     - Tôi muốn sửa thông tin đặt xe của tôi
+#     - Tôi muốn sửa thông tin đặt xe đã đặt
+#     - Sửa
+#     -

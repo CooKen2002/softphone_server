@@ -1,0 +1,419 @@
+# version:  "3.1"
+
+# nlu:
+
+# - lookup: dia_diem
+#   examples: |
+#     - bệnh viện tai mũi họng thành phố hồ chí minh
+#     - bệnh viện viện tim thành phố hồ chí minh
+#     - đại học bách khoa thành phố hồ chí minh
+#     - đại học quốc gia thành phố hồ chí minh
+#     - đại học kinh tế thành phố hồ chí minh
+#     - bệnh viện đa khoa trung ương cần thơ
+#     - bệnh viện tai mũi họng trung ương
+#     - bệnh viện đa khoa tỉnh khánh hòa
+#     - bệnh viện phụ sản trung ương
+#     - bệnh viện vinmec times city
+#     - bệnh viện đại học y hà nội
+#     - bệnh viện hoàn mỹ đà nẵng
+#     - bệnh viện ung bướu hà nội
+#     - bệnh viện đa khoa hà đông
+#     - bệnh viện đa khoa đà nẵng
+#     - đại học khoa học tự nhiên
+#     - bến xe trung tâm đà nẵng
+#     - bệnh viện nhi trung ương
+#     - bệnh viện trung ương huế
+#     - bệnh viện đại học y dược
+#     - đại học bách khoa hà nội
+#     - đại học kinh tế quốc dân
+#     - bitexco financial tower
+#     - vincom nguyễn chí thanh
+#     - đại học quốc gia hà nội
+#     - bệnh viện nhân dân 115
+#     - đại học sư phạm hà nội
+#     - sân bay buôn ma thuột
+#     - thành phố hồ chí minh
+#     - aeon mall bình dương
+#     - bệnh viện nhi đồng 1
+#     - bệnh viện nhi đồng 2
+#     - bệnh viện thanh nhàn
+#     - bệnh viện thống nhất
+#     - keangnam landmark 72
+#     - parkson lê thánh tôn
+#     - phố đi bộ nguyễn huệ
+#     - sân bay tân sơn nhất
+#     - đại học ngoại thương
+#     - aeon mall long biên
+#     - bệnh viện pháp việt
+#     - sân bay liên khương
+#     - bưu điện thành phố
+#     - bệnh viện bạch mai
+#     - bệnh viện ung bướu
+#     - bệnh viện việt đức
+#     - bệnh viện xanh pôn
+#     - lotte mart đà nẵng
+#     - sense city cần thơ
+#     - aeon mall hà đông
+#     - aeon mall tân phú
+#     - bà rịa - vũng tàu
+#     - bệnh viện chợ rẫy
+#     - bệnh viện tâm đức
+#     - sân bay điện biên
+#     - bến xe miền đông
+#     - bến xe nước ngầm
+#     - bến xe yên nghĩa
+#     - gigamall thủ đức
+#     - sân bay cam ranh
+#     - sân bay phú quốc
+#     - sân bay rạch giá
+#     - sân bay thọ xuân
+#     - sân bay đồng hới
+#     - tràng tiền plaza
+#     - vincom hải phòng
+#     - vincom đồng khởi
+#     - bãi biển mỹ khê
+#     - bến xe giáp bát
+#     - bến xe miền tây
+#     - bệnh viện từ dũ
+#     - mipec long biên
+#     - sân bay chu lai
+#     - sân bay côn đảo
+#     - sân bay cần thơ
+#     - sân bay nội bài
+#     - sân bay phù cát
+#     - sân bay phú bài
+#     - sân bay tuy hòa
+#     - sân bay đà nẵng
+#     - vincom bà triệu
+#     - đại học cần thơ
+#     - đại học đà nẵng
+#     - bến xe cần thơ
+#     - bến xe gia lâm
+#     - bến xe mỹ đình
+#     - nhà thờ đức bà
+#     - sân bay cát bi
+#     - sân bay pleiku
+#     - thừa thiên huế
+#     - vincom cần thơ
+#     - vincom hạ long
+#     - vincom đà nẵng
+#     - địa đạo củ chi
+#     - big c đà nẵng
+#     - biển vũng tàu
+#     - bệnh viện 108
+#     - chợ bến thành
+#     - crescent mall
+#     - diamond plaza
+#     - phố cổ hội an
+#     - saigon centre
+#     - thành nội huế
+#     - dinh độc lập
+#     - lotte center
+#     - ngũ hành sơn
+#     - sân bay vinh
+#     - vịnh hạ long
+#     - đảo phú quốc
+#     - bà nà hills
+#     - bệnh viện e
+#     - landmark 81
+#     - takashimaya
+#     - thái nguyên
+#     - tuyên quang
+#     - đèo hải vân
+#     - đại học huế
+#     - đỉnh bàn cờ
+#     - bình dương
+#     - bình phước
+#     - bình thuận
+#     - bến xe huế
+#     - go! đà lạt
+#     - kiên giang
+#     - ninh thuận
+#     - quảng bình
+#     - quảng ngãi
+#     - quảng ninh
+#     - royal city
+#     - times city
+#     - tiền giang
+#     - bình định
+#     - bắc giang
+#     - hải dương
+#     - hải phòng
+#     - hậu giang
+#     - khánh hòa
+#     - ninh bình
+#     - quảng nam
+#     - quảng trị
+#     - sóc trăng
+#     - thanh hóa
+#     - thái bình
+#     - vĩnh long
+#     - vĩnh phúc
+#     - điện biên
+#     - đồng tháp
+#     - an giang
+#     - bạc liêu
+#     - bắc ninh
+#     - cao bằng
+#     - cầu rồng
+#     - cầu vàng
+#     - fansipan
+#     - hà giang
+#     - hòa bình
+#     - hưng yên
+#     - lai châu
+#     - lâm đồng
+#     - lăng bác
+#     - lạng sơn
+#     - nam định
+#     - thiên mụ
+#     - trà vinh
+#     - tràng an
+#     - tây ninh
+#     - văn miếu
+#     - đắk nông
+#     - đền hùng
+#     - đồng nai
+#     - bắc kạn
+#     - bến tre
+#     - cần giờ
+#     - cần thơ
+#     - gia lai
+#     - hà tĩnh
+#     - hồ gươm
+#     - kon tum
+#     - long an
+#     - lào cai
+#     - nghệ an
+#     - phú thọ
+#     - phú yên
+#     - yên bái
+#     - đà nẵng
+#     - đắk lắk
+#     - cà mau
+#     - hà nam
+#     - hà nội
+#     - hồ tây
+#     - sơn la
+#     - sapa 
+
+# - lookup: ho_ten
+#   examples: |
+#     - dương minh tuyết nhung
+#     - dương ngọc khánh ngọc
+#     - hồ phương thảo nguyên
+#     - nguyễn thị thanh trúc
+#     - nguyễn đức minh khang
+#     - ngô phương thùy dương
+#     - phạm thanh thanh xuân
+#     - nguyễn hữu đăng khoa
+#     - nguyễn thị thanh mai
+#     - nguyễn thị thu trang
+#     - nguyễn văn minh tuấn
+#     - nguyễn văn quốc việt
+#     - vũ thanh thảo nguyên
+#     - dương đức minh nhật
+#     - dương đức thiên phú
+#     - dương đức thành đạt
+#     - nguyễn ngọc gia hân
+#     - nguyễn đức minh trí
+#     - ngô phương diệu anh
+#     - ngô phương linh chi
+#     - phạm gia khánh linh
+#     - phạm phương mai anh
+#     - phạm thanh mỹ duyên
+#     - phạm đức minh khang
+#     - trần gia minh triết
+#     - trần hoàng minh anh
+#     - đặng công minh quân
+#     - đặng công thiên phú
+#     - đặng ngọc minh châu
+#     - đặng ngọc quỳnh anh
+#     - dương gia bảo ngọc
+#     - dương gia tuấn anh
+#     - lê hoàng phương vy
+#     - lê thanh thu giang
+#     - nguyễn thị yến nhi
+#     - ngô công thành đạt
+#     - ngô minh nhật minh
+#     - ngô phương anh thư
+#     - ngô thanh diệu anh
+#     - phạm thanh thúy vy
+#     - phạm văn nhật minh
+#     - trần hoàng gia huy
+#     - trần hữu minh quân
+#     - trần thị khánh vân
+#     - trần thị ngọc thảo
+#     - đặng gia tuấn kiệt
+#     - đặng ngọc bích vân
+#     - dương quốc bảo an
+#     - dương văn gia bảo
+#     - hồ hoàng hải đăng
+#     - hồ phương hà linh
+#     - lê gia khánh linh
+#     - lê thanh thu thảo
+#     - nguyễn ngọc quỳnh
+#     - ngô gia tuấn kiệt
+#     - phạm minh thiên ý
+#     - phạm văn nhật nam
+#     - trần hữu thiên ân
+#     - trần thị minh thư
+#     - trần thị ngọc ánh
+#     - trần văn tường vy
+#     - vũ hoàng anh khoa
+#     - vũ ngọc bích ngọc
+#     - vũ ngọc diệu linh
+#     - vũ ngọc minh châu
+#     - vũ đức đình phong
+#     - đặng công gia bảo
+#     - đặng công minh tú
+#     - đặng ngọc thúy an
+#     - đỗ hoàng bảo trân
+#     - dương gia bảo an
+#     - dương thanh thảo
+#     - hồ minh hải đăng
+#     - hồ minh thế vinh
+#     - hồ phương hà anh
+#     - lê gia huy hoàng
+#     - lê hoàng gia hân
+#     - lê thị kiều oanh
+#     - nguyễn gia trang
+#     - nguyễn thị trang
+#     - nguyễn văn hoàng
+#     - nguyễn văn phong
+#     - nguyễn đức cường
+#     - ngô gia khánh an
+#     - phạm thanh trang
+#     - phạm văn gia bảo
+#     - vũ ngọc khánh vy
+#     - vũ văn minh nhật
+#     - vũ văn đăng khoa
+#     - đặng thanh quỳnh
+#     - đặng thu thảo my
+#     - đỗ minh thiên ân
+#     - đỗ minh thế vinh
+#     - đỗ minh tường vy
+#     - đỗ ngọc diệp anh
+#     - đỗ thị quỳnh chi
+#     - đỗ thị thanh tâm
+#     - đỗ đức tùng quân
+#     - dương bích thảo
+#     - dương thu trang
+#     - dương thị quỳnh
+#     - dương văn cường
+#     - hồ minh hải anh
+#     - hồ thanh tú anh
+#     - lê hoàng bảo an
+#     - lê thị bảo ngọc
+#     - nguyễn gia hạnh
+#     - nguyễn đức vinh
+#     - ngô gia bảo nam
+#     - phạm minh khánh
+#     - trần phương anh
+#     - vũ văn quốc bảo
+#     - đặng văn phương
+#     - đỗ thị bảo trân
+#     - đỗ thị thu hiền
+#     - dương bích chi
+#     - dương minh bảo
+#     - dương minh lan
+#     - hồ gia phúc an
+#     - hồ thị mỹ dung
+#     - lê minh phương
+#     - lê đức bảo nam
+#     - nguyễn gia bảo
+#     - nguyễn gia chi
+#     - nguyễn thị lan
+#     - phạm thị trang
+#     - phạm đức khánh
+#     - trần diệu linh
+#     - trần hữu hoàng
+#     - trần đức cường
+#     - đặng bích hiền
+#     - đặng minh hùng
+#     - đặng minh quân
+#     - đặng minh tuấn
+#     - đặng thanh anh
+#     - đặng thanh mai
+#     - dương bích vy
+#     - dương văn nam
+#     - hồ thanh thảo
+#     - hồ thu phương
+#     - lê minh cường
+#     - ngô hữu thắng
+#     - ngô văn khánh
+#     - ngô đức thắng
+#     - phạm gia minh
+#     - phạm gia vinh
+#     - phạm thị linh
+#     - trần ngọc lan
+#     - trần văn hùng
+#     - trần văn vinh
+#     - hồ gia khánh
+#     - hồ thanh mai
+#     - hồ thanh yến
+#     - hồ văn thắng
+#     - lê minh hùng
+#     - lê ngọc hiền
+#     - lê ngọc hạnh
+#     - ngô hữu quân
+#     - ngô minh hải
+#     - ngô ngọc anh
+#     - ngô ngọc mai
+#     - ngô thu linh
+#     - phạm ngọc vy
+#     - phạm thị mai
+#     - phạm văn hải
+#     - trần thị yến
+#     - trần văn đạt
+#     - trần đức nam
+#     - vũ minh tuấn
+#     - vũ thanh chi
+#     - đặng văn hải
+#     - đặng đức tài
+#     - đỗ ngọc linh
+#     - đỗ thu quỳnh
+#     - hồ gia quân
+#     - hồ thanh vy
+#     - hồ thu hiền
+#     - hồ văn dũng
+#     - lê gia vinh
+#     - lê minh nam
+#     - lê đức tuấn
+#     - ngô thu yến
+#     - ngô văn tài
+#     - vũ minh hải
+#     - vũ ngọc đạt
+#     - vũ thị hùng
+#     - đỗ bích mai
+#     - đỗ hữu tuấn
+#     - đỗ ngọc anh
+#     - đỗ thanh hà
+#     - đỗ đức dũng
+#     - lê gia bảo
+#     - lê thị yến
+#     - vũ gia anh
+#     - vũ ngọc hà
+#     - vũ thu lan
+#     - vũ thị chi
+#     - vũ tuấn an
+#     - vũ đức đạt
+#     - đỗ gia bảo
+#     - đỗ đức nam
+#     - đỗ thu hà"
+
+# - lookup: loai_xe   
+#   examples: |
+#     - xe tiêu chuẩn
+#     - xe hợp đồng
+#     - xe cao cấp
+#     - limousine
+#     - xe 16 chỗ
+#     - xe 29 chỗ
+#     - xe 45 chỗ
+#     - xe 4 chỗ
+#     - xe 7 chỗ
+#     - xe điện
+#     - xe máy
+#     - xe số
+#     - taxi

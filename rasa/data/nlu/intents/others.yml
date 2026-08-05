@@ -1,0 +1,166 @@
+version: "3.1"
+
+nlu:
+- intent: dong_y
+  examples: |
+    # --- xác nhận đơn giản ---
+    - đúng
+    - đúng rồi
+    - đúng vậy
+    - đúng ạ
+    - đúng đó
+    - chuẩn
+    - chuẩn rồi
+    - chuẩn xác
+    - ừ chuẩn
+    - chính xác
+    - chính xác rồi
+    - vâng
+    - ừ
+    - ừ đúng
+    - ừ đúng rồi
+    - vâng đúng ạ
+    - ok
+    - oke
+    - ok rồi
+    - ok được rồi
+    - được
+    - được rồi
+    - yes
+    - đồng ý
+    - đồng ý rồi
+    - xác nhận
+
+    # --- xác nhận và yêu cầu tiếp tục ---
+    - xác nhận luôn đi
+    - vâng xác nhận
+    - ok em
+    - ok bạn
+    - ok chốt luôn
+    - thôi cứ đặt thôi
+    - chốt luôn nào
+    - cứ làm đi bạn ơi
+    - vâng cho mình đặt nhé
+    - cứ tiến hành đi
+    - ok tiếp tục đi
+    - ừ làm đi bạn
+    - đồng ý hết rồi tiến hành đi
+    - ok chính xác hết rồi
+    - thông tin đúng hết rồi đặt đi
+    - ừ thông tin đúng rồi
+    - ok đúng hết đặt luôn nhé
+    - done bạn ơi
+    - đặt luôn đi bạn
+    - chốt nào
+    - chính xác
+    - thông tin chính xác
+
+- intent: tu_choi
+  examples: |
+    # --- phủ nhận thông tin ---
+    - không
+    - không đúng
+    - không đúng đâu
+    - chưa đúng
+    - chưa đúng đâu
+    - chưa đúng bạn ơi
+    - chưa đúng ạ
+    - sai rồi
+    - sai thông tin rồi
+    - sai hết rồi
+    - không phải
+    - không phải vậy
+    - không phải thế
+    - không chính xác
+    - chưa chính xác
+    - thông tin chưa đúng
+    - thông tin bị sai
+    - không đúng thông tin rồi
+    - thông tin bạn nói sai rồi
+    - không phải vậy đâu bạn ơi
+    - chưa đúng ạ thông tin đó
+
+    # --- chưa muốn đặt / từ chối hành động của bot ---
+    - không đặt
+    - thôi chưa cần
+    - không cần bây giờ
+    - chưa muốn đặt
+    - chưa đặt vội
+    - chưa chắc đặt
+    - không muốn đặt lúc này
+    - chờ chút chưa đặt vội đâu
+
+- intent: huy
+  examples: |
+    # --- hủy quá trình đặt xe (mid-flow) ---
+    - thôi không đặt nữa
+    - bỏ đi không đặt nữa
+    - thôi hủy đi
+    - không cần đặt nữa
+    - dừng đặt xe lại đi
+    - thôi không cần nữa
+    - bỏ qua đi nhé
+    - không muốn đặt nữa
+    - bỏ đặt xe
+    - thôi đừng đặt nữa
+    - bỏ hết đi không đặt nữa
+    - tôi đổi ý rồi không đặt nữa
+
+    # --- hủy vé đã đặt ---
+    - hủy vé
+    - hủy chuyến đi
+    - hủy đặt xe
+    - hủy booking của mình
+    - hủy chỗ đã đặt
+    - tôi muốn hủy vé
+    - hủy chuyến cho mình
+    - bỏ vé đi
+    - không đi nữa
+    - thôi không đi nữa
+    - hủy đặt vé giúp tôi
+    - tôi hủy chuyến này
+    - hủy hộ mình đơn này nhé
+    - cho mình hủy vé đã đặt
+    - tôi cần hủy chuyến xe này
+    - hủy giúp mình chuyến hôm nay
+    - tôi không đi nữa hủy giúp mình
+
+    # --- hủy quá trình khác (chung) ---
+    - hủy đi
+    - thôi bỏ đi
+    - dừng lại
+    - không tiếp tục nữa
+    - thôi dừng lại đi
+    - không làm nữa
+    - thôi không cần hỗ trợ nữa
+    - dừng lại giúp mình
+    - bỏ qua hết đi
+    - thoát ra đi
+
+- intent: chao_hoi
+  examples: |
+    - xin chào
+    - chào bạn
+    - chào em
+    - hello bạn
+    - hello em
+    - hi bạn
+    - hi em
+    - alo cho hỏi
+    - cho hỏi chút
+    - cho mình hỏi
+    - bạn ơi cho hỏi
+    - em ơi cho hỏi
+    - hỏi chút được không
+    - mình muốn hỏi
+    - cho tôi hỏi
+    - bạn ơi
+    - em ơi
+    - alo bên mình ơi
+    - cho hỏi một chút nha
+    - tổng đài ơi
+    - alo
+    - hey bạn ơi
+    - cho hỏi nha bạn
+    - chào buổi sáng
+    - chào buổi chiều

@@ -1,0 +1,30 @@
+# version: "3.1"
+# nlu:
+# - regex: dien_thoai
+#   examples: |
+#     - \b(?:\+84|0)\d{9,10}\b
+
+# - regex: so_luong
+#   examples: |
+#     - \b\d\s*(người|khách|ghế|vé|suất|mạng|vợ chồng|chỗ)\b
+
+# - regex: loai_xe
+#   examples: |
+#     - \b\d+\s*(chỗ|c)\b
+#     - \b(limousine|xe con|xe vip|xe điện|xe số|xe taxi|taxi|grab|grabcar|grabbike|xe khách|giường nằm|xe thường|xe bốn chỗ|xe 7c)\b
+
+# - regex: thoi_gian
+#   examples: |
+#     # 1. Giờ phút cụ thể (bao gồm chữ rưỡi, kém): 7h30, 8 rưỡi, 20g30, 7 giờ tối, 9h sáng
+#     - \b\d{1,2}(?:h|g| giờ)\s*(?:\d{1,2}|(?:kém|hơn)\s*\d{1,2}|rưỡi)?(?:\s*(?:sáng|trưa|chiều|tối|đêm))?\b|\b\d{1,2}\s*rưỡi\b
+    
+#     # 2. Các buổi đi kèm từ chỉ ngày (sáng mai, chiều nay, tối mốt, rạng sáng, đêm nay)
+#     - \b(sáng|trưa|chiều|tối|đêm|rạng sáng)\s*(nay|mai|mốt|kia|kìa|chủ nhật|thứ\s*([2-7]))\b
+    
+#     # 3. Khoảng thời gian tịnh tiến (sau 30 phút, tầm 1 tiếng nữa, nửa tiếng)
+#     - \b(?:sau|khoảng|tầm|lúc|trong)?\s*(\d{1,2}|nửa)\s*(h|giờ|tiếng|phút|p|ngày|tháng)\s*(nữa|sau)?\b
+    
+#     # 4. Các mốc ngày tương đối và tuyệt đối
+#     - \b(hôm nay|nay|ngày mai|mai|ngày kia|ngày mốt|ngày kìa|bây giờ|ngay bây giờ)\b
+#     - \bthứ\s*([2-7]|hai|ba|tư|năm|sáu|bảy|chủ nhật|tự)\s*(này|sau|tới|kế tiếp)?\b
+#     - \bngày\s*\d{1,2}(\s*tháng\s*\d{1,2})?(\s*năm\s*\d{4})?\b

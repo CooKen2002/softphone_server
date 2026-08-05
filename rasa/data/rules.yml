@@ -1,0 +1,68 @@
+version: "3.1"
+
+rules:
+
+# ============================================================
+# MARK: START
+# Intent bắt đầu để kích hoạt form
+# ============================================================
+# MARK: CHÀO HỎI
+- rule: Bắt đầu chào hỏi
+  steps:
+    - intent: chao_hoi
+    - action: action_chao_hoi
+
+# MARK: ROUTE ACTION
+- rule: Điều hướng action
+  steps:
+    - or:
+      - intent: huy
+      - intent: tu_choi
+      - intent: dong_y
+      - intent: dat_ve
+      - intent: sua_thong_tin
+      - intent: cung_cap_thong_tin
+    - action: action_route_action
+
+# ============================================================
+# MARK: PRE PROCESS
+# Sau khi kích hoạt form
+# ============================================================
+# MARK: FORM ĐẶT VÉ
+
+# MARK: FORM SỬA VÉ
+# MARK: FORM HỦY VÉ
+
+# ============================================================
+# MARK: IN PROCESS
+# Đang điền form
+# ============================================================
+# MARK: FORM ĐẶT VÉ
+
+
+# ============================================================
+# MARK: POST PROCESS
+# Sau khi điền xong form 
+# ============================================================
+# MARK: FORM ĐẶT VÉ
+- rule: Xác nhận form đặt vé
+  condition:
+    - active_loop: form_dat_ve
+  steps:
+    - action: form_dat_ve
+    - active_loop: null
+    - action: action_xac_nhan_form_dat_ve
+
+# MARK: FORM SỬA VÉ
+
+# MARK: FORM HỦY VÉ
+
+# ============================================================
+# MARK: END
+# Sumit lên server
+# ============================================================
+# MARK: FORM ĐẶT VÉ
+    
+# MARK: FORM SỬA VÉ
+
+# MARK: FORM HỦY VÉ

@@ -1,0 +1,9 @@
+version: "3.1"
+
+nlu:
+# TODO: truyền thêm các synonym
+- synonym: xe limousine
+  examples: |
+    - limousine
+    - xe vip
+    - limo

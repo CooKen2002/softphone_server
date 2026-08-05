@@ -1,0 +1,203 @@
+version: "3.1"
+
+nlu:
+  - intent: dat_ve
+    examples: |
+      - đặt giúp mình chuyến xe
+      - đặt dùm mình chuyến xe
+      - đặt giúp tôi chuyến xe
+      - đặt dùm tôi chuyến xe
+      - cho tôi đặt chuyến xe
+      - cho mình đặt chuyến
+      - cho tôi đặt chuyến
+      - mình muốn đặt xe
+      - mình muốn đặt vé
+      - mình cần đặt chỗ
+      - tôi muốn book xe
+      - mình cần đặt vé
+      - tôi muốn đặt xe
+      - tôi muốn đặt vé
+      - mua vé xe khách
+      - đặt 1 chuyến
+      - tôi cần đặt xe
+      - đặt hộ mình vé
+      - đặt hộ tôi xe
+      - mình muốn đặt
+      - đặt chỗ xe đò
+      - cần mua vé xe
+      - đặt chuyến
+      - đặt xe
+      - đặt vé
+      - đặt hộ
+      - book
+      - đặt giúp mình chuyến xe [limousine](loai_xe) đi từ [bệnh viện đa khoa tỉnh khánh hòa](dia_diem) đến [vincom nguyễn chí thanh](dia_diem) lấy [58 vé](so_luong) tầm [3h32 ngày 30 tháng này](thoi_gian) số [0333492640](dien_thoai) tên [ngô văn khánh](ho_ten) nhé
+      - mình cần đặt xe [limousine](loai_xe) từ [đại học kinh tế thành phố hồ chí minh](dia_diem) qua [thành phố hồ chí minh](dia_diem) [22 vé](so_luong) vào [18h19 ngày 30 tháng tới](thoi_gian) liên hệ [0348578948](dien_thoai) cho [trần văn tường vy](ho_ten)
+      - đặt dùm mình chuyến [limousine](loai_xe) xuất phát từ [sân bay cần thơ](dia_diem) về [đại học bách khoa hà nội](dia_diem) đi [61 vé](so_luong) lúc [23h12 ngày 30 tháng sau](thoi_gian) sđt [0824559038](dien_thoai) của [dương bích chi](ho_ten)
+      - muốn đặt xe [limousine](loai_xe) tới [đèo hải vân](dia_diem) từ [bệnh viện tai mũi họng thành phố hồ chí minh](dia_diem) cho [3 vé](so_luong) khoảng [3h23 đêm hôm nay](thoi_gian) gọi [0762902749](dien_thoai) cho [trần hữu hoàng](ho_ten)
+      - đặt 1 chuyến đi đến [bệnh viện thanh nhàn](dia_diem) từ [bệnh viện bạch mai](dia_diem) bằng xe [limousine](loai_xe) lấy [17 vé](so_luong) vào [5h05 sáng ngày mai](thoi_gian) sđt [0706111750](dien_thoai) của [đặng công gia bảo](ho_ten)
+      - đặt 1 chuyến ở [văn phòng luật sư](dia_diem) đến [vincom đà nẵng](dia_diem) bằng xe [limousine](loai_xe) lấy [6 người](so_luong) vào [22h20 ngày này tuần sau](thoi_gian) cho [đặng văn hải](ho_ten) qua số [0777072329](dien_thoai)
+      - cho mình đặt xe [limousine](loai_xe) đi từ [bệnh viện mắt trung ương](dia_diem) đến [royal city](dia_diem) lấy [5 suất](so_luong) tầm [3h32 sáng ngày mai](thoi_gian) số [0333492340](dien_thoai) tên [trần văn khánh](ho_ten) nhé
+      - muốn đặt xe [limousine](loai_xe) đón tại [đèo hải vân](dia_diem) tới [bệnh viện tai mũi họng thành phố hồ chí minh](dia_diem) [83 vé](so_luong) khoảng [3h23](thoi_gian) gọi [0762902749](dien_thoai) cho [trần hữu hoàng](ho_ten)
+      - cho mình [2 vé](so_luong) xe [giường nằm](loai_xe) đi từ [bến xe trung tâm đà nẵng](dia_diem) vào [thành phố hồ chí minh](dia_diem) khởi hành [20h00 thứ 7](thoi_gian) tên [ngô hoàng long](ho_ten) sđt [0833445566](dien_thoai)
+      - liên hệ [0348578948](dien_thoai) cho [trần văn tường vy](ho_ten) đặt [22 vé](so_luong) xe [limousine](loai_xe) từ [đại học kinh tế thành phố hồ chí minh](dia_diem) đi [thành phố hồ chí minh](dia_diem) vào [18h19](thoi_gian)
+      - đặt xe đón anh [trần hữu hoàng](ho_ten) tại [đèo hải vân](dia_diem) đến [bệnh viện tai mũi họng thành phố hồ chí minh](dia_diem) lúc [3h23](thoi_gian) xe [limousine](loai_xe) số [0762902749](dien_thoai) tổng [3 vé](so_luong)
+      - đặt giúp mình chuyến xe [limousine](loai_xe) từ [thiên mụ](dia_diem) vào [thành phố hồ chí minh](dia_diem) [93 vé](so_luong) tầm [18h30 hôm nay](thoi_gian) số [0787430002](dien_thoai) của [nguyễn thị yến nhi](ho_ten)
+      - mình cần đặt xe [limousine](loai_xe) đón từ [sense city cần thơ](dia_diem) về [đại học quốc gia hà nội](dia_diem) [82 vé](so_luong) đúng [22h18](thoi_gian) sđt [0905978655](dien_thoai) của [lê hoàng bảo an](ho_ten)
+      - đặt dùm mình [4 vé](so_luong) xe [16 chỗ](loai_xe) xuất phát từ [bến xe giáp bát](dia_diem) về [thanh hóa](dia_diem) chuyến [19h30 ngày 10 tháng 7](thoi_gian) số [0977334455](dien_thoai) tên [trần thị bình](ho_ten)
+      - [ngô văn khánh](ho_ten) cần đặt cho [58 vé](so_luong) [limousine](loai_xe) từ [bệnh viện đa khoa tỉnh khánh hòa](dia_diem) tới [vincom nguyễn chí thanh](dia_diem) gọi [0333492640](dien_thoai) lúc [3h32](thoi_gian)
+      - cho mình 1 chuyến xe [limousine](loai_xe) rời [bến xe trung tâm đà nẵng](dia_diem) để tới [chợ bến thành](dia_diem) [10 vé](so_luong) lúc [4h22](thoi_gian) số [0799518224](dien_thoai) của [lê minh cường](ho_ten)
+      - đặt chuyến lúc [23h12](thoi_gian) đón [dương bích chi](ho_ten) tại [sân bay cần thơ](dia_diem) đi [đại học bách khoa hà nội](dia_diem) bằng [limousine](loai_xe) số [0824559038](dien_thoai) lấy [61 vé](so_luong)
+      - đặt vé xe [limousine](loai_xe) đi từ [bệnh viện thanh nhàn](dia_diem) đến [bệnh viện bạch mai](dia_diem) lấy [17 vé](so_luong) vào [5h05](thoi_gian) sđt [0706111750](dien_thoai) của [đặng công gia bảo](ho_ten)
+      - đặt xe [limousine](loai_xe) đón khách từ [đại học bách khoa thành phố hồ chí minh](dia_diem) về [cần thơ](dia_diem) [68 vé](so_luong) lúc [9h40](thoi_gian) số [0982473994](dien_thoai) cho [lê gia bảo](ho_ten)
+      - bạn ơi đặt giúp [1 ghế](so_luong) xe [limousine](loai_xe) từ [bến xe miền tây](dia_diem) lên [vũng tàu](dia_diem) lúc [6h sáng chủ nhật](thoi_gian) tên [hoàng văn nam](ho_ten) số [0908123456](dien_thoai) nhé
+      - [đặng công gia bảo](ho_ten) đặt [17 vé](so_luong) xe [limousine](loai_xe) bắt đầu từ [bệnh viện thanh nhàn](dia_diem) đi về [bệnh viện bạch mai](dia_diem) tầm [5h05](thoi_gian) gọi [0706111750](dien_thoai)
+      - cho [93 vé](so_luong) lúc [18h30](thoi_gian) [nguyễn thị yến nhi](ho_ten) muốn đặt xe [limousine](loai_xe) xuất phát ở [thiên mụ](dia_diem) đi [thành phố hồ chí minh](dia_diem) sđt [0787430002](dien_thoai)
+      - mình muốn đặt xe [45 chỗ](loai_xe) từ [sân bay nội bài](dia_diem) về [trung tâm hà nội](dia_diem) [20 vé](so_luong) lúc [14h30 chiều nay](thoi_gian) gọi [0854221133](dien_thoai) cho [phạm thu hằng](ho_ten)
+      - đặt giúp mình chuyến xe từ [thiên mụ](dia_diem) vào [thành phố hồ chí minh](dia_diem) [93 vé](so_luong) tầm [18h30 ngày 30 tháng 10](thoi_gian) số [0787430002](dien_thoai) của [nguyễn thị yến nhi](ho_ten)
+      - đặt xe bắt đầu tại [hồ chí minh](dia_diem) di chuyển tới [vũng tàu](dia_diem) xe [limousine](loai_xe) [2 vé](so_luong) lúc [8h thứ 2](thoi_gian) số [0922990011](dien_thoai) cho [vũ đức long](ho_ten)
+      - đặt xe tại [sense city cần thơ](dia_diem) [lê hoàng bảo an](ho_ten) cần [82 vé](so_luong) xe [limousine](loai_xe) đi [đại học quốc gia hà nội](dia_diem) lúc [22h18](thoi_gian) gọi [0905978655](dien_thoai)
+      - mình muốn đặt xe [limousine](loai_xe) đón từ [vincom bà triệu](dia_diem) đến [saigon centre](dia_diem) [43 vé](so_luong) tầm [17h20](thoi_gian) sđt [0840481396](dien_thoai) cho [nguyễn ngọc quỳnh](ho_ten)
+      - đặt chuyến xe [limousine](loai_xe) đón ở [bệnh viện nhi đồng 1](dia_diem) đi [sân bay đồng hới](dia_diem) [42 vé](so_luong) tầm [21h44](thoi_gian) sđt [0331142184](dien_thoai) cho [trần văn vinh](ho_ten)
+      - cho mình đặt xe [limousine](loai_xe) từ [big c đà nẵng](dia_diem) đến [sân bay liên khương](dia_diem) lấy [64 vé](so_luong) lúc [10h02](thoi_gian) số [0842377822](dien_thoai) tên [nguyễn thị lan](ho_ten)
+      - đặt xe xuất phát ở [hồ chí minh](dia_diem) hướng đến [sapa](dia_diem) xe [limousine](loai_xe) [3 vé](so_luong) lúc [15h30 ngày mai](thoi_gian) số [0933001122](dien_thoai) cho [ngô thị bích ngọc](ho_ten)
+      - [68 vé](so_luong) đi [limousine](loai_xe) từ [đại học bách khoa thành phố hồ chí minh](dia_diem) tới [cần thơ](dia_diem) lúc [9h40](thoi_gian) cho [lê gia bảo](ho_ten) qua số [0982473994](dien_thoai)
+      - đặt vé đón [nguyễn đức minh trí](ho_ten) lúc [11h06](thoi_gian) từ [lạng sơn](dia_diem) đi [đại học khoa học tự nhiên](dia_diem) xe [limousine](loai_xe) [44 vé](so_luong) sđt [0849849753](dien_thoai)
+      - đặt vé xe [limousine](loai_xe) từ [hà nam](dia_diem) lên [đại học sư phạm hà nội](dia_diem) đi [77 vé](so_luong) tầm [13h02](thoi_gian) gọi [0905978655](dien_thoai) cho [nguyễn thị thanh mai](ho_ten)
+      - đặt dùm chuyến xe [limousine](loai_xe) từ [bến xe giáp bát](dia_diem) về [trà vinh](dia_diem) đi [67 vé](so_luong) tầm [20h12](thoi_gian) số [0911269396](dien_thoai) cho [phạm thanh thúy vy](ho_ten)
+      - tôi cần book [2 chỗ](so_luong) xe [giường nằm](loai_xe) từ [hà nội](dia_diem) vào [đà nẵng](dia_diem) tầm [21h00 thứ 6 này](thoi_gian) cho [nguyễn minh tuấn](ho_ten) liên hệ [0936112233](dien_thoai)
+      - đặt cho mình chuyến xe [limousine](loai_xe) từ [nha trang](dia_diem) ra [đà nẵng](dia_diem) [6 người](so_luong) tầm [8h00 ngày 15](thoi_gian) số [0944556677](dien_thoai) tên [lý thị kim chi](ho_ten)
+      - muốn đi [limousine](loai_xe) từ [lạng sơn](dia_diem) đến [đại học khoa học tự nhiên](dia_diem) [44 vé](so_luong) tầm [11h06](thoi_gian) số [0849849753](dien_thoai) cho [nguyễn đức minh trí](ho_ten)
+      - [trần quốc bảo](ho_ten) muốn đặt [10 vé](so_luong) xe [limousine](loai_xe) từ [cần thơ](dia_diem) lên [thành phố hồ chí minh](dia_diem) lúc [5h30 sáng thứ 2](thoi_gian) gọi [0971234567](dien_thoai)
+      - cho tôi đặt [3 vé](so_luong) xe [limousine](loai_xe) từ [bến xe mỹ đình](dia_diem) đi [ninh bình](dia_diem) lúc [7h30 sáng ngày mai](thoi_gian) tên [lê thị hoa](ho_ten) số [0912888777](dien_thoai)
+      - đặt xe tại [sân bay buôn ma thuột](dia_diem) đón [ngô thanh diệu anh](ho_ten) đi [lăng bác](dia_diem) bằng xe [limousine](loai_xe) [44 vé](so_luong) lúc [7h09](thoi_gian) số [0772746827](dien_thoai)
+      - đặt xe [limousine](loai_xe) đón tại [sân bay buôn ma thuột](dia_diem) tới [lăng bác](dia_diem) [44 vé](so_luong) tầm [7h09](thoi_gian) số [0772746827](dien_thoai) cho [ngô thanh diệu anh](ho_ten)
+      - đặt chuyến [limousine](loai_xe) từ [saigon centre](dia_diem) ra [vincom hạ long](dia_diem) [80 vé](so_luong) lúc [3h41](thoi_gian) sđt [0961333848](dien_thoai) của [phạm thanh mỹ duyên](ho_ten)
+      - mình muốn đi xe [limousine](loai_xe) từ [bắc ninh](dia_diem) qua [mipec long biên](dia_diem) [13 vé](so_luong) tầm [15h32](thoi_gian) sđt [0905978655](dien_thoai) cho [vũ ngọc khánh vy](ho_ten)
+      - đặt chuyến xuất phát tại [hồ chí minh](dia_diem) đi [nha trang](dia_diem) xe [limousine](loai_xe) cho [5 vé](so_luong) lúc [20h](thoi_gian) số [0956334455](dien_thoai) cho [lê đức tuấn](ho_ten)
+      - [0905978655](dien_thoai) đăng ký [77 vé](so_luong) xe [limousine](loai_xe) từ [hà nam](dia_diem) lên [đại học sư phạm hà nội](dia_diem) cho [nguyễn thị thanh mai](ho_ten) lúc [13h02](thoi_gian)
+      - mình cần đặt xe [limousine](loai_xe) từ [văn miếu](dia_diem) đi [quảng ngãi](dia_diem) lấy [96 vé](so_luong) tầm [14h57](thoi_gian) số [0813957550](dien_thoai) cho [nguyễn thị yến nhi](ho_ten)
+      - đặt xe [giường nằm](loai_xe) từ [hà nội](dia_diem) vào [thành phố hồ chí minh](dia_diem) [2 vé](so_luong) chuyến [21h00 thứ 5](thoi_gian) cho [mai văn dũng](ho_ten) số [0966778899](dien_thoai)
+      - cho mình đặt [3 vé](so_luong) xe [45 chỗ](loai_xe) từ [đồng nai](dia_diem) về [đà lạt](dia_diem) lúc [7h00 sáng ngày 20](thoi_gian) tên [bùi thị thanh](ho_ten) liên hệ [0923445566](dien_thoai)
+      - đặt [36 vé](so_luong) [limousine](loai_xe) từ [mipec long biên](dia_diem) đến [aeon mall long biên](dia_diem) lúc [13h33](thoi_gian) cho [đỗ thị thanh tâm](ho_ten) số [0365523229](dien_thoai)
+      - đặt xe [limousine](loai_xe) từ [tiền giang](dia_diem) đi [sân bay phú quốc](dia_diem) lấy [26 vé](so_luong) tầm [17h26](thoi_gian) số [0984556995](dien_thoai) cho [lê hoàng phương vy](ho_ten)
+      - đặt vé xe [limousine](loai_xe) từ [sân bay đà nẵng](dia_diem) đến [saigon centre](dia_diem) [54 vé](so_luong) tầm [1h13](thoi_gian) sđt [0972562879](dien_thoai) của [đỗ thị thu hiền](ho_ten)
+      - đặt cho mình chuyến từ [sân bay cần thơ](dia_diem) đi [vũng tàu](dia_diem) [10 khách](so_luong) lúc [15h ngày đầu tháng](thoi_gian) liên hệ [0988777666](dien_thoai) tên [lê văn b](ho_ten)
+      - đặt vé [limousine](loai_xe) từ [bệnh viện nhi đồng 2](dia_diem) đi [biển vũng tàu](dia_diem) [82 vé](so_luong) tầm [20h11](thoi_gian) số [0863230626](dien_thoai) cho [phạm thị linh](ho_ten)
+      - đặt [limousine](loai_xe) từ [vĩnh phúc](dia_diem) về [đại học bách khoa hà nội](dia_diem) lấy [26 vé](so_luong) tầm [12h24](thoi_gian) gọi [0981075411](dien_thoai) cho [vũ thu lan](ho_ten)
+      - đặt dùm mình xe [limousine](loai_xe) từ [bến xe mỹ đình](dia_diem) đi [hải phòng](dia_diem) tầm [10h30 đầu thứ 3 tuần sau](thoi_gian) số [0933444555](dien_thoai) cho [trần minh c](ho_ten)
+      - mình muốn đi xe [limousine](loai_xe) từ [bến xe giáp bát](dia_diem) về [long an](dia_diem) [46 vé](so_luong) tầm [7h09](thoi_gian) sđt [0707700054](dien_thoai) của [đặng thanh mai](ho_ten)
+      - mình cần đặt xe [limousine](loai_xe) từ [đắk lắk](dia_diem) về [sân bay thọ xuân](dia_diem) [98 vé](so_luong) lúc [23h11](thoi_gian) gọi [0817776542](dien_thoai) cho [phạm ngọc vy](ho_ten)
+      - mình cần [1 vé](so_luong) xe [limousine](loai_xe) từ [quảng ngãi](dia_diem) ra [đà nẵng](dia_diem) chuyến [13h00 ngày mai](thoi_gian) tên [đinh thị mai](ho_ten) số [0899001122](dien_thoai)
+      - [phạm thị linh](ho_ten) đặt xe [limousine](loai_xe) từ [bệnh viện nhi đồng 2](dia_diem) tới [biển vũng tàu](dia_diem) lúc [20h11](thoi_gian) [82 vé](so_luong) gọi [0863230626](dien_thoai)
+      - đặt chuyến đón ngay ở [hà nội](dia_diem) đi xuống [vũng tàu](dia_diem) xe [limousine](loai_xe) [2 vé](so_luong) lúc [9h15](thoi_gian) số [0900778899](dien_thoai) cho [bùi văn nam](ho_ten)
+      - [0799518224](dien_thoai) đặt [10 vé](so_luong) [limousine](loai_xe) từ [bến xe trung tâm đà nẵng](dia_diem) đi [chợ bến thành](dia_diem) đúng [4h22](thoi_gian) cho [lê minh cường](ho_ten)
+      - [nguyễn thị lan](ho_ten) đặt [64 vé](so_luong) xe [limousine](loai_xe) từ [big c đà nẵng](dia_diem) đến [sân bay liên khương](dia_diem) lúc [10h02](thoi_gian) gọi [0842377822](dien_thoai)
+      - đặt chuyến tại [hà nội](dia_diem) đi lên [vũng tàu](dia_diem) xe [limousine](loai_xe) [10 vé](so_luong) lúc [9h15](thoi_gian) số [0989667788](dien_thoai) cho [trần thị hồng nhung](ho_ten)
+      - cần đặt gấp [5 vé](so_luong) [limousine](loai_xe) từ [hội an](dia_diem) ra [đà nẵng](dia_diem) sớm nhất [sáng mai](thoi_gian) liên hệ [0765998877](dien_thoai) cho [vũ thị lan anh](ho_ten)
+      - cần đặt xe [limousine](loai_xe) đi từ [hà nội](dia_diem) đến [đà nẵng](dia_diem) [5 vé](so_luong) lúc [8h ngày mai](thoi_gian) gọi [0912345678](dien_thoai) cho [nguyễn văn a](ho_ten)
+      - [lê hoàng phương vy](ho_ten) muốn đặt [26 vé](so_luong) xe [limousine](loai_xe) từ [tiền giang](dia_diem) đến [sân bay phú quốc](dia_diem) lúc [17h26](thoi_gian) số [0984556995](dien_thoai)
+      - [phạm thanh thúy vy](ho_ten) đặt vé xe [limousine](loai_xe) đi từ [bến xe giáp bát](dia_diem) về [trà vinh](dia_diem) [67 vé](so_luong) tầm [20h12](thoi_gian) số [0911269396](dien_thoai)
+      - [dương bích vy](ho_ten) đặt [84 vé](so_luong) xe [limousine](loai_xe) từ [đại học quốc gia hà nội](dia_diem) đến [vincom cần thơ](dia_diem) [11h30](thoi_gian) số [0932780726](dien_thoai)
+      - đặt xe [limousine](loai_xe) đón từ [aeon mall tân phú](dia_diem) đi [phú yên](dia_diem) [77 vé](so_luong) tầm [0h34](thoi_gian) số [0783112641](dien_thoai) của [đỗ thị bảo trân](ho_ten)
+      - [nguyễn thị yến nhi](ho_ten) cần đặt [96 vé](so_luong) loại xe [limousine](loai_xe) từ [văn miếu](dia_diem) tới [quảng ngãi](dia_diem) tầm [14h57](thoi_gian) số [0813957550](dien_thoai)
+      - chuyến [limousine](loai_xe) từ [saigon centre](dia_diem) ra [vincom hạ long](dia_diem) lúc [3h41](thoi_gian) [80 vé](so_luong) [phạm thanh mỹ duyên](ho_ten) số [0961333848](dien_thoai)
+      - muốn đi xe [limousine](loai_xe) từ [sân bay đồng hới](dia_diem) về [hồ tây](dia_diem) [70 vé](so_luong) tầm [19h08](thoi_gian) sđt [0908722530](dien_thoai) cho [trần văn hùng](ho_ten)
+      - đặt dùm xe [limousine](loai_xe) từ [bến xe mỹ đình](dia_diem) đi [hải phòng](dia_diem) tầm [10h30 đầu thứ 3 tuần sau](thoi_gian) số [0933444555](dien_thoai) cho [trần minh c](ho_ten)
+      - đặt vé bắt đầu ở [đà nẵng](dia_diem) đi [đà lạt](dia_diem) xe [limousine](loai_xe) [2 vé](so_luong) lúc [20h](thoi_gian) số [0945223344](dien_thoai) cho [nguyễn thị thanh mai](ho_ten)
+      - [đặng thanh mai](ho_ten) cần đặt xe [limousine](loai_xe) đón tại [bến xe giáp bát](dia_diem) đi [long an](dia_diem) [46 vé](so_luong) tầm [7h09](thoi_gian) số [0707700054](dien_thoai)
+      - đặt xe [limousine](loai_xe) đón từ [aeon mall hà đông](dia_diem) lên [lào cai](dia_diem) [33 vé](so_luong) lúc [8h57](thoi_gian) gọi [0788384234](dien_thoai) cho [vũ thị chi](ho_ten)
+      - [vũ thu lan](ho_ten) cần chuyến [limousine](loai_xe) từ [vĩnh phúc](dia_diem) về [đại học bách khoa hà nội](dia_diem) [26 vé](so_luong) [12h24](thoi_gian) số [0981075411](dien_thoai)
+      - đặt chuyến ở [hải phòng](dia_diem) đi đến [đà lạt](dia_diem) xe [limousine](loai_xe) [3 vé](so_luong) lúc [9h15](thoi_gian) số [0978556677](dien_thoai) cho [đỗ thị thanh tâm](ho_ten)
+      - đặt vé xe [limousine](loai_xe) từ [hà tĩnh](dia_diem) vào [thanh hóa](dia_diem) [3 vé](so_luong) tầm [11h56](thoi_gian) số [0789202448](dien_thoai) cho [nguyễn thị thanh mai](ho_ten)
+      - đặt xe từ [cần thơ](dia_diem) đi [nha trang](dia_diem) xe [limousine](loai_xe) [2 vé](so_luong) lúc [9h15 ngày kia](thoi_gian) số [0944112233](dien_thoai) cho [phan văn khải](ho_ten)
+      - đặt chuyến xe [limousine](loai_xe) từ [đà nẵng](dia_diem) đi [điện biên](dia_diem) [15 vé](so_luong) lúc [18h26](thoi_gian) số [0941133564](dien_thoai) cho [hồ thanh tú anh](ho_ten)
+      - book [15 vé](so_luong) chuyến [limousine](loai_xe) từ [đà nẵng](dia_diem) đi [điện biên](dia_diem) đúng [18h26](thoi_gian) [hồ thanh tú anh](ho_ten) liên hệ [0941133564](dien_thoai)
+      - liên hệ [0773223408](dien_thoai) cho [ngô thu yến](ho_ten) [4 vé](so_luong) xe [limousine](loai_xe) xuất phát từ [hải phòng](dia_diem) đi [hà giang](dia_diem) đúng [4h43](thoi_gian)
+      - cho mình đặt xe [limousine](loai_xe) đón ở [quận 1](dia_diem) về [quận 7](dia_diem) lúc [16h45 chủ nhật tuần này](thoi_gian) khách [vũ thị d](ho_ten) qua số [0955666777](dien_thoai)
+      - đặt xe [limousine](loai_xe) từ [sóc trăng](dia_diem) về [gigamall thủ đức](dia_diem) [47 vé](so_luong) tầm [10h15](thoi_gian) sđt [0356491550](dien_thoai) cho [lê đức tuấn](ho_ten)
+      - mình muốn đặt chuyến xe [limousine](loai_xe) đến [ninh bình](dia_diem) [20 khách](so_luong) lúc [11h ngày 30 sắp tới](thoi_gian) gọi [0999000111](dien_thoai) cho [lý văn h](ho_ten)
+      - đặt [33 vé](so_luong) đón tại [aeon mall hà đông](dia_diem) lên [lào cai](dia_diem) xe [limousine](loai_xe) cho [vũ thị chi](ho_ten) lúc [8h57](thoi_gian) số [0788384234](dien_thoai)
+      - muốn đi [limousine](loai_xe) từ [sân bay đồng hới](dia_diem) về [hồ tây](dia_diem) lúc [19h08](thoi_gian) [70 vé](so_luong) số [0908722530](dien_thoai) cho [trần văn hùng](ho_ten)
+      - [đỗ thị thu hiền](ho_ten) đặt xe [limousine](loai_xe) từ [sân bay đà nẵng](dia_diem) tới [saigon centre](dia_diem) [54 vé](so_luong) [1h13](thoi_gian) gọi [0972562879](dien_thoai)
+      - đặt xe chờ ở [cần thơ](dia_diem) sang [nha trang](dia_diem) xe [limousine](loai_xe) [5 vé](so_luong) lúc [9h15](thoi_gian) số [0911889900](dien_thoai) cho [hoàng thị mai](ho_ten)
+      - đặt dùm vé cho [ngô thị bích ngọc](ho_ten) số [0933001122](dien_thoai) đi xe [limousine](loai_xe) từ [hồ chí minh](dia_diem) sang [sapa](dia_diem) lúc [15h30 ngày mai](thoi_gian)
+      - đặt [53 vé](so_luong) xe [limousine](loai_xe) từ [nam định](dia_diem) đi [vincom đà nẵng](dia_diem) lúc [22h20](thoi_gian) cho [đặng văn hải](ho_ten) qua [0777072329](dien_thoai)
+      - [98 vé](so_luong) xe [limousine](loai_xe) từ [đắk lắk](dia_diem) đi [sân bay thọ xuân](dia_diem) lúc [23h11](thoi_gian) [phạm ngọc vy](ho_ten) đặt qua số [0817776542](dien_thoai)
+      - đặt chuyến từ [hồ chí minh](dia_diem) đi [sapa](dia_diem) xe [limousine](loai_xe) [3 vé](so_luong) lúc [8h](thoi_gian) số [0967445566](dien_thoai) cho [nguyễn đức cường](ho_ten)
+      - book [8 vé](so_luong) xe [limousine](loai_xe) đón ở [hà tĩnh](dia_diem) vào [thanh hóa](dia_diem) cho [nguyễn thị thanh mai](ho_ten) [11h56](thoi_gian) số [0789202448](dien_thoai)
+      - đặt [47 vé](so_luong) xe [limousine](loai_xe) từ [sóc trăng](dia_diem) về [gigamall thủ đức](dia_diem) cho [lê đức tuấn](ho_ten) lúc [10h15](thoi_gian) liên hệ [0356491550](dien_thoai)
+      - mình muốn đặt vé từ [hà nội](dia_diem) đến [đà nẵng](dia_diem) [5 vé](so_luong) vào lúc [8h ngày kia](thoi_gian) gọi [0912345678](dien_thoai) cho [nguyễn văn a](ho_ten)
+      - đặt vé ở [hải phòng](dia_diem) đi [đà lạt](dia_diem) xe [limousine](loai_xe) [2 vé](so_luong) lúc [20h](thoi_gian) số [0934112233](dien_thoai) cho [nguyễn minh châu](ho_ten)
+      - đặt xe [limousine](loai_xe) từ [hải phòng](dia_diem) đi [hà giang](dia_diem) [4 vé](so_luong) lúc [4h43](thoi_gian) sđt [0773223408](dien_thoai) cho [ngô thu yến](ho_ten)
+      - đặt vé tại [cần thơ](dia_diem) đi [sapa](dia_diem) xe [limousine](loai_xe) [10 vé](so_luong) lúc [9h15](thoi_gian) số [0912345670](dien_thoai) cho [phạm văn đức](ho_ten)
+      - đặt vé từ [hà nội](dia_diem) đi [huế](dia_diem) xe [limousine](loai_xe) [10 vé](so_luong) lúc [15h30](thoi_gian) số [0987654321](dien_thoai) cho [lê thu trang](ho_ten)
+      - đặt chuyến dừng ở [bệnh viện nhi đồng 1](dia_diem) ở [sân bay đồng hới](dia_diem) bằng xe [limousine](loai_xe) [42 vé](so_luong) tầm [21h44 đầu tuần sau](thoi_gian)
+      - mình muốn đặt chuyến [limousine](loai_xe) từ [đà nẵng](dia_diem) đi [hội an](dia_diem) [4 khách](so_luong) liên hệ [0977888999](dien_thoai) tên [ngô văn f](ho_ten)
+      - đặt xe kết thúc tại [đại học bách khoa thành phố hồ chí minh](dia_diem) đón khách từ [cần thơ](dia_diem) [68 vé](so_luong) lúc [9h40 sáng chủ nhật](thoi_gian)
+      - Cho mình đặt vé bắt đầu tại [trường amsterdam](dia_diem) kết thúc tại [cây xăng nguyễn trãi](dia_diem) [ngày 25 tháng 6](thoi_gian) cho [2 người lớn](so_luong)
+      - Đặt cho mình [3 ghế](so_luong) ở [thành phố giao lưu](dia_diem) đến [văn phòng 47 võ chí công](dia_diem) lúc [22h](thoi_gian) [ngày 15 tháng 06](thoi_gian) này
+      - đặt xe tại [aeon mall tân phú](dia_diem) đi [phú yên](dia_diem) bằng xe [limousine](loai_xe) [77 vé](so_luong) [0h34](thoi_gian) số [0783112641](dien_thoai)
+      - đặt xe [limousine](loai_xe) đi từ [hà nội](dia_diem) [5 vé](so_luong) tầm [9h thú 5 sắp tới](thoi_gian) cho [bùi thị g](ho_ten) số [0988999000](dien_thoai)
+      - đặt xe đi xuống [hà nam](dia_diem) từ [đại học sư phạm hà nội](dia_diem) bằng xe [limousine](loai_xe) [77 vé](so_luong) tầm [13h02 đầu tuần này](thoi_gian)
+      - cho mình chuyến xe [limousine](loai_xe) đón ở [sân bay tân sơn nhất](dia_diem) về [vũng tàu](dia_diem) [3 người](so_luong) lúc [7h thứ 3 tới](thoi_gian)
+      - đặt vé xe [limousine](loai_xe) đi từ [hà nội](dia_diem) lên [sapa](dia_diem) [2 vé](so_luong) gọi [0966777888](dien_thoai) cho [hoàng văn e](ho_ten)
+      - đặt giúp mình xe [limousine](loai_xe) đi từ [bến xe miền đông](dia_diem) tới [đà lạt](dia_diem) [15 vé](so_luong) tầm [20h chủ nhật này](thoi_gian)
+      - Bạn ơi đặt giùm mình [2 ghế](so_luong) từ [metro hà đông](dia_diem) về [50 đường thành thái](dia_diem) chuyến [chiều ngày 5 tháng 06](thoi_gian)
+      - Đặt cho mình [1 ghế](so_luong) chuyến [14h00](thoi_gian) từ [phủ chủ tịch](dia_diem) đi [xanh đỏ lĩnh nam](dia_diem) [ngày 6 tháng 6](thoi_gian)
+      - Mình muốn mua vé chuyến [23h00](thoi_gian) từ [bến xe mỹ đình](dia_diem) đi [trạm dừng nghỉ hải đăng](dia_diem) vào [ngày 15 tháng 6](thoi_gian)
+      - Cho mình đặt vé từ [trường ngoại thương](dia_diem) đi [cầu đi bộ vĩnh ngọc](dia_diem) [ngày 18 tháng 6](thoi_gian) số lượng [2 người](so_luong)
+      - đặt [4 vé](so_luong) đi [hoàng thành thăng long](dia_diem) lúc [10h sáng thứ 2 tuần sau](thoi_gian) đón ở [hồ hoàn kiếm](dia_diem)
+      - Mình muốn mua vé đi [khu đô thị ciputra võ chí công](dia_diem) khởi hành lúc [20h00 ngày 20 tháng 6](thoi_gian) [1 người](so_luong) nhé
+      - Đặt giúp mình [2 vé](so_luong) xe từ [sô 120 yên lãng](dia_diem) đi [Cao Bằng](dia_diem) khởi hành [sáng ngày 9 tháng 6](thoi_gian)
+      - Tôi cần [1 chỗ](so_luong) đi [nút giao duy tân](dia_diem) từ [đường phạm văn đồng](dia_diem) vào [chiều ngày 12 tháng 6](thoi_gian)
+      - Tôi muốn đặt [4 vé](so_luong) xe khách từ [công viên giải phóng](dia_diem) ra [long biên](dia_diem) vào [cuối tuần này](thoi_gian)
+      - cần đặt vé [3 người](so_luong) đi [sapa](dia_diem) lúc [8h](thoi_gian) số [0967445566](dien_thoai) cho [nguyễn đức cường](ho_ten)
+      - Mình muốn mua [1 vé](so_luong) chuyến [9h sáng mai](thoi_gian) xuất phát từ [mỹ đình](dia_diem) về [đại học thăng long](dia_diem)
+      - đặt giúp mình xe [limousine](loai_xe) từ [hà nội](dia_diem) đi [sapa](dia_diem) [4 vé](so_luong) vào [cuối tuần này](thoi_gian)
+      - Mình muốn mua [2 vé](so_luong) xe khách từ [tòa nhà sunrise](dia_diem) đi [phú quốc](dia_diem) [ngày 18 tháng 6](thoi_gian) này
+      - Mình cần [3 vé](so_luong) đi [sân bay nội bài](dia_diem) xuất phát từ [bến xe mỹ đình](dia_diem) [ngày 20 tháng 6](thoi_gian)
+      - đặt xe [16 chỗ](loai_xe) từ [đà nẵng](dia_diem) lên [huế](dia_diem) cho [nguyễn văn hùng](ho_ten) số [0912334455](dien_thoai)
+      - Mình muốn đặt xe từ [bến xe giáp bát](dia_diem) về [Nghệ An](dia_diem) [ngày 16 tháng 6](thoi_gian) cho [2 người](so_luong)
+      - Mình cần đặt [1 chỗ](so_luong) chuyến [22h](thoi_gian) đi [đầu đường võ chí công](dia_diem) [ngày 15 tháng 6](thoi_gian) tới
+      - Mình muốn mua [2 vé](so_luong) tại [sô 181 nguyễn trãi](dia_diem) qua [12 tràng tiền](dia_diem) [ngày 15 tháng 6](thoi_gian)
+      - Mình cần đặt xe đi [hải tiến thanh hóa](dia_diem) chuyến sớm nhất [ngày 8 tháng 6](thoi_gian) số lượng [1 vé](so_luong)
+      - Mình cần [4 ghế](so_luong) đi [công viên nghĩa đô](dia_diem) từ [quảng ngãi](dia_diem) vào [ngày cuối tuần này](thoi_gian)
+      - Mình cần mua vé đi [văn phòng 180 trung kính](dia_diem) khởi hành vào [thứ 6 tuần này](thoi_gian) [3 người](so_luong)
+      - Mình cần [1 vé](so_luong) từ [bến xe nước ngầm](dia_diem) đi [ngân hàng á châu acb](dia_diem) vào [ngày mai](thoi_gian)
+      - Chuyến [16h00](thoi_gian) đi [33 hoàng quán chi](dia_diem) [ngày 5 tháng 6](thoi_gian) cho mình đặt [2 vé](so_luong)
+      - Cho mình đặt [2 vé](so_luong) từ [tòa nhà greenstar](dia_diem) đi [quảng ninh](dia_diem) [ngày 10 tháng 6](thoi_gian)
+      - Mình cần [1 ghế](so_luong) đi [siêu thị winmart nhật tân](dia_diem) chuyến [8h sáng ngày 9 tháng 6](thoi_gian)
+      - Cho mình đặt xe đi [văn phòng 64 võ chí công](dia_diem) [thứ 6 tuần này](thoi_gian) cho [4 người](so_luong)
+      - Mình cần mua [2 vé](so_luong) xe khách về [khu đô thị royal city](dia_diem) vào [sáng thứ 2](thoi_gian) tới
+      - Cho mình đặt vé đi [cầu đi bộ vĩnh ngọc](dia_diem) [ngày 20 tháng 6](thoi_gian) cho [1 người lớn](so_luong)
+      - cho mình [1 vé](so_luong) xe [limousine](loai_xe) từ [bến xe miền đông](dia_diem) về [bình dương](dia_diem)
+      - đặt chỗ xe đi [quảng bình](dia_diem) [ngày mai](thoi_gian) [2 người](so_luong) số [0901223344](dien_thoai)
+      - Cho mình đăng ký [5 vé](so_luong) xe đi [sân vận động mỹ đình](dia_diem) [ngày 18 tháng 6](thoi_gian)
+      - Cho mình đặt xe đi [vườn hoa nguyễn trãi](dia_diem) vào [sáng mai](thoi_gian) [1 người](so_luong) nhé
+      - Cho mình đặt [1 vé](so_luong) đi [chung cu cao xà lá](dia_diem) vào [ngày 07 tháng 6](thoi_gian) nhé
+      - Đặt giùm mình [1 chỗ](so_luong) đi [viện tim võ chí công](dia_diem) vào [thứ 7 tuần này](thoi_gian)
+      - Mình muốn mua [1 vé](so_luong) về [200 nguyễn chí thanh](dia_diem) chuyến [chiều ngày mai](thoi_gian)
+      - Đặt cho mình [2 ghế](so_luong) đi [công viên cầu giấy](dia_diem) vào [ngày 07 tháng 6](thoi_gian)
+      - Đang cần đặt gấp [2 vé](so_luong) đi [bảo tàng dân tộc học việt nam](dia_diem) [chiều nay](thoi_gian)
+      - cho tôi đặt [2 chỗ](so_luong) đi [đà lạt](dia_diem) xe [giường nằm](loai_xe) [tối nay](thoi_gian)
+      - mình muốn book vé xe từ [hồ chí minh](dia_diem) ra [phan thiết](dia_diem) cho [3 người](so_luong)
+      - Bạn đặt cho mình [4 vé](so_luong) đi [chung cư ruby](dia_diem) [ngày 25 tháng 06](thoi_gian) nhé
+      - Cho mình [1 vé](so_luong) đi [hạ Long](dia_diem) chuyến sớm nhất [ngày 10 tháng 06](thoi_gian)
+      - Mình muốn đặt xe đi [hòa lạc](dia_diem) [ngày 12 tháng 06](thoi_gian) cho [2 người](so_luong)
+      - Đặt giúp mình [3 vé](so_luong) đi [Cao Bằng](dia_diem) vào [ngày 08 tháng 06](thoi_gian) nhé
+      - đặt xe đi [buôn ma thuột](dia_diem) lúc [6h sáng ngày 20](thoi_gian) cho [4 người](so_luong)
+      - cần [2 vé](so_luong) đi [hải phòng](dia_diem) từ [hà nội](dia_diem) [sáng thứ 2](thoi_gian)
+      - book vé xe đi [cà mau](dia_diem) lúc [20h tối nay](thoi_gian) cho [lê văn tùng](ho_ten)
+      - Đặt cho mình [1 vé](so_luong) đi [nhà xe hà lan](dia_diem) vào [ngày mai](thoi_gian)
+      - mình cần mua vé đi [long xuyên](dia_diem) chuyến sớm nhất [ngày 20](thoi_gian)
+      - đặt cho 5 người đi [sapa](dia_diem) lúc [10h sáng ngày 30](thoi_gian)
+      - đặt vé xe cho [nguyễn văn i](ho_ten) số [0911222333](dien_thoai)
+      - cần đặt chuyến [9 sáng mai](thoi_gian) đi [nha trang](dia_diem)
+      - cần đặt [16 vé](so_luong) đi [buôn mê thuột](dia_diem)
+      - cho mình đặt [10 vé](so_luong) xe [limousine](loai_xe)
+      - đặt hộ mình chuyến [9 sáng mai](thoi_gian)
+      - đặt dùm mình xe đi từ [đà nẵng](dia_diem)
+      - muốn đặt xe đi đến [hội an](dia_diem)
+      - mình cần đặt xe [limousine](loai_xe)
+      - đặt giúp anh xe [limousine](loai_xe)
+      - cần xe gấp đi [ngõ 120 an liễng](dia_diem) [ngày kia](thoi_gian)

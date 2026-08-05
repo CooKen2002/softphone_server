@@ -1,0 +1,2709 @@
+2026-05-23 16:31:06 | 0 messages
+(Không có message mới)
+
+2026-05-23 16:31:35 | 4 messages
+Text    : xin chào
+Intent  : chao_hoi (0.97)
+Entities: []
+
+Text    : tôi muốn đặt xe
+Intent  : dat_xe (0.83)
+Entities: []
+
+Text    : đón ở hoàn kiếm
+Intent  : cung_cap_thong_tin (0.91)
+Entities: [{'entity': 'dia_diem', 'start': 6, 'end': 15, 'value': 'hoàn kiếm', 'extractor': 'RegexEntityExtractor', 'processors': ['EntitySynonymMapper'], 'role': 'diem_don'}]
+
+Text    : đến vòng xuyến vinhome riverside
+Intent  : cung_cap_thong_tin (0.93)
+Entities: [{'entity': 'dia_diem', 'start': 4, 'end': 32, 'confidence_entity': 0.9983483552932739, 'value': 'vòng xuyến vinhome riverside', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_den'}]
+
+2026-05-23 16:39:31 | 8 messages
+Text    : thú hai tuần sau
+Intent  : cung_cap_thong_tin (0.91)
+Entities: [{'entity': 'thoi_gian', 'start': 4, 'end': 16, 'confidence_entity': 0.8157455325126648, 'value': 'hai tuần sau', 'extractor': 'DIETClassifier'}]
+
+Text    : ngày 30
+Intent  : cung_cap_thong_tin (0.95)
+Entities: [{'entity': 'thoi_gian', 'start': 0, 'end': 7, 'confidence_entity': 0.7861576676368713, 'value': 'ngày 30', 'extractor': 'DIETClassifier'}]
+
+Text    : ngày 30 tháng 4
+Intent  : cung_cap_thong_tin (0.95)
+Entities: [{'entity': 'thoi_gian', 'start': 0, 'end': 15, 'value': 'ngày 30 tháng 4', 'extractor': 'RegexEntityExtractor'}]
+
+Text    : 3 em ơi
+Intent  : cung_cap_thong_tin (0.65)
+Entities: [{'entity': 'dien_thoai', 'start': 0, 'end': 1, 'confidence_entity': 0.470566064119339, 'value': '3', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : 3 vé ơi
+Intent  : cung_cap_thong_tin (0.72)
+Entities: [{'entity': 'so_luong', 'start': 0, 'end': 4, 'value': '3 vé', 'extractor': 'RegexEntityExtractor'}]
+
+Text    : tên là trần
+Intent  : cung_cap_thong_tin (0.90)
+Entities: [{'entity': 'ho_ten', 'start': 7, 'end': 11, 'confidence_entity': 0.5682160258293152, 'value': 'trần', 'extractor': 'DIETClassifier'}]
+
+Text    : 090 1234-567
+Intent  : cung_cap_thong_tin (0.92)
+Entities: [{'entity': 'dien_thoai', 'start': 0, 'end': 12, 'value': '090 1234-567', 'extractor': 'RegexEntityExtractor'}]
+
+Text    : chuẩn rồi
+Intent  : dong_y (0.96)
+Entities: []
+
+2026-05-25 09:28:20 | 24 messages
+Text    : tôi muốn đặt xe từ Kiên Giang
+Intent  : dat_xe (0.94)
+Entities: [{'entity': 'dia_diem', 'start': 19, 'end': 29, 'confidence_entity': 0.9998024106025696, 'value': 'kiên giang', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_don'}]
+
+Text    : đến nam định
+Intent  : cung_cap_thong_tin (0.91)
+Entities: [{'entity': 'dia_diem', 'start': 4, 'end': 12, 'value': 'nam định', 'extractor': 'RegexEntityExtractor', 'processors': ['EntitySynonymMapper'], 'role': 'diem_den'}]
+
+Text    : ngày 30 tháng này
+Intent  : cung_cap_thong_tin (0.95)
+Entities: [{'entity': 'thoi_gian', 'start': 0, 'end': 17, 'confidence_entity': 0.9959781169891357, 'value': 'ngày 30 tháng này', 'extractor': 'DIETClassifier'}]
+
+Text    : hủy
+Intent  : huy (0.95)
+Entities: []
+
+Text    : chuẩn rồi
+Intent  : dong_y (0.96)
+Entities: []
+
+Text    : tôi muốn đặt xe từ Kiên Giang
+Intent  : dat_xe (0.94)
+Entities: [{'entity': 'dia_diem', 'start': 19, 'end': 29, 'confidence_entity': 0.9998024106025696, 'value': 'kiên giang', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_don'}]
+
+Text    : đến nam định
+Intent  : cung_cap_thong_tin (0.91)
+Entities: [{'entity': 'dia_diem', 'start': 4, 'end': 12, 'value': 'nam định', 'extractor': 'RegexEntityExtractor', 'processors': ['EntitySynonymMapper'], 'role': 'diem_den'}]
+
+Text    : ngày 30 tháng này
+Intent  : cung_cap_thong_tin (0.95)
+Entities: [{'entity': 'thoi_gian', 'start': 0, 'end': 17, 'confidence_entity': 0.9959781169891357, 'value': 'ngày 30 tháng này', 'extractor': 'DIETClassifier'}]
+
+Text    : 3 vé ơi
+Intent  : cung_cap_thong_tin (0.72)
+Entities: [{'entity': 'so_luong', 'start': 0, 'end': 4, 'value': '3 vé', 'extractor': 'RegexEntityExtractor'}]
+
+Text    : tên là trần
+Intent  : cung_cap_thong_tin (0.90)
+Entities: [{'entity': 'ho_ten', 'start': 7, 'end': 11, 'confidence_entity': 0.5682160258293152, 'value': 'trần', 'extractor': 'DIETClassifier'}]
+
+Text    : tên là trần
+Intent  : cung_cap_thong_tin (0.90)
+Entities: [{'entity': 'ho_ten', 'start': 7, 'end': 11, 'confidence_entity': 0.5682160258293152, 'value': 'trần', 'extractor': 'DIETClassifier'}]
+
+Text    : 090 1234-567
+Intent  : cung_cap_thong_tin (0.92)
+Entities: [{'entity': 'dien_thoai', 'start': 0, 'end': 12, 'value': '090 1234-567', 'extractor': 'RegexEntityExtractor'}]
+
+Text    : hủy
+Intent  : huy (0.95)
+Entities: []
+
+Text    : tôi muốn đặt xe từ Kiên Giang
+Intent  : dat_xe (0.94)
+Entities: [{'entity': 'dia_diem', 'start': 19, 'end': 29, 'confidence_entity': 0.9998024106025696, 'value': 'kiên giang', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_don'}]
+
+Text    : đến nam định
+Intent  : cung_cap_thong_tin (0.91)
+Entities: [{'entity': 'dia_diem', 'start': 4, 'end': 12, 'value': 'nam định', 'extractor': 'RegexEntityExtractor', 'processors': ['EntitySynonymMapper'], 'role': 'diem_den'}]
+
+Text    : ngày 30 tháng này
+Intent  : cung_cap_thong_tin (0.95)
+Entities: [{'entity': 'thoi_gian', 'start': 0, 'end': 17, 'confidence_entity': 0.9959781169891357, 'value': 'ngày 30 tháng này', 'extractor': 'DIETClassifier'}]
+
+Text    : 3 vé ơi
+Intent  : cung_cap_thong_tin (0.72)
+Entities: [{'entity': 'so_luong', 'start': 0, 'end': 4, 'value': '3 vé', 'extractor': 'RegexEntityExtractor'}]
+
+Text    : tên là trần
+Intent  : cung_cap_thong_tin (0.90)
+Entities: [{'entity': 'ho_ten', 'start': 7, 'end': 11, 'confidence_entity': 0.5682160258293152, 'value': 'trần', 'extractor': 'DIETClassifier'}]
+
+Text    : 090 1234-567
+Intent  : cung_cap_thong_tin (0.92)
+Entities: [{'entity': 'dien_thoai', 'start': 0, 'end': 12, 'value': '090 1234-567', 'extractor': 'RegexEntityExtractor'}]
+
+Text    : không
+Intent  : tu_choi (0.91)
+Entities: []
+
+Text    : sửa số điện thoại
+Intent  : sua_thong_tin (0.93)
+Entities: []
+
+Text    : sửa số điện thoại
+Intent  : sua_thong_tin (0.93)
+Entities: []
+
+Text    : 090 1234-567
+Intent  : cung_cap_thong_tin (0.92)
+Entities: [{'entity': 'dien_thoai', 'start': 0, 'end': 12, 'value': '090 1234-567', 'extractor': 'RegexEntityExtractor'}]
+
+Text    : chuẩn rồi
+Intent  : dong_y (0.96)
+Entities: []
+
+2026-05-25 11:43:19 | 0 messages
+(Không có message mới)
+
+2026-05-25 15:44:04 | 11 messages
+Text    : tôi muốn đặt xe đi đên thành phố vinh
+Intent  : dat_xe (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 23, 'end': 37, 'value': 'thành phố vinh', 'extractor': 'RegexEntityExtractor', 'processors': ['EntitySynonymMapper'], 'role': 'diem_den'}]
+
+Text    : tôi muốn đặt xe đến hải phòng
+Intent  : dat_xe (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 20, 'end': 29, 'value': 'hải phòng', 'extractor': 'RegexEntityExtractor', 'processors': ['EntitySynonymMapper'], 'role': 'diem_den'}]
+
+Text    : book xe tới văn phòng 18 Ciputra
+Intent  : dat_xe (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 12, 'end': 32, 'confidence_entity': 0.9447934031486511, 'value': 'văn phòng 18 Ciputra', 'extractor': 'DIETClassifier', 'role': 'diem_den'}]
+
+Text    : cho một xe trong hôm nay cái chiếc xe thường
+Intent  : dat_xe (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 17, 'end': 24, 'value': 'hôm nay', 'extractor': 'RegexEntityExtractor', 'processors': ['EntitySynonymMapper']}, {'entity': 'loai_xe', 'start': 35, 'end': 44, 'confidence_entity': 0.9988085031509399, 'value': 'xe thường', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : đặt xe con lúc mười ba giờ tối đón ở quảng ngãi
+Intent  : dat_xe (1.00)
+Entities: [{'entity': 'loai_xe', 'start': 4, 'end': 10, 'confidence_entity': 0.9905545115470886, 'value': 'xe con', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}, {'entity': 'thoi_gian', 'start': 15, 'end': 30, 'confidence_entity': 0.8689217567443848, 'value': 'mười ba giờ tối', 'extractor': 'DIETClassifier'}, {'entity': 'dia_diem', 'start': 37, 'end': 47, 'value': 'quảng ngãi', 'extractor': 'RegexEntityExtractor', 'role': 'diem_don'}]
+
+Text    : về tỉnh bắc ninh
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 8, 'end': 16, 'value': 'bắc ninh', 'extractor': 'RegexEntityExtractor', 'processors': ['EntitySynonymMapper'], 'role': 'diem_den'}]
+
+Text    : nguyễn thành an
+Intent  : sua_thong_tin (1.00)
+Entities: [{'entity': 'ho_ten', 'start': 0, 'end': 6, 'confidence_entity': 0.9394461512565613, 'value': 'nguyễn', 'extractor': 'DIETClassifier'}, {'entity': 'ho_ten', 'start': 13, 'end': 15, 'confidence_entity': 0.9984924793243408, 'value': 'an', 'extractor': 'DIETClassifier'}]
+
+Text    : đừng chờ ở văn phòng 68 võ chí công
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 11, 'end': 35, 'confidence_entity': 0.9942481517791748, 'value': 'văn phòng 68 võ chí công', 'extractor': 'DIETClassifier', 'role': 'diem_don'}]
+
+Text    : đến bà nà hill
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'ho_ten', 'start': 4, 'end': 14, 'confidence_entity': 0.5290447473526001, 'value': 'bà nà hill', 'extractor': 'DIETClassifier'}]
+
+Text    : đến cầu nhật tân
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 4, 'end': 16, 'confidence_entity': 0.9313101172447205, 'value': 'cầu nhật tân', 'extractor': 'DIETClassifier', 'role': 'diem_den'}]
+
+Text    : đến nghĩa trang mai dịch
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 4, 'end': 24, 'confidence_entity': 0.5974668860435486, 'value': 'nghĩa trang mai dịch', 'extractor': 'DIETClassifier'}]
+
+2026-05-26 09:59:48 | 9 messages
+Text    : đến nghĩa trang mai dịch
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 4, 'end': 24, 'confidence_entity': 0.6040546298027039, 'value': 'nghĩa trang mai dịch', 'extractor': 'DIETClassifier'}]
+
+Text    : đến nhà hát lớn
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 4, 'end': 15, 'confidence_entity': 0.7520858645439148, 'value': 'nhà hát lớn', 'extractor': 'DIETClassifier'}]
+
+Text    : đến nhà hát lớn
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 4, 'end': 15, 'confidence_entity': 0.7520858645439148, 'value': 'nhà hát lớn', 'extractor': 'DIETClassifier'}]
+
+Text    : đến nhà hát lớn
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 4, 'end': 15, 'confidence_entity': 0.7520858645439148, 'value': 'nhà hát lớn', 'extractor': 'DIETClassifier'}]
+
+Text    : đến nhà hát lớn
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 4, 'end': 15, 'confidence_entity': 0.7520858645439148, 'value': 'nhà hát lớn', 'extractor': 'DIETClassifier'}]
+
+Text    : đến nghĩa trang mai dịch
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 4, 'end': 24, 'confidence_entity': 0.6040546298027039, 'value': 'nghĩa trang mai dịch', 'extractor': 'DIETClassifier'}]
+
+Text    : đến số nhà 28 ngách 20/41 tổ dân phố phúc lý 2 quận bắc từ liêm hà nội
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 64, 'end': 70, 'value': 'hà nội', 'extractor': 'RegexEntityExtractor', 'processors': ['EntitySynonymMapper']}, {'entity': 'so_luong', 'start': 11, 'end': 13, 'confidence_entity': 0.5156543850898743, 'value': '28', 'extractor': 'DIETClassifier'}, {'entity': 'dien_thoai', 'start': 20, 'end': 25, 'confidence_entity': 0.6131496429443359, 'value': '20/41', 'extractor': 'DIETClassifier'}, {'entity': 'dia_diem', 'start': 29, 'end': 51, 'confidence_entity': 0.5561707615852356, 'value': 'dân phố phúc lý 2 quận', 'extractor': 'DIETClassifier'}, {'entity': 'dia_diem', 'start': 52, 'end': 55, 'confidence_entity': 0.9948306679725647, 'value': 'bắc', 'extractor': 'DIETClassifier'}, {'entity': 'dia_diem', 'start': 59, 'end': 63, 'confidence_entity': 0.9743571281433105, 'value': 'liêm', 'extractor': 'DIETClassifier'}, {'entity': 'dia_diem', 'start': 64, 'end': 70, 'confidence_entity': 0.6331139206886292, 'value': 'hà nội', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : đến nghĩa trang mai dịch
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 4, 'end': 24, 'confidence_entity': 0.6040546298027039, 'value': 'nghĩa trang mai dịch', 'extractor': 'DIETClassifier'}]
+
+Text    : đón ở nghĩa trang mai dịch
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 6, 'end': 26, 'confidence_entity': 0.4842804968357086, 'value': 'nghĩa trang mai dịch', 'extractor': 'DIETClassifier'}]
+
+2026-06-02 09:19:11 | 5 messages
+Text    : xin chào
+Intent  : chao_hoi (1.00)
+Entities: []
+
+Text    : tôi muốn đặt xe
+Intent  : huy (0.89)
+Entities: []
+
+Text    : mình muốn đặt xe
+Intent  : dat_ve (1.00)
+Entities: []
+
+Text    : muốn đặt xe
+Intent  : dat_ve (1.00)
+Entities: []
+
+Text    : tôi đặt xe
+Intent  : huy (0.93)
+Entities: []
+
+2026-06-02 09:37:37 | 3 messages
+Text    : đặt giúp tôi chuyến xe
+Intent  : huy (0.92)
+Entities: []
+
+Text    : đặt giúp tôi chuyến xe
+Intent  : huy (0.92)
+Entities: []
+
+Text    : tôi muốn đặt xe
+Intent  : huy (0.89)
+Entities: []
+
+2026-06-02 09:37:37 | 0 messages
+(Không có message mới)
+
+2026-06-02 09:37:38 | 0 messages
+(Không có message mới)
+
+2026-06-02 10:28:07 | 14 messages
+Text    : đặt 1 chuyến đến bệnh viện 108
+Intent  : dat_ve (0.40)
+Entities: [{'entity': 'dia_diem', 'start': 17, 'end': 30, 'confidence_entity': 0.660103440284729, 'value': 'bệnh viện 108', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_den'}]
+
+Text    : đặt 1 chuyến đến viện 108
+Intent  : tu_choi (0.47)
+Entities: []
+
+Text    : đặt 1 xe từ bệnh viện thanh nhàn đến công viên nghĩa đô
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dien_thoai', 'start': 4, 'end': 5, 'confidence_entity': 0.6190586090087891, 'value': '1', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}, {'entity': 'dia_diem', 'start': 12, 'end': 32, 'confidence_entity': 0.9869316220283508, 'value': 'bệnh viện thanh nhàn', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_don'}, {'entity': 'ho_ten', 'start': 37, 'end': 41, 'confidence_entity': 0.8746747970581055, 'value': 'công', 'extractor': 'DIETClassifier'}, {'entity': 'thoi_gian', 'start': 53, 'end': 55, 'confidence_entity': 0.4231412708759308, 'value': 'đô', 'extractor': 'DIETClassifier'}]
+
+Text    : đặt 1 xe từ bệnh viện thanh nhàn đến công viên nghĩa đô số 0987654321
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dien_thoai', 'start': 4, 'end': 5, 'confidence_entity': 0.5278988480567932, 'value': '1', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}, {'entity': 'dia_diem', 'start': 12, 'end': 32, 'confidence_entity': 0.9958428740501404, 'value': 'bệnh viện thanh nhàn', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_don'}, {'entity': 'ho_ten', 'start': 37, 'end': 41, 'confidence_entity': 0.6684728264808655, 'value': 'công', 'extractor': 'DIETClassifier'}, {'entity': 'thoi_gian', 'start': 47, 'end': 55, 'confidence_entity': 0.47410479187965393, 'value': 'nghĩa đô', 'extractor': 'DIETClassifier', 'confidence': 1}, {'entity': 'dien_thoai', 'start': 59, 'end': 69, 'confidence_entity': 0.9978452920913696, 'value': '0987654321', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : đặt 1 xe từ bệnh viện thanh nhàn đến công viên nghĩa đô số 0987654321
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dien_thoai', 'start': 4, 'end': 5, 'confidence_entity': 0.5386396050453186, 'value': '1', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}, {'entity': 'dia_diem', 'start': 12, 'end': 32, 'confidence_entity': 0.9942362904548645, 'value': 'bệnh viện thanh nhàn', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_don'}, {'entity': 'dia_diem', 'start': 37, 'end': 46, 'confidence_entity': 0.9923804998397827, 'value': 'công viên', 'extractor': 'DIETClassifier', 'role': 'diem_den'}, {'entity': 'thoi_gian', 'start': 53, 'end': 55, 'confidence_entity': 0.5402734279632568, 'value': 'đô', 'extractor': 'DIETClassifier'}, {'entity': 'dien_thoai', 'start': 59, 'end': 69, 'confidence_entity': 0.9972646236419678, 'value': '0987654321', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : đặt 1 xe từ bệnh viện thanh nhàn đến công viên nghĩa đô số 0987654321
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dien_thoai', 'start': 4, 'end': 5, 'confidence_entity': 0.5285627841949463, 'value': '1', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}, {'entity': 'dia_diem', 'start': 12, 'end': 32, 'confidence_entity': 0.9934478402137756, 'value': 'bệnh viện thanh nhàn', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_don'}, {'entity': 'dia_diem', 'start': 37, 'end': 55, 'confidence_entity': 0.9907540082931519, 'value': 'công viên nghĩa đô', 'extractor': 'DIETClassifier', 'confidence': 1, 'role': 'diem_den'}, {'entity': 'dien_thoai', 'start': 59, 'end': 69, 'confidence_entity': 0.9957597851753235, 'value': '0987654321', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : đặt 1 xe từ bệnh viện thanh nhàn đến công viên nghĩa đô số 0987654321
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dien_thoai', 'start': 4, 'end': 5, 'confidence_entity': 0.5285627841949463, 'value': '1', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}, {'entity': 'dia_diem', 'start': 12, 'end': 32, 'confidence_entity': 0.9934478402137756, 'value': 'bệnh viện thanh nhàn', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_don'}, {'entity': 'dia_diem', 'start': 37, 'end': 55, 'confidence_entity': 0.9907540082931519, 'value': 'công viên nghĩa đô', 'extractor': 'DIETClassifier', 'confidence': 1, 'role': 'diem_den'}, {'entity': 'dien_thoai', 'start': 59, 'end': 69, 'confidence_entity': 0.9957597851753235, 'value': '0987654321', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : đặt 1 xe từ bệnh viện thanh nhàn đến công viên nghĩa đô số 0987654321
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 12, 'end': 32, 'confidence_entity': 0.9832690954208374, 'value': 'bệnh viện thanh nhàn', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_don'}, {'entity': 'dia_diem', 'start': 37, 'end': 55, 'confidence_entity': 0.9781506061553955, 'value': 'công viên nghĩa đô', 'extractor': 'DIETClassifier', 'confidence': 1, 'role': 'diem_den'}, {'entity': 'dien_thoai', 'start': 59, 'end': 69, 'confidence_entity': 0.9869367480278015, 'value': '0987654321', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : đặt 1 xe từ bệnh viện thanh nhàn đến công viên nghĩa đô số 0987654321
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 12, 'end': 32, 'confidence_entity': 0.9832690954208374, 'value': 'bệnh viện thanh nhàn', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_don'}, {'entity': 'dia_diem', 'start': 37, 'end': 55, 'confidence_entity': 0.9781506061553955, 'value': 'công viên nghĩa đô', 'extractor': 'DIETClassifier', 'confidence': 1, 'role': 'diem_den'}, {'entity': 'dien_thoai', 'start': 59, 'end': 69, 'confidence_entity': 0.9869367480278015, 'value': '0987654321', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : anh muốn đặt xe
+Intent  : dat_ve (1.00)
+Entities: []
+
+Text    : đặt giúp tôi chuyến xe
+Intent  : dat_ve (1.00)
+Entities: []
+
+Text    : đón ở sân bay nội bài
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 6, 'end': 21, 'confidence_entity': 0.9977320432662964, 'value': 'sân bay nội bài', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_don'}]
+
+Text    : đến vp 87 đại cồ việt
+Intent  : sua_thong_tin (0.97)
+Entities: [{'entity': 'dia_diem', 'start': 10, 'end': 21, 'confidence_entity': 0.42382341623306274, 'value': 'đại cồ việt', 'extractor': 'DIETClassifier', 'role': 'diem_den'}]
+
+Text    : đến đến văn phòng an nam
+Intent  : cung_cap_thong_tin (0.53)
+Entities: [{'entity': 'ho_ten', 'start': 8, 'end': 11, 'confidence_entity': 0.8402976393699646, 'value': 'văn', 'extractor': 'DIETClassifier'}, {'entity': 'dia_diem', 'start': 12, 'end': 17, 'confidence_entity': 0.6884223222732544, 'value': 'phòng', 'extractor': 'DIETClassifier', 'role': 'diem_den'}, {'entity': 'ho_ten', 'start': 18, 'end': 24, 'confidence_entity': 0.5191802978515625, 'value': 'an nam', 'extractor': 'DIETClassifier'}]
+
+2026-06-02 15:42:32 | 16 messages
+Text    : tôi muốn đặt xe
+Intent  : dat_ve (0.99)
+Entities: []
+
+Text    : đặt giúp tôi chuyến xe
+Intent  : dat_ve (1.00)
+Entities: []
+
+Text    : đặt giúp tôi 1 chuyến xe đến bệnh viện thanh nhàn
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 29, 'end': 49, 'confidence_entity': 0.8942136764526367, 'value': 'bệnh viện thanh nhàn', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_den'}]
+
+Text    : đặt giúp tôi 1 chuyến xe đến bệnh viện thanh nhàn
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 29, 'end': 49, 'confidence_entity': 0.8942136764526367, 'value': 'bệnh viện thanh nhàn', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_den'}]
+
+Text    : book 1 chuyến về cửa lò
+Intent  : dat_ve (0.93)
+Entities: []
+
+Text    : đặt 1 chuyến về cửa lò
+Intent  : huy (0.44)
+Entities: []
+
+Text    : đặt 1 chuyến đi đến cửa lò
+Intent  : huy (0.71)
+Entities: []
+
+Text    : đặt 1 chuyến đi đến cửa lò
+Intent  : dat_ve (0.86)
+Entities: []
+
+Text    : đón ở kđt gamuda
+Intent  : cung_cap_thong_tin (0.99)
+Entities: [{'entity': 'dia_diem', 'start': 6, 'end': 16, 'confidence_entity': 0.4238627851009369, 'value': 'kđt gamuda', 'extractor': 'DIETClassifier', 'confidence': 1, 'role': 'diem_don'}]
+
+Text    : đón ở hoàng hoa thám
+Intent  : cung_cap_thong_tin (0.91)
+Entities: [{'entity': 'ho_ten', 'start': 6, 'end': 11, 'confidence_entity': 0.7863640189170837, 'value': 'hoàng', 'extractor': 'DIETClassifier'}, {'entity': 'dia_diem', 'start': 12, 'end': 20, 'confidence_entity': 0.559524655342102, 'value': 'hoa thám', 'extractor': 'DIETClassifier', 'confidence': 1, 'role': 'diem_don'}]
+
+Text    : đón ở bến xe trung tâm đà nẵng
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 6, 'end': 30, 'confidence_entity': 0.9978489875793457, 'value': 'bến xe trung tâm đà nẵng', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_don'}]
+
+Text    : đến bệnh viện y hà nội
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 4, 'end': 13, 'confidence_entity': 0.5556636452674866, 'value': 'bệnh viện', 'extractor': 'DIETClassifier', 'role': 'diem_den'}, {'entity': 'dia_diem', 'start': 16, 'end': 22, 'confidence_entity': 0.9959290623664856, 'value': 'hà nội', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'undetected'}]
+
+Text    : đến bệnh viện nhi trung ương
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 4, 'end': 28, 'confidence_entity': 0.9968178272247314, 'value': 'bệnh viện nhi trung ương', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_den'}]
+
+Text    : 9h sáng
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 0, 'end': 7, 'confidence_entity': 0.5732228755950928, 'value': '9 giờ sáng', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : 4 vé
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'so_luong', 'start': 0, 'end': 4, 'confidence_entity': 0.9800787568092346, 'value': '4 vé', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : 0987654321
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dien_thoai', 'start': 0, 'end': 10, 'confidence_entity': 0.9883195161819458, 'value': '0987654321', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+2026-06-03 09:05:16 | 109 messages
+Text    : xin chào
+Intent  : chao_hoi (1.00)
+Entities: []
+
+Text    : muốn đặt xe đi đến hội an
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 19, 'end': 22, 'confidence_entity': 0.9603455662727356, 'value': 'hội', 'extractor': 'DIETClassifier', 'role': 'diem_den'}, {'entity': 'ho_ten', 'start': 23, 'end': 25, 'confidence_entity': 0.6533741354942322, 'value': 'an', 'extractor': 'DIETClassifier'}]
+
+Text    : muốn đặt xe đi đến hội an
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 19, 'end': 22, 'confidence_entity': 0.9603455662727356, 'value': 'hội', 'extractor': 'DIETClassifier', 'role': 'diem_den'}, {'entity': 'ho_ten', 'start': 23, 'end': 25, 'confidence_entity': 0.6533741354942322, 'value': 'an', 'extractor': 'DIETClassifier'}]
+
+Text    : đúng 3h32
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 5, 'end': 9, 'confidence_entity': 0.8931447267532349, 'value': '3h32', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : đúng 3h32
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 5, 'end': 9, 'confidence_entity': 0.8931447267532349, 'value': '3h32', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : đặt 1 chuyến
+Intent  : dat_ve (1.00)
+Entities: []
+
+Text    : đặt 1 chuyến
+Intent  : dat_ve (1.00)
+Entities: []
+
+Text    : cần đặt chuyến 9 sáng mai đi nha trang
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 15, 'end': 25, 'confidence_entity': 0.3623005151748657, 'value': '9 sáng mai', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}, {'entity': 'dia_diem', 'start': 29, 'end': 38, 'confidence_entity': 0.9951518774032593, 'value': 'nha trang', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_den'}]
+
+Text    : cần đặt chuyến 9 sáng mai đi nha trang
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 15, 'end': 25, 'confidence_entity': 0.3623005151748657, 'value': '9 sáng mai', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}, {'entity': 'dia_diem', 'start': 29, 'end': 38, 'confidence_entity': 0.9951518774032593, 'value': 'nha trang', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_den'}]
+
+Text    : lộn chỗ đón rồi mình đứng ở vp 180 trung kính
+Intent  : sua_thong_tin (1.00)
+Entities: []
+
+Text    : lộn chỗ đón rồi mình đứng ở vp 180 trung kính
+Intent  : sua_thong_tin (1.00)
+Entities: []
+
+Text    : 0 đi hà nội nữa mà đi thái bình lúc 7h tối
+Intent  : sua_thong_tin (1.00)
+Entities: []
+
+Text    : 0 đi hà nội nữa mà đi thái bình lúc 7h tối
+Intent  : sua_thong_tin (1.00)
+Entities: []
+
+Text    : oke
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : oke
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : yes
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : yes
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : sai hết rồi
+Intent  : tu_choi (1.00)
+Entities: []
+
+Text    : sai hết rồi
+Intent  : tu_choi (1.00)
+Entities: []
+
+Text    : 0 muốn đặt lúc này
+Intent  : tu_choi (1.00)
+Entities: []
+
+Text    : 0 muốn đặt lúc này
+Intent  : tu_choi (1.00)
+Entities: []
+
+Text    : book
+Intent  : dat_ve (1.00)
+Entities: []
+
+Text    : book
+Intent  : dat_ve (1.00)
+Entities: []
+
+Text    : 0 cần bây giờ
+Intent  : tu_choi (1.00)
+Entities: []
+
+Text    : 0 cần bây giờ
+Intent  : tu_choi (1.00)
+Entities: []
+
+Text    : xe limousine
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'loai_xe', 'start': 3, 'end': 12, 'confidence_entity': 0.9845735430717468, 'value': 'xe limousine', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : xe limousine
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'loai_xe', 'start': 3, 'end': 12, 'confidence_entity': 0.9845735430717468, 'value': 'xe limousine', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : bớt vé
+Intent  : sua_thong_tin (1.00)
+Entities: []
+
+Text    : bớt vé
+Intent  : sua_thong_tin (1.00)
+Entities: []
+
+Text    : done bạn ơi
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : done bạn ơi
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : thoát ra đi
+Intent  : huy (1.00)
+Entities: []
+
+Text    : thoát ra đi
+Intent  : huy (1.00)
+Entities: []
+
+Text    : loại xe limousine đón ở số 9 tú mỡ vào 8h05 tối
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'loai_xe', 'start': 8, 'end': 17, 'confidence_entity': 0.9969134330749512, 'value': 'xe limousine', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}, {'entity': 'dia_diem', 'start': 24, 'end': 34, 'confidence_entity': 0.4502224028110504, 'value': 'số 9 tú mỡ', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_don'}, {'entity': 'thoi_gian', 'start': 39, 'end': 47, 'confidence_entity': 0.7369452118873596, 'value': '8h05 tối', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : loại xe limousine đón ở số 9 tú mỡ vào 8h05 tối
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'loai_xe', 'start': 8, 'end': 17, 'confidence_entity': 0.9969134330749512, 'value': 'xe limousine', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}, {'entity': 'dia_diem', 'start': 24, 'end': 34, 'confidence_entity': 0.4502224028110504, 'value': 'số 9 tú mỡ', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_don'}, {'entity': 'thoi_gian', 'start': 39, 'end': 47, 'confidence_entity': 0.7369452118873596, 'value': '8h05 tối', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : loại xe limousine đón ở số 9 tú mỡ
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'loai_xe', 'start': 8, 'end': 17, 'confidence_entity': 0.9962071180343628, 'value': 'xe limousine', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}, {'entity': 'dia_diem', 'start': 24, 'end': 34, 'confidence_entity': 0.4124909043312073, 'value': 'số 9 tú mỡ', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_don'}]
+
+Text    : loại xe limousine đón ở số 9 tú mỡ
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'loai_xe', 'start': 8, 'end': 17, 'confidence_entity': 0.9962071180343628, 'value': 'xe limousine', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}, {'entity': 'dia_diem', 'start': 24, 'end': 34, 'confidence_entity': 0.4124909043312073, 'value': 'số 9 tú mỡ', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_don'}]
+
+Text    : 0976543210
+Intent  : tu_choi (0.99)
+Entities: []
+
+Text    : 0976543210
+Intent  : tu_choi (0.99)
+Entities: []
+
+Text    : mình cần đặt chỗ
+Intent  : dat_ve (1.00)
+Entities: []
+
+Text    : mình cần đặt chỗ
+Intent  : dat_ve (1.00)
+Entities: []
+
+Text    : làm lại đi
+Intent  : sua_thong_tin (1.00)
+Entities: []
+
+Text    : làm lại đi
+Intent  : sua_thong_tin (1.00)
+Entities: []
+
+Text    : đi sớm hơn lúc 6h được 0
+Intent  : sua_thong_tin (1.00)
+Entities: []
+
+Text    : đi sớm hơn lúc 6h được 0
+Intent  : sua_thong_tin (1.00)
+Entities: []
+
+Text    : tăng lên 4 khách
+Intent  : sua_thong_tin (1.00)
+Entities: []
+
+Text    : tăng lên 4 khách
+Intent  : sua_thong_tin (1.00)
+Entities: []
+
+Text    : thôi cứ đặt thôi
+Intent  : dong_y (0.99)
+Entities: []
+
+Text    : thôi cứ đặt thôi
+Intent  : dong_y (0.99)
+Entities: []
+
+Text    : thông tin đúng hết rồi đặt đi
+Intent  : dong_y (0.97)
+Entities: []
+
+Text    : thông tin đúng hết rồi đặt đi
+Intent  : dong_y (0.97)
+Entities: []
+
+Text    : ngày 30 tháng này thoi_gian
+Intent  : cung_cap_thong_tin (0.94)
+Entities: []
+
+Text    : 0976543210
+Intent  : tu_choi (0.99)
+Entities: []
+
+Text    : ngày 30 tháng này thoi_gian
+Intent  : cung_cap_thong_tin (0.94)
+Entities: []
+
+Text    : 0976543210
+Intent  : tu_choi (0.99)
+Entities: []
+
+Text    : 0887244769
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dien_thoai', 'start': 0, 'end': 10, 'confidence_entity': 0.9883195161819458, 'value': '0887244769', 'extractor': 'DIETClassifier'}]
+
+Text    : 0911111111
+Intent  : tu_choi (0.99)
+Entities: []
+
+Text    : muốn đặt xe đi đến hội an
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 19, 'end': 22, 'confidence_entity': 0.9603455662727356, 'value': 'hội', 'extractor': 'DIETClassifier', 'role': 'diem_den'}, {'entity': 'ho_ten', 'start': 23, 'end': 25, 'confidence_entity': 0.6533741354942322, 'value': 'an', 'extractor': 'DIETClassifier'}]
+
+Text    : muốn đặt xe đi đến hội an
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 19, 'end': 22, 'confidence_entity': 0.9603455662727356, 'value': 'hội', 'extractor': 'DIETClassifier', 'role': 'diem_den'}, {'entity': 'ho_ten', 'start': 23, 'end': 25, 'confidence_entity': 0.6533741354942322, 'value': 'an', 'extractor': 'DIETClassifier'}]
+
+Text    : đúng 3h32
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 5, 'end': 9, 'confidence_entity': 0.8931447267532349, 'value': '3h32', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : đúng 3h32
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 5, 'end': 9, 'confidence_entity': 0.8931447267532349, 'value': '3h32', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : đặt 1 chuyến
+Intent  : dat_ve (1.00)
+Entities: []
+
+Text    : đặt 1 chuyến
+Intent  : dat_ve (1.00)
+Entities: []
+
+Text    : cần đặt chuyến 9 sáng mai đi nha trang
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 15, 'end': 25, 'confidence_entity': 0.3623005151748657, 'value': '9 sáng mai', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}, {'entity': 'dia_diem', 'start': 29, 'end': 38, 'confidence_entity': 0.9951518774032593, 'value': 'nha trang', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_den'}]
+
+Text    : cần đặt chuyến 9 sáng mai đi nha trang
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 15, 'end': 25, 'confidence_entity': 0.3623005151748657, 'value': '9 sáng mai', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}, {'entity': 'dia_diem', 'start': 29, 'end': 38, 'confidence_entity': 0.9951518774032593, 'value': 'nha trang', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_den'}]
+
+Text    : lộn chỗ đón rồi mình đứng ở vp 180 trung kính
+Intent  : sua_thong_tin (1.00)
+Entities: []
+
+Text    : lộn chỗ đón rồi mình đứng ở vp 180 trung kính
+Intent  : sua_thong_tin (1.00)
+Entities: []
+
+Text    : 0 đi hà nội nữa mà đi thái bình lúc 7h tối
+Intent  : sua_thong_tin (1.00)
+Entities: []
+
+Text    : 0 đi hà nội nữa mà đi thái bình lúc 7h tối
+Intent  : sua_thong_tin (1.00)
+Entities: []
+
+Text    : oke
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : oke
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : yes
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : yes
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : sai hết rồi
+Intent  : tu_choi (1.00)
+Entities: []
+
+Text    : sai hết rồi
+Intent  : tu_choi (1.00)
+Entities: []
+
+Text    : 0 muốn đặt lúc này
+Intent  : tu_choi (1.00)
+Entities: []
+
+Text    : 0 muốn đặt lúc này
+Intent  : tu_choi (1.00)
+Entities: []
+
+Text    : book
+Intent  : dat_ve (1.00)
+Entities: []
+
+Text    : book
+Intent  : dat_ve (1.00)
+Entities: []
+
+Text    : 0 cần bây giờ
+Intent  : tu_choi (1.00)
+Entities: []
+
+Text    : 0 cần bây giờ
+Intent  : tu_choi (1.00)
+Entities: []
+
+Text    : xe limousine
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'loai_xe', 'start': 3, 'end': 12, 'confidence_entity': 0.9845735430717468, 'value': 'xe limousine', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : xe limousine
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'loai_xe', 'start': 3, 'end': 12, 'confidence_entity': 0.9845735430717468, 'value': 'xe limousine', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : bớt vé
+Intent  : sua_thong_tin (1.00)
+Entities: []
+
+Text    : bớt vé
+Intent  : sua_thong_tin (1.00)
+Entities: []
+
+Text    : done bạn ơi
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : done bạn ơi
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : thoát ra đi
+Intent  : huy (1.00)
+Entities: []
+
+Text    : thoát ra đi
+Intent  : huy (1.00)
+Entities: []
+
+Text    : loại xe limousine đón ở số 9 tú mỡ vào 8h05 tối
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'loai_xe', 'start': 8, 'end': 17, 'confidence_entity': 0.9969134330749512, 'value': 'xe limousine', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}, {'entity': 'dia_diem', 'start': 24, 'end': 34, 'confidence_entity': 0.4502224028110504, 'value': 'số 9 tú mỡ', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_don'}, {'entity': 'thoi_gian', 'start': 39, 'end': 47, 'confidence_entity': 0.7369452118873596, 'value': '8h05 tối', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : loại xe limousine đón ở số 9 tú mỡ vào 8h05 tối
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'loai_xe', 'start': 8, 'end': 17, 'confidence_entity': 0.9969134330749512, 'value': 'xe limousine', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}, {'entity': 'dia_diem', 'start': 24, 'end': 34, 'confidence_entity': 0.4502224028110504, 'value': 'số 9 tú mỡ', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_don'}, {'entity': 'thoi_gian', 'start': 39, 'end': 47, 'confidence_entity': 0.7369452118873596, 'value': '8h05 tối', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : loại xe limousine đón ở số 9 tú mỡ
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'loai_xe', 'start': 8, 'end': 17, 'confidence_entity': 0.9962071180343628, 'value': 'xe limousine', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}, {'entity': 'dia_diem', 'start': 24, 'end': 34, 'confidence_entity': 0.4124909043312073, 'value': 'số 9 tú mỡ', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_don'}]
+
+Text    : loại xe limousine đón ở số 9 tú mỡ
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'loai_xe', 'start': 8, 'end': 17, 'confidence_entity': 0.9962071180343628, 'value': 'xe limousine', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}, {'entity': 'dia_diem', 'start': 24, 'end': 34, 'confidence_entity': 0.4124909043312073, 'value': 'số 9 tú mỡ', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_don'}]
+
+Text    : 0976543210
+Intent  : tu_choi (0.99)
+Entities: []
+
+Text    : 0976543210
+Intent  : tu_choi (0.99)
+Entities: []
+
+Text    : mình cần đặt chỗ
+Intent  : dat_ve (1.00)
+Entities: []
+
+Text    : mình cần đặt chỗ
+Intent  : dat_ve (1.00)
+Entities: []
+
+Text    : làm lại đi
+Intent  : sua_thong_tin (1.00)
+Entities: []
+
+Text    : làm lại đi
+Intent  : sua_thong_tin (1.00)
+Entities: []
+
+Text    : đi sớm hơn lúc 6h được 0
+Intent  : sua_thong_tin (1.00)
+Entities: []
+
+Text    : đi sớm hơn lúc 6h được 0
+Intent  : sua_thong_tin (1.00)
+Entities: []
+
+Text    : tăng lên 4 khách
+Intent  : sua_thong_tin (1.00)
+Entities: []
+
+Text    : tăng lên 4 khách
+Intent  : sua_thong_tin (1.00)
+Entities: []
+
+Text    : thôi cứ đặt thôi
+Intent  : dong_y (0.99)
+Entities: []
+
+Text    : thôi cứ đặt thôi
+Intent  : dong_y (0.99)
+Entities: []
+
+Text    : thông tin đúng hết rồi đặt đi
+Intent  : dong_y (0.97)
+Entities: []
+
+Text    : thông tin đúng hết rồi đặt đi
+Intent  : dong_y (0.97)
+Entities: []
+
+Text    : ngày 30 tháng này thoi_gian
+Intent  : cung_cap_thong_tin (0.94)
+Entities: []
+
+Text    : ngày 30 tháng này thoi_gian
+Intent  : cung_cap_thong_tin (0.94)
+Entities: []
+
+2026-06-03 09:07:40 | 1 messages
+Text    : 0911117512
+Intent  : tu_choi (0.99)
+Entities: []
+
+2026-06-03 10:48:37 | 5 messages
+Text    : số 0911117512
+Intent  : cung_cap_thong_tin (0.59)
+Entities: [{'entity': 'dien_thoai', 'start': 3, 'end': 13, 'confidence_entity': 0.7370458245277405, 'value': '0911117512', 'extractor': 'DIETClassifier'}]
+
+Text    : đặt 1 chuyến đi đến cửa lò
+Intent  : dat_ve (0.86)
+Entities: []
+
+Text    : đặt 1 chuyến lúc giờ sáng mai
+Intent  : sua_thong_tin (0.44)
+Entities: [{'entity': 'thoi_gian', 'start': 21, 'end': 29, 'confidence_entity': 0.8291174173355103, 'value': 'sáng mai', 'extractor': 'DIETClassifier'}]
+
+Text    : đặt 1 chuyến lúc 9h sáng mai
+Intent  : cung_cap_thong_tin (0.98)
+Entities: [{'entity': 'thoi_gian', 'start': 17, 'end': 28, 'confidence_entity': 0.5512194633483887, 'value': '9h sáng mai', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'confidence': 1}]
+
+Text    : đặt 1 chuyến lúc 9h sáng
+Intent  : cung_cap_thong_tin (0.85)
+Entities: [{'entity': 'thoi_gian', 'start': 17, 'end': 24, 'confidence_entity': 0.417113721370697, 'value': '9 giờ sáng', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+2026-06-03 11:14:24 | 4 messages
+Text    : đặt 1 chuyến đi đến cửa lò
+Intent  : cung_cap_thong_tin (0.99)
+Entities: [{'entity': 'dia_diem', 'start': 20, 'end': 26, 'confidence_entity': 0.9601104855537415, 'value': 'cửa lò', 'extractor': 'DIETClassifier', 'role': 'diem_den'}]
+
+Text    : số 0911117512
+Intent  : cung_cap_thong_tin (0.59)
+Entities: [{'entity': 'dien_thoai', 'start': 3, 'end': 13, 'confidence_entity': 0.7370458245277405, 'value': '0911117512', 'extractor': 'DIETClassifier'}]
+
+Text    : 0911117512
+Intent  : tu_choi (0.99)
+Entities: []
+
+Text    : 0886612798
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dien_thoai', 'start': 0, 'end': 10, 'confidence_entity': 0.9883195161819458, 'value': '0886612798', 'extractor': 'DIETClassifier'}]
+
+2026-06-03 13:41:05 | 0 messages
+(Không có message mới)
+
+2026-06-03 14:57:50 | 120 messages
+Text    : muốn đặt xe đi đến hội an
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 19, 'end': 22, 'confidence_entity': 0.9576914310455322, 'value': 'hội', 'extractor': 'DIETClassifier', 'role': 'diem_den'}, {'entity': 'ho_ten', 'start': 23, 'end': 25, 'confidence_entity': 0.6861616969108582, 'value': 'an', 'extractor': 'DIETClassifier'}]
+
+Text    : tôi ở 180 trung kính
+Intent  : sua_thong_tin (0.77)
+Entities: []
+
+Text    : lúc 7h tối
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 4, 'end': 10, 'confidence_entity': 0.4925976097583771, 'value': '7h tối', 'extractor': 'DIETClassifier', 'confidence': 1}]
+
+Text    : cần 2 vé
+Intent  : tu_choi (0.57)
+Entities: [{'entity': 'so_luong', 'start': 4, 'end': 8, 'confidence_entity': 0.863353431224823, 'value': '2 vé', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : tên tôi là nguyễn văn a
+Intent  : sua_thong_tin (0.43)
+Entities: [{'entity': 'ho_ten', 'start': 11, 'end': 23, 'confidence_entity': 0.736925482749939, 'value': 'nguyễn văn a', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : sđt 0909123456
+Intent  : cung_cap_thong_tin (0.55)
+Entities: [{'entity': 'dien_thoai', 'start': 4, 'end': 14, 'confidence_entity': 0.7161463499069214, 'value': '0909123456', 'extractor': 'DIETClassifier'}]
+
+Text    : đúng rồi
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : muốn đặt xe đi đến hội an
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 19, 'end': 22, 'confidence_entity': 0.9576914310455322, 'value': 'hội', 'extractor': 'DIETClassifier', 'role': 'diem_den'}, {'entity': 'ho_ten', 'start': 23, 'end': 25, 'confidence_entity': 0.6861616969108582, 'value': 'an', 'extractor': 'DIETClassifier'}]
+
+Text    : muốn đặt xe đi đến hội an
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 19, 'end': 22, 'confidence_entity': 0.9576914310455322, 'value': 'hội', 'extractor': 'DIETClassifier', 'role': 'diem_den'}, {'entity': 'ho_ten', 'start': 23, 'end': 25, 'confidence_entity': 0.6861616969108582, 'value': 'an', 'extractor': 'DIETClassifier'}]
+
+Text    : tôi ở 180 trung kính
+Intent  : sua_thong_tin (0.77)
+Entities: []
+
+Text    : tôi ở 180 trung kính
+Intent  : sua_thong_tin (0.77)
+Entities: []
+
+Text    : lúc 7h tối
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 4, 'end': 10, 'confidence_entity': 0.4925976097583771, 'value': '7h tối', 'extractor': 'DIETClassifier', 'confidence': 1}]
+
+Text    : lúc 7h tối
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 4, 'end': 10, 'confidence_entity': 0.4925976097583771, 'value': '7h tối', 'extractor': 'DIETClassifier', 'confidence': 1}]
+
+Text    : cần 2 vé
+Intent  : tu_choi (0.57)
+Entities: [{'entity': 'so_luong', 'start': 4, 'end': 8, 'confidence_entity': 0.863353431224823, 'value': '2 vé', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : cần 2 vé
+Intent  : tu_choi (0.57)
+Entities: [{'entity': 'so_luong', 'start': 4, 'end': 8, 'confidence_entity': 0.863353431224823, 'value': '2 vé', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : tên tôi là nguyễn văn a
+Intent  : sua_thong_tin (0.43)
+Entities: [{'entity': 'ho_ten', 'start': 11, 'end': 23, 'confidence_entity': 0.736925482749939, 'value': 'nguyễn văn a', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : tên tôi là nguyễn văn a
+Intent  : sua_thong_tin (0.43)
+Entities: [{'entity': 'ho_ten', 'start': 11, 'end': 23, 'confidence_entity': 0.736925482749939, 'value': 'nguyễn văn a', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : sđt 0909123456
+Intent  : cung_cap_thong_tin (0.55)
+Entities: [{'entity': 'dien_thoai', 'start': 4, 'end': 14, 'confidence_entity': 0.7161463499069214, 'value': '0909123456', 'extractor': 'DIETClassifier'}]
+
+Text    : sđt 0909123456
+Intent  : cung_cap_thong_tin (0.55)
+Entities: [{'entity': 'dien_thoai', 'start': 4, 'end': 14, 'confidence_entity': 0.7161463499069214, 'value': '0909123456', 'extractor': 'DIETClassifier'}]
+
+Text    : đúng rồi
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : đúng rồi
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : muốn đặt xe đi đến hội an
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 19, 'end': 22, 'confidence_entity': 0.9908162355422974, 'value': 'hội', 'extractor': 'DIETClassifier', 'role': 'diem_den'}, {'entity': 'ho_ten', 'start': 23, 'end': 25, 'confidence_entity': 0.6919417977333069, 'value': 'an', 'extractor': 'DIETClassifier'}]
+
+Text    : muốn đặt xe đi đến hội an
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 19, 'end': 22, 'confidence_entity': 0.9908162355422974, 'value': 'hội', 'extractor': 'DIETClassifier', 'role': 'diem_den'}, {'entity': 'ho_ten', 'start': 23, 'end': 25, 'confidence_entity': 0.6919417977333069, 'value': 'an', 'extractor': 'DIETClassifier'}]
+
+Text    : tôi ở 180 trung kính
+Intent  : sua_thong_tin (0.30)
+Entities: []
+
+Text    : tôi ở 180 trung kính
+Intent  : sua_thong_tin (0.30)
+Entities: []
+
+Text    : lúc 7h tối
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 4, 'end': 10, 'confidence_entity': 0.43117260932922363, 'value': '7h tối', 'extractor': 'DIETClassifier', 'confidence': 1}]
+
+Text    : lúc 7h tối
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 4, 'end': 10, 'confidence_entity': 0.43117260932922363, 'value': '7h tối', 'extractor': 'DIETClassifier', 'confidence': 1}]
+
+Text    : cần 2 vé
+Intent  : tu_choi (0.42)
+Entities: [{'entity': 'so_luong', 'start': 4, 'end': 8, 'confidence_entity': 0.6896889805793762, 'value': '2 vé', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : cần 2 vé
+Intent  : tu_choi (0.42)
+Entities: [{'entity': 'so_luong', 'start': 4, 'end': 8, 'confidence_entity': 0.6896889805793762, 'value': '2 vé', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : tên tôi là nguyễn văn a
+Intent  : sua_thong_tin (0.87)
+Entities: [{'entity': 'ho_ten', 'start': 11, 'end': 23, 'confidence_entity': 0.7514441609382629, 'value': 'nguyễn văn a', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : tên tôi là nguyễn văn a
+Intent  : sua_thong_tin (0.87)
+Entities: [{'entity': 'ho_ten', 'start': 11, 'end': 23, 'confidence_entity': 0.7514441609382629, 'value': 'nguyễn văn a', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : sđt 0909123456
+Intent  : tu_choi (0.93)
+Entities: []
+
+Text    : sđt 0909123456
+Intent  : tu_choi (0.93)
+Entities: []
+
+Text    : đúng rồi
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : đúng rồi
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : muốn đặt xe đi đến hội an
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 19, 'end': 22, 'confidence_entity': 0.9576914310455322, 'value': 'hội', 'extractor': 'DIETClassifier', 'role': 'diem_den'}, {'entity': 'ho_ten', 'start': 23, 'end': 25, 'confidence_entity': 0.6861616969108582, 'value': 'an', 'extractor': 'DIETClassifier'}]
+
+Text    : muốn đặt xe đi đến hội an
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 19, 'end': 22, 'confidence_entity': 0.9576914310455322, 'value': 'hội', 'extractor': 'DIETClassifier', 'role': 'diem_den'}, {'entity': 'ho_ten', 'start': 23, 'end': 25, 'confidence_entity': 0.6861616969108582, 'value': 'an', 'extractor': 'DIETClassifier'}]
+
+Text    : tôi ở 180 trung kính
+Intent  : sua_thong_tin (0.77)
+Entities: []
+
+Text    : tôi ở 180 trung kính
+Intent  : sua_thong_tin (0.77)
+Entities: []
+
+Text    : lúc 7h tối
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 4, 'end': 10, 'confidence_entity': 0.4925976097583771, 'value': '7h tối', 'extractor': 'DIETClassifier', 'confidence': 1}]
+
+Text    : lúc 7h tối
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 4, 'end': 10, 'confidence_entity': 0.4925976097583771, 'value': '7h tối', 'extractor': 'DIETClassifier', 'confidence': 1}]
+
+Text    : cần 2 vé
+Intent  : tu_choi (0.57)
+Entities: [{'entity': 'so_luong', 'start': 4, 'end': 8, 'confidence_entity': 0.863353431224823, 'value': '2 vé', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : cần 2 vé
+Intent  : tu_choi (0.57)
+Entities: [{'entity': 'so_luong', 'start': 4, 'end': 8, 'confidence_entity': 0.863353431224823, 'value': '2 vé', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : tên tôi là nguyễn văn a
+Intent  : sua_thong_tin (0.43)
+Entities: [{'entity': 'ho_ten', 'start': 11, 'end': 23, 'confidence_entity': 0.736925482749939, 'value': 'nguyễn văn a', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : tên tôi là nguyễn văn a
+Intent  : sua_thong_tin (0.43)
+Entities: [{'entity': 'ho_ten', 'start': 11, 'end': 23, 'confidence_entity': 0.736925482749939, 'value': 'nguyễn văn a', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : sđt 0909123456
+Intent  : cung_cap_thong_tin (0.55)
+Entities: [{'entity': 'dien_thoai', 'start': 4, 'end': 14, 'confidence_entity': 0.7161463499069214, 'value': '0909123456', 'extractor': 'DIETClassifier'}]
+
+Text    : sđt 0909123456
+Intent  : cung_cap_thong_tin (0.55)
+Entities: [{'entity': 'dien_thoai', 'start': 4, 'end': 14, 'confidence_entity': 0.7161463499069214, 'value': '0909123456', 'extractor': 'DIETClassifier'}]
+
+Text    : đúng rồi
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : đúng rồi
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : muốn đặt xe đi đến hội an
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 19, 'end': 22, 'confidence_entity': 0.9908162355422974, 'value': 'hội', 'extractor': 'DIETClassifier', 'role': 'diem_den'}, {'entity': 'ho_ten', 'start': 23, 'end': 25, 'confidence_entity': 0.6919417977333069, 'value': 'an', 'extractor': 'DIETClassifier'}]
+
+Text    : muốn đặt xe đi đến hội an
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 19, 'end': 22, 'confidence_entity': 0.9908162355422974, 'value': 'hội', 'extractor': 'DIETClassifier', 'role': 'diem_den'}, {'entity': 'ho_ten', 'start': 23, 'end': 25, 'confidence_entity': 0.6919417977333069, 'value': 'an', 'extractor': 'DIETClassifier'}]
+
+Text    : tôi ở 180 trung kính
+Intent  : sua_thong_tin (0.30)
+Entities: []
+
+Text    : tôi ở 180 trung kính
+Intent  : sua_thong_tin (0.30)
+Entities: []
+
+Text    : lúc 7h tối
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 4, 'end': 10, 'confidence_entity': 0.43117260932922363, 'value': '7h tối', 'extractor': 'DIETClassifier', 'confidence': 1}]
+
+Text    : lúc 7h tối
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 4, 'end': 10, 'confidence_entity': 0.43117260932922363, 'value': '7h tối', 'extractor': 'DIETClassifier', 'confidence': 1}]
+
+Text    : cần 2 vé
+Intent  : tu_choi (0.42)
+Entities: [{'entity': 'so_luong', 'start': 4, 'end': 8, 'confidence_entity': 0.6896889805793762, 'value': '2 vé', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : cần 2 vé
+Intent  : tu_choi (0.42)
+Entities: [{'entity': 'so_luong', 'start': 4, 'end': 8, 'confidence_entity': 0.6896889805793762, 'value': '2 vé', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : tên tôi là nguyễn văn a
+Intent  : sua_thong_tin (0.87)
+Entities: [{'entity': 'ho_ten', 'start': 11, 'end': 23, 'confidence_entity': 0.7514441609382629, 'value': 'nguyễn văn a', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : tên tôi là nguyễn văn a
+Intent  : sua_thong_tin (0.87)
+Entities: [{'entity': 'ho_ten', 'start': 11, 'end': 23, 'confidence_entity': 0.7514441609382629, 'value': 'nguyễn văn a', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : sđt 0909123456
+Intent  : tu_choi (0.93)
+Entities: []
+
+Text    : sđt 0909123456
+Intent  : tu_choi (0.93)
+Entities: []
+
+Text    : đúng rồi
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : đúng rồi
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : muốn đặt xe đi đến hội an
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 19, 'end': 22, 'confidence_entity': 0.9576914310455322, 'value': 'hội', 'extractor': 'DIETClassifier', 'role': 'diem_den'}, {'entity': 'ho_ten', 'start': 23, 'end': 25, 'confidence_entity': 0.6861616969108582, 'value': 'an', 'extractor': 'DIETClassifier'}]
+
+Text    : muốn đặt xe đi đến hội an
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 19, 'end': 22, 'confidence_entity': 0.9576914310455322, 'value': 'hội', 'extractor': 'DIETClassifier', 'role': 'diem_den'}, {'entity': 'ho_ten', 'start': 23, 'end': 25, 'confidence_entity': 0.6861616969108582, 'value': 'an', 'extractor': 'DIETClassifier'}]
+
+Text    : tôi ở 180 trung kính
+Intent  : sua_thong_tin (0.77)
+Entities: []
+
+Text    : tôi ở 180 trung kính
+Intent  : sua_thong_tin (0.77)
+Entities: []
+
+Text    : lúc 7h tối
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 4, 'end': 10, 'confidence_entity': 0.4925976097583771, 'value': '7h tối', 'extractor': 'DIETClassifier', 'confidence': 1}]
+
+Text    : lúc 7h tối
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 4, 'end': 10, 'confidence_entity': 0.4925976097583771, 'value': '7h tối', 'extractor': 'DIETClassifier', 'confidence': 1}]
+
+Text    : cần 2 vé
+Intent  : tu_choi (0.57)
+Entities: [{'entity': 'so_luong', 'start': 4, 'end': 8, 'confidence_entity': 0.863353431224823, 'value': '2 vé', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : cần 2 vé
+Intent  : tu_choi (0.57)
+Entities: [{'entity': 'so_luong', 'start': 4, 'end': 8, 'confidence_entity': 0.863353431224823, 'value': '2 vé', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : tên tôi là nguyễn văn a
+Intent  : sua_thong_tin (0.43)
+Entities: [{'entity': 'ho_ten', 'start': 11, 'end': 23, 'confidence_entity': 0.736925482749939, 'value': 'nguyễn văn a', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : tên tôi là nguyễn văn a
+Intent  : sua_thong_tin (0.43)
+Entities: [{'entity': 'ho_ten', 'start': 11, 'end': 23, 'confidence_entity': 0.736925482749939, 'value': 'nguyễn văn a', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : sđt 0909123456
+Intent  : cung_cap_thong_tin (0.55)
+Entities: [{'entity': 'dien_thoai', 'start': 4, 'end': 14, 'confidence_entity': 0.7161463499069214, 'value': '0909123456', 'extractor': 'DIETClassifier'}]
+
+Text    : sđt 0909123456
+Intent  : cung_cap_thong_tin (0.55)
+Entities: [{'entity': 'dien_thoai', 'start': 4, 'end': 14, 'confidence_entity': 0.7161463499069214, 'value': '0909123456', 'extractor': 'DIETClassifier'}]
+
+Text    : đúng rồi
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : đúng rồi
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : muốn đặt xe đi đến hội an
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 19, 'end': 22, 'confidence_entity': 0.9576914310455322, 'value': 'hội', 'extractor': 'DIETClassifier', 'role': 'diem_den'}, {'entity': 'ho_ten', 'start': 23, 'end': 25, 'confidence_entity': 0.6861616969108582, 'value': 'an', 'extractor': 'DIETClassifier'}]
+
+Text    : muốn đặt xe đi đến hội an
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 19, 'end': 22, 'confidence_entity': 0.9576914310455322, 'value': 'hội', 'extractor': 'DIETClassifier', 'role': 'diem_den'}, {'entity': 'ho_ten', 'start': 23, 'end': 25, 'confidence_entity': 0.6861616969108582, 'value': 'an', 'extractor': 'DIETClassifier'}]
+
+Text    : tôi ở 180 trung kính
+Intent  : sua_thong_tin (0.77)
+Entities: []
+
+Text    : tôi ở 180 trung kính
+Intent  : sua_thong_tin (0.77)
+Entities: []
+
+Text    : lúc 7h tối
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 4, 'end': 10, 'confidence_entity': 0.4925976097583771, 'value': '7h tối', 'extractor': 'DIETClassifier', 'confidence': 1}]
+
+Text    : lúc 7h tối
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 4, 'end': 10, 'confidence_entity': 0.4925976097583771, 'value': '7h tối', 'extractor': 'DIETClassifier', 'confidence': 1}]
+
+Text    : cần 2 vé
+Intent  : tu_choi (0.57)
+Entities: [{'entity': 'so_luong', 'start': 4, 'end': 8, 'confidence_entity': 0.863353431224823, 'value': '2 vé', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : cần 2 vé
+Intent  : tu_choi (0.57)
+Entities: [{'entity': 'so_luong', 'start': 4, 'end': 8, 'confidence_entity': 0.863353431224823, 'value': '2 vé', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : tên tôi là nguyễn văn a
+Intent  : sua_thong_tin (0.43)
+Entities: [{'entity': 'ho_ten', 'start': 11, 'end': 23, 'confidence_entity': 0.736925482749939, 'value': 'nguyễn văn a', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : tên tôi là nguyễn văn a
+Intent  : sua_thong_tin (0.43)
+Entities: [{'entity': 'ho_ten', 'start': 11, 'end': 23, 'confidence_entity': 0.736925482749939, 'value': 'nguyễn văn a', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : số 0909123456
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dien_thoai', 'start': 3, 'end': 13, 'confidence_entity': 0.9289262294769287, 'value': '0909123456', 'extractor': 'DIETClassifier'}]
+
+Text    : số 0909123456
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dien_thoai', 'start': 3, 'end': 13, 'confidence_entity': 0.9289262294769287, 'value': '0909123456', 'extractor': 'DIETClassifier'}]
+
+Text    : đúng rồi
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : đúng rồi
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : muốn đặt xe đi đến hội an
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 19, 'end': 22, 'confidence_entity': 0.9908162355422974, 'value': 'hội', 'extractor': 'DIETClassifier', 'role': 'diem_den'}, {'entity': 'ho_ten', 'start': 23, 'end': 25, 'confidence_entity': 0.6919417977333069, 'value': 'an', 'extractor': 'DIETClassifier'}]
+
+Text    : muốn đặt xe đi đến hội an
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 19, 'end': 22, 'confidence_entity': 0.9908162355422974, 'value': 'hội', 'extractor': 'DIETClassifier', 'role': 'diem_den'}, {'entity': 'ho_ten', 'start': 23, 'end': 25, 'confidence_entity': 0.6919417977333069, 'value': 'an', 'extractor': 'DIETClassifier'}]
+
+Text    : tôi ở 180 trung kính
+Intent  : sua_thong_tin (0.30)
+Entities: []
+
+Text    : tôi ở 180 trung kính
+Intent  : sua_thong_tin (0.30)
+Entities: []
+
+Text    : lúc 7h tối
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 4, 'end': 10, 'confidence_entity': 0.43117260932922363, 'value': '7h tối', 'extractor': 'DIETClassifier', 'confidence': 1}]
+
+Text    : lúc 7h tối
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 4, 'end': 10, 'confidence_entity': 0.43117260932922363, 'value': '7h tối', 'extractor': 'DIETClassifier', 'confidence': 1}]
+
+Text    : cần 2 vé
+Intent  : tu_choi (0.42)
+Entities: [{'entity': 'so_luong', 'start': 4, 'end': 8, 'confidence_entity': 0.6896889805793762, 'value': '2 vé', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : cần 2 vé
+Intent  : tu_choi (0.42)
+Entities: [{'entity': 'so_luong', 'start': 4, 'end': 8, 'confidence_entity': 0.6896889805793762, 'value': '2 vé', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : tên tôi là nguyễn văn a
+Intent  : sua_thong_tin (0.87)
+Entities: [{'entity': 'ho_ten', 'start': 11, 'end': 23, 'confidence_entity': 0.7514441609382629, 'value': 'nguyễn văn a', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : tên tôi là nguyễn văn a
+Intent  : sua_thong_tin (0.87)
+Entities: [{'entity': 'ho_ten', 'start': 11, 'end': 23, 'confidence_entity': 0.7514441609382629, 'value': 'nguyễn văn a', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : số 0909123456
+Intent  : cung_cap_thong_tin (0.95)
+Entities: [{'entity': 'dien_thoai', 'start': 3, 'end': 13, 'confidence_entity': 0.9828450679779053, 'value': '0909123456', 'extractor': 'DIETClassifier'}]
+
+Text    : số 0909123456
+Intent  : cung_cap_thong_tin (0.95)
+Entities: [{'entity': 'dien_thoai', 'start': 3, 'end': 13, 'confidence_entity': 0.9828450679779053, 'value': '0909123456', 'extractor': 'DIETClassifier'}]
+
+Text    : đúng rồi
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : đúng rồi
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : muốn đặt xe đi đến hội an
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 19, 'end': 22, 'confidence_entity': 0.9908162355422974, 'value': 'hội', 'extractor': 'DIETClassifier', 'role': 'diem_den'}, {'entity': 'ho_ten', 'start': 23, 'end': 25, 'confidence_entity': 0.6919417977333069, 'value': 'an', 'extractor': 'DIETClassifier'}]
+
+Text    : tôi ở 180 trung kính
+Intent  : sua_thong_tin (0.30)
+Entities: []
+
+Text    : lúc 7h tối
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 4, 'end': 10, 'confidence_entity': 0.43117260932922363, 'value': '7h tối', 'extractor': 'DIETClassifier', 'confidence': 1}]
+
+Text    : cần 2 vé
+Intent  : tu_choi (0.42)
+Entities: [{'entity': 'so_luong', 'start': 4, 'end': 8, 'confidence_entity': 0.6896889805793762, 'value': '2 vé', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : tên tôi là nguyễn văn a
+Intent  : sua_thong_tin (0.87)
+Entities: [{'entity': 'ho_ten', 'start': 11, 'end': 23, 'confidence_entity': 0.7514441609382629, 'value': 'nguyễn văn a', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : số 0909123456
+Intent  : cung_cap_thong_tin (0.95)
+Entities: [{'entity': 'dien_thoai', 'start': 3, 'end': 13, 'confidence_entity': 0.9828450679779053, 'value': '0909123456', 'extractor': 'DIETClassifier'}]
+
+Text    : đúng rồi
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : muốn đặt xe đi đến hội an
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 19, 'end': 22, 'confidence_entity': 0.9908162355422974, 'value': 'hội', 'extractor': 'DIETClassifier', 'role': 'diem_den'}, {'entity': 'ho_ten', 'start': 23, 'end': 25, 'confidence_entity': 0.6919417977333069, 'value': 'an', 'extractor': 'DIETClassifier'}]
+
+Text    : tôi ở 180 trung kính
+Intent  : sua_thong_tin (0.30)
+Entities: []
+
+Text    : lúc 7h tối
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 4, 'end': 10, 'confidence_entity': 0.43117260932922363, 'value': '7h tối', 'extractor': 'DIETClassifier', 'confidence': 1}]
+
+Text    : cần 2 vé
+Intent  : tu_choi (0.42)
+Entities: [{'entity': 'so_luong', 'start': 4, 'end': 8, 'confidence_entity': 0.6896889805793762, 'value': '2 vé', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : tên tôi là nguyễn văn a
+Intent  : sua_thong_tin (0.87)
+Entities: [{'entity': 'ho_ten', 'start': 11, 'end': 23, 'confidence_entity': 0.7514441609382629, 'value': 'nguyễn văn a', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : số 0909123456
+Intent  : cung_cap_thong_tin (0.95)
+Entities: [{'entity': 'dien_thoai', 'start': 3, 'end': 13, 'confidence_entity': 0.9828450679779053, 'value': '0909123456', 'extractor': 'DIETClassifier'}]
+
+Text    : đúng thế
+Intent  : dong_y (0.92)
+Entities: []
+
+Text    : thế cờ
+Intent  : tu_choi (0.54)
+Entities: []
+
+2026-06-03 15:12:23 | 0 messages
+(Không có message mới)
+
+2026-06-04 08:48:36 | 72 messages
+Text    : muốn đặt xe đi đến nghệ an
+Intent  : cung_cap_thong_tin (0.87)
+Entities: [{'entity': 'dia_diem', 'start': 19, 'end': 26, 'confidence_entity': 0.995644211769104, 'value': 'Nghệ An', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_den'}]
+
+Text    : tôi ở bệnh viện mắt trung ương
+Intent  : dat_ve (0.69)
+Entities: [{'entity': 'dia_diem', 'start': 6, 'end': 30, 'confidence_entity': 0.9698845148086548, 'value': 'bệnh viện mắt trung ương', 'extractor': 'DIETClassifier', 'confidence': 1, 'role': 'diem_don'}]
+
+Text    : lúc 9h sáng
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 4, 'end': 11, 'confidence_entity': 0.438089519739151, 'value': '9 giờ sáng', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : 2 vé
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'so_luong', 'start': 0, 'end': 4, 'confidence_entity': 0.9165297150611877, 'value': '2 vé', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : tên tôi là nguyễn văn a
+Intent  : sua_thong_tin (0.99)
+Entities: [{'entity': 'ho_ten', 'start': 11, 'end': 23, 'confidence_entity': 0.8030736446380615, 'value': 'nguyễn văn a', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : số 0909123456
+Intent  : cung_cap_thong_tin (0.94)
+Entities: [{'entity': 'dien_thoai', 'start': 3, 'end': 13, 'confidence_entity': 0.9569334983825684, 'value': '0909123456', 'extractor': 'DIETClassifier'}]
+
+Text    : đúng thế
+Intent  : tu_choi (0.63)
+Entities: []
+
+Text    : thế cờthôi cứ đặt thôi
+Intent  : dong_y (0.99)
+Entities: []
+
+Text    : thông tin đúng hết rồi đặt đi
+Intent  : dong_y (0.96)
+Entities: []
+
+Text    : ừ thông tin đúng rồi
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : thôi chưa cần
+Intent  : tu_choi (1.00)
+Entities: []
+
+Text    : 0 cần bây giờ
+Intent  : tu_choi (1.00)
+Entities: []
+
+Text    : đi sang hải dương với số vé 2 người
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 8, 'end': 17, 'confidence_entity': 0.9976493716239929, 'value': 'hải dương', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_den'}, {'entity': 'so_luong', 'start': 28, 'end': 35, 'confidence_entity': 0.9449543952941895, 'value': '2 người', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : đặt 1 chuyến
+Intent  : dat_ve (0.99)
+Entities: []
+
+Text    : cần đặt 16 vé đi buôn mê thuột
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'so_luong', 'start': 8, 'end': 13, 'confidence_entity': 0.9933344125747681, 'value': '16 vé', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}, {'entity': 'dia_diem', 'start': 17, 'end': 30, 'confidence_entity': 0.9762383103370667, 'value': 'buôn mê thuột', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_den'}]
+
+Text    : lộn chỗ đón rồi mình đứng ở vp 180 trung kính
+Intent  : sua_thong_tin (1.00)
+Entities: []
+
+Text    : đúng vậy
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : chính xác
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : 0
+Intent  : tu_choi (0.63)
+Entities: []
+
+Text    : đồng ý
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : cho mình đặt xe đi hải phòng
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 19, 'end': 28, 'confidence_entity': 0.992093026638031, 'value': 'hải phòng', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_den'}]
+
+Text    : đón ở an giang
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 6, 'end': 14, 'confidence_entity': 0.9985212683677673, 'value': 'an giang', 'extractor': 'DIETClassifier', 'role': 'diem_don'}]
+
+Text    : lúc 9h sáng mai
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 4, 'end': 15, 'confidence_entity': 0.5110414624214172, 'value': '9h sáng mai', 'extractor': 'DIETClassifier'}]
+
+Text    : đi 3 người
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'so_luong', 'start': 3, 'end': 10, 'confidence_entity': 0.9477627277374268, 'value': '3 người', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : tên là nguyễn văn an
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'ho_ten', 'start': 7, 'end': 20, 'confidence_entity': 0.8049289584159851, 'value': 'nguyễn văn an', 'extractor': 'DIETClassifier', 'confidence': 1}]
+
+Text    : 0987654321
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dien_thoai', 'start': 0, 'end': 10, 'confidence_entity': 0.9717952013015747, 'value': '0987654321', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : đúng rồi đặt đi
+Intent  : dong_y (0.99)
+Entities: []
+
+Text    : cho mình đặt xe đi hải phòng
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 19, 'end': 28, 'confidence_entity': 0.992093026638031, 'value': 'hải phòng', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_den'}]
+
+Text    : đón ở an giang
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 6, 'end': 14, 'confidence_entity': 0.9985212683677673, 'value': 'an giang', 'extractor': 'DIETClassifier', 'role': 'diem_don'}]
+
+Text    : lúc 9h sáng mai
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 4, 'end': 15, 'confidence_entity': 0.5110414624214172, 'value': '9h sáng mai', 'extractor': 'DIETClassifier'}]
+
+Text    : đi 3 người
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'so_luong', 'start': 3, 'end': 10, 'confidence_entity': 0.9477627277374268, 'value': '3 người', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : tên là nguyễn văn an
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'ho_ten', 'start': 7, 'end': 20, 'confidence_entity': 0.8049289584159851, 'value': 'nguyễn văn an', 'extractor': 'DIETClassifier', 'confidence': 1}]
+
+Text    : 0987654321
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dien_thoai', 'start': 0, 'end': 10, 'confidence_entity': 0.9717952013015747, 'value': '0987654321', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : bỏ đặt đi
+Intent  : huy (1.00)
+Entities: []
+
+Text    : cho mình đặt xe đi hải phòng
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 19, 'end': 28, 'confidence_entity': 0.992093026638031, 'value': 'hải phòng', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_den'}]
+
+Text    : đón ở an giang
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 6, 'end': 14, 'confidence_entity': 0.9985212683677673, 'value': 'an giang', 'extractor': 'DIETClassifier', 'role': 'diem_don'}]
+
+Text    : lúc 9h sáng mai
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 4, 'end': 15, 'confidence_entity': 0.5110414624214172, 'value': '9h sáng mai', 'extractor': 'DIETClassifier'}]
+
+Text    : bỏ đặt điđúng rồiđi 3 người
+Intent  : huy (1.00)
+Entities: []
+
+Text    : tên là nguyễn văn an
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'ho_ten', 'start': 7, 'end': 20, 'confidence_entity': 0.8049289584159851, 'value': 'nguyễn văn an', 'extractor': 'DIETClassifier', 'confidence': 1}]
+
+Text    : 0987654321
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dien_thoai', 'start': 0, 'end': 10, 'confidence_entity': 0.9717952013015747, 'value': '0987654321', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : tôi cần xe đi sân bay nội bài
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 14, 'end': 29, 'confidence_entity': 0.979202926158905, 'value': 'sân bay nội bài', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_den'}]
+
+Text    : đón tại cầu giấy
+Intent  : sua_thong_tin (0.54)
+Entities: [{'entity': 'dia_diem', 'start': 8, 'end': 16, 'confidence_entity': 0.3794017434120178, 'value': 'cầu giấy', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_don'}]
+
+Text    : xe 4 chỗ
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'so_luong', 'start': 3, 'end': 8, 'confidence_entity': 0.935478925704956, 'value': '4 chỗ', 'extractor': 'DIETClassifier'}]
+
+Text    : ngay bây giờ
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 0, 'end': 12, 'confidence_entity': 0.5237379670143127, 'value': 'ngay bây giờ', 'extractor': 'DIETClassifier'}]
+
+Text    : tên tôi là trần thị bình
+Intent  : sua_thong_tin (0.99)
+Entities: [{'entity': 'ho_ten', 'start': 11, 'end': 24, 'confidence_entity': 0.8252719640731812, 'value': 'trần thị bình', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : 0912345678
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dien_thoai', 'start': 0, 'end': 10, 'confidence_entity': 0.9717952013015747, 'value': '0912345678', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : đúng rồi
+Intent  : dong_y (0.99)
+Entities: []
+
+Text    : tôi cần xe đi sân bay nội bài
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 14, 'end': 29, 'confidence_entity': 0.979202926158905, 'value': 'sân bay nội bài', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_den'}]
+
+Text    : đón tại cầu giấy
+Intent  : sua_thong_tin (0.54)
+Entities: [{'entity': 'dia_diem', 'start': 8, 'end': 16, 'confidence_entity': 0.3794017434120178, 'value': 'cầu giấy', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_don'}]
+
+Text    : xe 4 chỗ
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'so_luong', 'start': 3, 'end': 8, 'confidence_entity': 0.935478925704956, 'value': '4 chỗ', 'extractor': 'DIETClassifier'}]
+
+Text    : ngay bây giờ
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 0, 'end': 12, 'confidence_entity': 0.5237379670143127, 'value': 'ngay bây giờ', 'extractor': 'DIETClassifier'}]
+
+Text    : tên tôi là trần thị bình
+Intent  : sua_thong_tin (0.99)
+Entities: [{'entity': 'ho_ten', 'start': 11, 'end': 24, 'confidence_entity': 0.8252719640731812, 'value': 'trần thị bình', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : 0912345678
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dien_thoai', 'start': 0, 'end': 10, 'confidence_entity': 0.9717952013015747, 'value': '0912345678', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : đúng rồi
+Intent  : dong_y (0.99)
+Entities: []
+
+Text    : hủy
+Intent  : huy (1.00)
+Entities: []
+
+Text    : đúng rồi
+Intent  : dong_y (0.99)
+Entities: []
+
+Text    : tôi cần xe đi sân bay nội bài
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 14, 'end': 29, 'confidence_entity': 0.979202926158905, 'value': 'sân bay nội bài', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_den'}]
+
+Text    : đón tại cầu giấy
+Intent  : sua_thong_tin (0.54)
+Entities: [{'entity': 'dia_diem', 'start': 8, 'end': 16, 'confidence_entity': 0.3794017434120178, 'value': 'cầu giấy', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_don'}]
+
+Text    : xe 4 chỗ
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'so_luong', 'start': 3, 'end': 8, 'confidence_entity': 0.935478925704956, 'value': '4 chỗ', 'extractor': 'DIETClassifier'}]
+
+Text    : ngay bây giờ
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 0, 'end': 12, 'confidence_entity': 0.5237379670143127, 'value': 'ngay bây giờ', 'extractor': 'DIETClassifier'}]
+
+Text    : tên tôi là trần thị bình
+Intent  : sua_thong_tin (0.99)
+Entities: [{'entity': 'ho_ten', 'start': 11, 'end': 24, 'confidence_entity': 0.8252719640731812, 'value': 'trần thị bình', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : 0912345678
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dien_thoai', 'start': 0, 'end': 10, 'confidence_entity': 0.9717952013015747, 'value': '0912345678', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : đúng rồi
+Intent  : dong_y (0.99)
+Entities: []
+
+Text    : hủy
+Intent  : huy (1.00)
+Entities: []
+
+Text    : đúng rồi
+Intent  : dong_y (0.99)
+Entities: []
+
+Text    : tôi cần xe đi sân bay nội bài
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 14, 'end': 29, 'confidence_entity': 0.979202926158905, 'value': 'sân bay nội bài', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_den'}]
+
+Text    : đón tại cầu giấy
+Intent  : sua_thong_tin (0.54)
+Entities: [{'entity': 'dia_diem', 'start': 8, 'end': 16, 'confidence_entity': 0.3794017434120178, 'value': 'cầu giấy', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_don'}]
+
+Text    : xe 4 chỗ
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'so_luong', 'start': 3, 'end': 8, 'confidence_entity': 0.935478925704956, 'value': '4 chỗ', 'extractor': 'DIETClassifier'}]
+
+Text    : ngay bây giờ
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 0, 'end': 12, 'confidence_entity': 0.5237379670143127, 'value': 'ngay bây giờ', 'extractor': 'DIETClassifier'}]
+
+Text    : tên tôi là trần thị bình
+Intent  : sua_thong_tin (0.99)
+Entities: [{'entity': 'ho_ten', 'start': 11, 'end': 24, 'confidence_entity': 0.8252719640731812, 'value': 'trần thị bình', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : 0912345678
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dien_thoai', 'start': 0, 'end': 10, 'confidence_entity': 0.9717952013015747, 'value': '0912345678', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : đúng rồi
+Intent  : dong_y (0.99)
+Entities: []
+
+2026-06-04 09:13:27 | 6 messages
+Text    : chào bạn đặt cho mình 1 xe ra sân bay nội bài nhé
+Intent  : chao_hoi (0.48)
+Entities: [{'entity': 'dia_diem', 'start': 30, 'end': 45, 'confidence_entity': 0.9048219323158264, 'value': 'sân bay nội bài', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'undetected'}]
+
+Text    : đón mình ở cầu giấy nha
+Intent  : sua_thong_tin (0.75)
+Entities: [{'entity': 'dia_diem', 'start': 11, 'end': 19, 'confidence_entity': 0.9846261143684387, 'value': 'cầu giấy', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper'], 'role': 'diem_don'}]
+
+Text    : xe tới ngay bây giờ luôn giúp mình
+Intent  : dong_y (0.53)
+Entities: []
+
+Text    : tên mình là trần thị bình
+Intent  : cung_cap_thong_tin (0.64)
+Entities: [{'entity': 'ho_ten', 'start': 12, 'end': 25, 'confidence_entity': 0.9497732520103455, 'value': 'trần thị bình', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : số điện thoại là 0912345678
+Intent  : cung_cap_thong_tin (0.90)
+Entities: [{'entity': 'dien_thoai', 'start': 17, 'end': 27, 'confidence_entity': 0.9976436495780945, 'value': '0912345678', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : chuẩn rồi đó cảm ơn bạn
+Intent  : dong_y (1.00)
+Entities: []
+
+2026-06-08 09:35:14 | 59 messages
+Text    : chào bạn đặt cho mình 1 xe ra sân bay nội bài nhé
+Intent  : dat_ve (0.99)
+Entities: [{'entity': 'dia_diem', 'start': 30, 'end': 45, 'confidence_entity': 0.9977329969406128, 'value': 'sân bay nội bài', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : chào bạn đặt cho mình 1 xe ra sân bay nội bài nhé
+Intent  : dat_ve (0.99)
+Entities: [{'entity': 'dia_diem', 'start': 30, 'end': 45, 'confidence_entity': 0.9977329969406128, 'value': 'sân bay nội bài', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : đón mình ở cầu giấy nha
+Intent  : dat_ve (0.62)
+Entities: []
+
+Text    : đón mình ở cầu giấy nha
+Intent  : dat_ve (0.62)
+Entities: []
+
+Text    : xe tới ngay bây giờ luôn giúp mình
+Intent  : dat_ve (0.59)
+Entities: []
+
+Text    : xe tới ngay bây giờ luôn giúp mình
+Intent  : dat_ve (0.59)
+Entities: []
+
+Text    : tên mình là hoàng công vinh
+Intent  : cung_cap_thong_tin (1.00)
+Entities: []
+
+Text    : tên mình là hoàng công vinh
+Intent  : cung_cap_thong_tin (1.00)
+Entities: []
+
+Text    : số điện thoại là 0362131412
+Intent  : cung_cap_thong_tin (0.67)
+Entities: []
+
+Text    : số điện thoại là 0362131412
+Intent  : cung_cap_thong_tin (0.67)
+Entities: []
+
+Text    : chuẩn rồi đó
+Intent  : dong_y (0.98)
+Entities: []
+
+Text    : chuẩn rồi đó
+Intent  : dong_y (0.98)
+Entities: []
+
+Text    : xin chào
+Intent  : dong_y (0.61)
+Entities: []
+
+Text    : tôi muốn hủy vé
+Intent  : dong_y (0.61)
+Entities: []
+
+Text    : đúng rồi
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : hủy
+Intent  : huy (1.00)
+Entities: []
+
+Text    : đúng rồi
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : chào bạn đặt cho mình 1 xe ra sân bay nội bài nhé
+Intent  : dat_ve (0.99)
+Entities: [{'entity': 'dia_diem', 'start': 30, 'end': 45, 'confidence_entity': 0.9977329969406128, 'value': 'sân bay nội bài', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : chào bạn đặt cho mình 1 xe ra sân bay nội bài nhé
+Intent  : dat_ve (0.99)
+Entities: [{'entity': 'dia_diem', 'start': 30, 'end': 45, 'confidence_entity': 0.9977329969406128, 'value': 'sân bay nội bài', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : đón mình ở cầu giấy nha
+Intent  : dat_ve (0.62)
+Entities: []
+
+Text    : đón mình ở cầu giấy nha
+Intent  : dat_ve (0.62)
+Entities: []
+
+Text    : xe tới ngay bây giờ luôn giúp mình
+Intent  : dat_ve (0.59)
+Entities: []
+
+Text    : xe tới ngay bây giờ luôn giúp mình
+Intent  : dat_ve (0.59)
+Entities: []
+
+Text    : tên mình là hoàng công vinh
+Intent  : cung_cap_thong_tin (1.00)
+Entities: []
+
+Text    : tên mình là hoàng công vinh
+Intent  : cung_cap_thong_tin (1.00)
+Entities: []
+
+Text    : số điện thoại là 0362131412
+Intent  : cung_cap_thong_tin (0.67)
+Entities: []
+
+Text    : số điện thoại là 0362131412
+Intent  : cung_cap_thong_tin (0.67)
+Entities: []
+
+Text    : chuẩn rồi đó
+Intent  : dong_y (0.98)
+Entities: []
+
+Text    : chuẩn rồi đó
+Intent  : dong_y (0.98)
+Entities: []
+
+Text    : hủy
+Intent  : huy (1.00)
+Entities: []
+
+Text    : đúng rồi
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : chào bạn đặt cho mình 1 xe ra sân bay nội bài nhé
+Intent  : dat_ve (0.99)
+Entities: [{'entity': 'dia_diem', 'start': 30, 'end': 45, 'confidence_entity': 0.9977329969406128, 'value': 'sân bay nội bài', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : chào bạn đặt cho mình 1 xe ra sân bay nội bài nhé
+Intent  : dat_ve (0.99)
+Entities: [{'entity': 'dia_diem', 'start': 30, 'end': 45, 'confidence_entity': 0.9977329969406128, 'value': 'sân bay nội bài', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : đón mình ở hà nội nha
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 11, 'end': 17, 'confidence_entity': 0.9993261098861694, 'value': 'hà nội', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : đón mình ở hà nội nha
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 11, 'end': 17, 'confidence_entity': 0.9993261098861694, 'value': 'hà nội', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : tầm 6h chiều mai
+Intent  : cung_cap_thong_tin (1.00)
+Entities: []
+
+Text    : tầm 6h chiều mai
+Intent  : cung_cap_thong_tin (1.00)
+Entities: []
+
+Text    : tên mình là nguyễn ngọc đoàn
+Intent  : cung_cap_thong_tin (1.00)
+Entities: []
+
+Text    : tên mình là nguyễn ngọc đoàn
+Intent  : cung_cap_thong_tin (1.00)
+Entities: []
+
+Text    : số điện thoại là 0362131412
+Intent  : cung_cap_thong_tin (0.67)
+Entities: []
+
+Text    : số điện thoại là 0362131412
+Intent  : cung_cap_thong_tin (0.67)
+Entities: []
+
+Text    : chuẩn rồi đó
+Intent  : dong_y (0.98)
+Entities: []
+
+Text    : chuẩn rồi đó
+Intent  : dong_y (0.98)
+Entities: []
+
+Text    : chào bạn đặt cho mình 1 xe ra sân bay nội bài nhé
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 30, 'end': 45, 'confidence_entity': 0.9972467422485352, 'value': 'sân bay nội bài', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : chào bạn đặt cho mình 1 xe ra sân bay nội bài nhé
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 30, 'end': 45, 'confidence_entity': 0.9972467422485352, 'value': 'sân bay nội bài', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : đón mình ở hà nội nha
+Intent  : dat_ve (0.98)
+Entities: [{'entity': 'dia_diem', 'start': 11, 'end': 17, 'confidence_entity': 0.9980136156082153, 'value': 'hà nội', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : đón mình ở hà nội nha
+Intent  : dat_ve (0.98)
+Entities: [{'entity': 'dia_diem', 'start': 11, 'end': 17, 'confidence_entity': 0.9980136156082153, 'value': 'hà nội', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : tầm 6h chiều mai
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 4, 'end': 6, 'confidence_entity': 0.5246983766555786, 'value': '6h', 'extractor': 'DIETClassifier'}, {'entity': 'thoi_gian', 'start': 7, 'end': 16, 'confidence_entity': 0.36735641956329346, 'value': 'chiều mai', 'extractor': 'DIETClassifier'}]
+
+Text    : tầm 6h chiều mai
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 4, 'end': 6, 'confidence_entity': 0.5246983766555786, 'value': '6h', 'extractor': 'DIETClassifier'}, {'entity': 'thoi_gian', 'start': 7, 'end': 16, 'confidence_entity': 0.36735641956329346, 'value': 'chiều mai', 'extractor': 'DIETClassifier'}]
+
+Text    : tên mình là nguyễn ngọc đoàn
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'ho_ten', 'start': 12, 'end': 28, 'confidence_entity': 0.5921409726142883, 'value': 'nguyễn ngọc đoàn', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : tên mình là nguyễn ngọc đoàn
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'ho_ten', 'start': 12, 'end': 28, 'confidence_entity': 0.5921409726142883, 'value': 'nguyễn ngọc đoàn', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : số điện thoại là 0362131412
+Intent  : cung_cap_thong_tin (0.89)
+Entities: []
+
+Text    : số điện thoại là 0362131412
+Intent  : cung_cap_thong_tin (0.89)
+Entities: []
+
+Text    : chuẩn rồi đó
+Intent  : dong_y (0.96)
+Entities: []
+
+Text    : chuẩn rồi đó
+Intent  : dong_y (0.96)
+Entities: []
+
+Text    : đi 2 người
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'so_luong', 'start': 3, 'end': 10, 'confidence_entity': 0.9645518660545349, 'value': '2 người', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : 0984658702
+Intent  : tu_choi (0.95)
+Entities: []
+
+Text    : 0987654321
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dien_thoai', 'start': 0, 'end': 10, 'confidence_entity': 0.912041187286377, 'value': '0987654321', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : đúng rồi
+Intent  : dong_y (1.00)
+Entities: []
+
+2026-06-10 08:40:35 | 84 messages
+Text    : chào bạn đặt cho mình 1 xe ra sân bay nội bài nhé
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 30, 'end': 45, 'confidence_entity': 0.9961696267127991, 'value': 'sân bay nội bài', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : chào bạn đặt cho mình 1 xe ra sân bay nội bài nhé
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 30, 'end': 45, 'confidence_entity': 0.9961696267127991, 'value': 'sân bay nội bài', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : đón mình ở hà nội nha
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 11, 'end': 17, 'confidence_entity': 0.9982978701591492, 'value': 'hà nội', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : đón mình ở hà nội nha
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 11, 'end': 17, 'confidence_entity': 0.9982978701591492, 'value': 'hà nội', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : tầm 6h chiều mai
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 4, 'end': 16, 'confidence_entity': 0.49771374464035034, 'value': '6h chiều mai', 'extractor': 'DIETClassifier'}]
+
+Text    : tầm 6h chiều mai
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 4, 'end': 16, 'confidence_entity': 0.49771374464035034, 'value': '6h chiều mai', 'extractor': 'DIETClassifier'}]
+
+Text    : đi 3 người
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'so_luong', 'start': 3, 'end': 10, 'confidence_entity': 0.9856703877449036, 'value': '3 người', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : đi 3 người
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'so_luong', 'start': 3, 'end': 10, 'confidence_entity': 0.9856703877449036, 'value': '3 người', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : tên mình là nguyễn ngọc đoàn
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'ho_ten', 'start': 12, 'end': 28, 'confidence_entity': 0.8007875084877014, 'value': 'nguyễn ngọc đoàn', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : tên mình là nguyễn ngọc đoàn
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'ho_ten', 'start': 12, 'end': 28, 'confidence_entity': 0.8007875084877014, 'value': 'nguyễn ngọc đoàn', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : số điện thoại là 0987654321
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dien_thoai', 'start': 17, 'end': 27, 'confidence_entity': 0.9637901782989502, 'value': '0987654321', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : số điện thoại là 0987654321
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dien_thoai', 'start': 17, 'end': 27, 'confidence_entity': 0.9637901782989502, 'value': '0987654321', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : chuẩn rồi đó
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : chuẩn rồi đó
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : mình cần đặt 1 chuyến xe đi sân bay nội bài
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 28, 'end': 43, 'confidence_entity': 0.9933387637138367, 'value': 'sân bay nội bài', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : mình cần đặt 1 chuyến xe đi sân bay nội bài
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 28, 'end': 43, 'confidence_entity': 0.9933387637138367, 'value': 'sân bay nội bài', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : điểm đón là tại tòa nhà keangnam hà nội
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 16, 'end': 23, 'confidence_entity': 0.4030851423740387, 'value': 'tòa nhà', 'extractor': 'DIETClassifier'}, {'entity': 'dia_diem', 'start': 33, 'end': 39, 'confidence_entity': 0.9958133101463318, 'value': 'hà nội', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : điểm đón là tại tòa nhà keangnam hà nội
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 16, 'end': 23, 'confidence_entity': 0.4030851423740387, 'value': 'tòa nhà', 'extractor': 'DIETClassifier'}, {'entity': 'dia_diem', 'start': 33, 'end': 39, 'confidence_entity': 0.9958133101463318, 'value': 'hà nội', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : thời gian dự kiến là 18h ngày mai
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 21, 'end': 33, 'confidence_entity': 0.5140304565429688, 'value': '18h ngày mai', 'extractor': 'DIETClassifier'}]
+
+Text    : thời gian dự kiến là 18h ngày mai
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 21, 'end': 33, 'confidence_entity': 0.5140304565429688, 'value': '18h ngày mai', 'extractor': 'DIETClassifier'}]
+
+Text    : đoàn của mình có tất cả 3 người
+Intent  : dat_ve (0.94)
+Entities: [{'entity': 'ho_ten', 'start': 0, 'end': 4, 'confidence_entity': 0.87453693151474, 'value': 'đoàn', 'extractor': 'DIETClassifier'}, {'entity': 'so_luong', 'start': 17, 'end': 31, 'confidence_entity': 0.301677942276001, 'value': 'tất cả 3 người', 'extractor': 'DIETClassifier'}]
+
+Text    : đoàn của mình có tất cả 3 người
+Intent  : dat_ve (0.94)
+Entities: [{'entity': 'ho_ten', 'start': 0, 'end': 4, 'confidence_entity': 0.87453693151474, 'value': 'đoàn', 'extractor': 'DIETClassifier'}, {'entity': 'so_luong', 'start': 17, 'end': 31, 'confidence_entity': 0.301677942276001, 'value': 'tất cả 3 người', 'extractor': 'DIETClassifier'}]
+
+Text    : người đặt là nguyễn ngọc đoàn
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'ho_ten', 'start': 13, 'end': 29, 'confidence_entity': 0.8081961274147034, 'value': 'nguyễn ngọc đoàn', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : người đặt là nguyễn ngọc đoàn
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'ho_ten', 'start': 13, 'end': 29, 'confidence_entity': 0.8081961274147034, 'value': 'nguyễn ngọc đoàn', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : số điện thoại liên hệ là 0987654321
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dien_thoai', 'start': 25, 'end': 35, 'confidence_entity': 0.9584886431694031, 'value': '0987654321', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : số điện thoại liên hệ là 0987654321
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dien_thoai', 'start': 25, 'end': 35, 'confidence_entity': 0.9584886431694031, 'value': '0987654321', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : thông tin hoàn toàn chính xác
+Intent  : tu_choi (0.99)
+Entities: []
+
+Text    : thông tin hoàn toàn chính xác
+Intent  : tu_choi (0.99)
+Entities: []
+
+Text    : đặt xe đi nội bài
+Intent  : dat_ve (0.82)
+Entities: []
+
+Text    : đặt xe đi nội bài
+Intent  : dat_ve (0.82)
+Entities: []
+
+Text    : đón ở hà nội
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 6, 'end': 12, 'confidence_entity': 0.9988777041435242, 'value': 'hà nội', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : đón ở hà nội
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 6, 'end': 12, 'confidence_entity': 0.9988777041435242, 'value': 'hà nội', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : mai 6h chiều
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'ho_ten', 'start': 0, 'end': 12, 'confidence_entity': 0.52, 'value': 'mai 6h chiều', 'extractor': 'DIETClassifier'}]
+
+Text    : mai 6h chiều
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'ho_ten', 'start': 0, 'end': 12, 'confidence_entity': 0.52, 'value': 'mai 6h chiều', 'extractor': 'DIETClassifier'}]
+
+Text    : 3 khách
+Intent  : tu_choi (0.95)
+Entities: []
+
+Text    : 3 khách
+Intent  : tu_choi (0.95)
+Entities: []
+
+Text    : nguyễn ngọc đoàn
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'ho_ten', 'start': 0, 'end': 16, 'confidence_entity': 0.5478034019470215, 'value': 'nguyễn ngọc đoàn', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : nguyễn ngọc đoàn
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'ho_ten', 'start': 0, 'end': 16, 'confidence_entity': 0.5478034019470215, 'value': 'nguyễn ngọc đoàn', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : 0987654321
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dien_thoai', 'start': 0, 'end': 10, 'confidence_entity': 0.9686737656593323, 'value': '0987654321', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : 0987654321
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dien_thoai', 'start': 0, 'end': 10, 'confidence_entity': 0.9686737656593323, 'value': '0987654321', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : đúng rồi
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : đúng rồi
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : shop ơi đặt giúp mình chuyến xe ra nội bài với ạ
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 35, 'end': 42, 'confidence_entity': 0.3810873329639435, 'value': 'nội bài', 'extractor': 'DIETClassifier'}]
+
+Text    : shop ơi đặt giúp mình chuyến xe ra nội bài với ạ
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 35, 'end': 42, 'confidence_entity': 0.3810873329639435, 'value': 'nội bài', 'extractor': 'DIETClassifier'}]
+
+Text    : mình ở hà nội nha địa chỉ cụ thể mình nhắn sau nhé
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 7, 'end': 17, 'confidence_entity': 0.688887894153595, 'value': 'hà nội nha', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}, {'entity': 'thoi_gian', 'start': 38, 'end': 46, 'confidence_entity': 0.29988422989845276, 'value': 'nhắn sau', 'extractor': 'DIETClassifier'}]
+
+Text    : mình ở hà nội nha địa chỉ cụ thể mình nhắn sau nhé
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 7, 'end': 17, 'confidence_entity': 0.688887894153595, 'value': 'hà nội nha', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}, {'entity': 'thoi_gian', 'start': 38, 'end': 46, 'confidence_entity': 0.29988422989845276, 'value': 'nhắn sau', 'extractor': 'DIETClassifier'}]
+
+Text    : tầm 6h chiều mai mình đi
+Intent  : cung_cap_thong_tin (0.99)
+Entities: [{'entity': 'thoi_gian', 'start': 4, 'end': 16, 'confidence_entity': 0.3549712598323822, 'value': '6h chiều mai', 'extractor': 'DIETClassifier'}]
+
+Text    : tầm 6h chiều mai mình đi
+Intent  : cung_cap_thong_tin (0.99)
+Entities: [{'entity': 'thoi_gian', 'start': 4, 'end': 16, 'confidence_entity': 0.3549712598323822, 'value': '6h chiều mai', 'extractor': 'DIETClassifier'}]
+
+Text    : nhóm mình có 3 đứa thôi nè
+Intent  : huy (0.99)
+Entities: [{'entity': 'dia_diem', 'start': 24, 'end': 26, 'confidence_entity': 0.43233057856559753, 'value': 'nè', 'extractor': 'DIETClassifier'}]
+
+Text    : nhóm mình có 3 đứa thôi nè
+Intent  : huy (0.99)
+Entities: [{'entity': 'dia_diem', 'start': 24, 'end': 26, 'confidence_entity': 0.43233057856559753, 'value': 'nè', 'extractor': 'DIETClassifier'}]
+
+Text    : tên mình là nguyễn ngọc đoàn nha
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'ho_ten', 'start': 12, 'end': 28, 'confidence_entity': 0.9562059044837952, 'value': 'nguyễn ngọc đoàn', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}, {'entity': 'dia_diem', 'start': 29, 'end': 32, 'confidence_entity': 0.8492902517318726, 'value': 'nha', 'extractor': 'DIETClassifier'}]
+
+Text    : tên mình là nguyễn ngọc đoàn nha
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'ho_ten', 'start': 12, 'end': 28, 'confidence_entity': 0.9562059044837952, 'value': 'nguyễn ngọc đoàn', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}, {'entity': 'dia_diem', 'start': 29, 'end': 32, 'confidence_entity': 0.8492902517318726, 'value': 'nha', 'extractor': 'DIETClassifier'}]
+
+Text    : số dây thép là 0987654321
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dien_thoai', 'start': 15, 'end': 25, 'confidence_entity': 0.955845832824707, 'value': '0987654321', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : số dây thép là 0987654321
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dien_thoai', 'start': 15, 'end': 25, 'confidence_entity': 0.955845832824707, 'value': '0987654321', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : chính xác rồi ạ cảm ơn bạn nhiều
+Intent  : dong_y (0.82)
+Entities: [{'entity': 'dia_diem', 'start': 27, 'end': 32, 'confidence_entity': 0.2705831229686737, 'value': 'nhiều', 'extractor': 'DIETClassifier'}]
+
+Text    : chính xác rồi ạ cảm ơn bạn nhiều
+Intent  : dong_y (0.82)
+Entities: [{'entity': 'dia_diem', 'start': 27, 'end': 32, 'confidence_entity': 0.2705831229686737, 'value': 'nhiều', 'extractor': 'DIETClassifier'}]
+
+Text    : alo bạn còn xe đi sân bay nội bài 0 mình cần gấp
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 18, 'end': 33, 'confidence_entity': 0.9969872832298279, 'value': 'sân bay nội bài', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}, {'entity': 'so_luong', 'start': 34, 'end': 40, 'confidence_entity': 0.9890115261077881, 'value': '0 mình', 'extractor': 'DIETClassifier'}]
+
+Text    : alo bạn còn xe đi sân bay nội bài 0 mình cần gấp
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 18, 'end': 33, 'confidence_entity': 0.9969872832298279, 'value': 'sân bay nội bài', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}, {'entity': 'so_luong', 'start': 34, 'end': 40, 'confidence_entity': 0.9890115261077881, 'value': '0 mình', 'extractor': 'DIETClassifier'}]
+
+Text    : mình đang ở hà nội đoạn gần hồ hoàn kiếm nhé
+Intent  : dat_ve (0.98)
+Entities: [{'entity': 'dia_diem', 'start': 12, 'end': 18, 'confidence_entity': 0.9924125075340271, 'value': 'hà nội', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}, {'entity': 'dia_diem', 'start': 28, 'end': 30, 'confidence_entity': 0.9879602193832397, 'value': 'hồ', 'extractor': 'DIETClassifier'}]
+
+Text    : mình đang ở hà nội đoạn gần hồ hoàn kiếm nhé
+Intent  : dat_ve (0.98)
+Entities: [{'entity': 'dia_diem', 'start': 12, 'end': 18, 'confidence_entity': 0.9924125075340271, 'value': 'hà nội', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}, {'entity': 'dia_diem', 'start': 28, 'end': 30, 'confidence_entity': 0.9879602193832397, 'value': 'hồ', 'extractor': 'DIETClassifier'}]
+
+Text    : mai tầm 6h chiều hoặc muộn hơn chút cũng được cứ chốt 6h đi
+Intent  : dong_y (0.73)
+Entities: [{'entity': 'thoi_gian', 'start': 8, 'end': 16, 'confidence_entity': 0.4119392931461334, 'value': '6h chiều', 'extractor': 'DIETClassifier'}, {'entity': 'thoi_gian', 'start': 54, 'end': 56, 'confidence_entity': 0.5188801288604736, 'value': '6h', 'extractor': 'DIETClassifier'}]
+
+Text    : mai tầm 6h chiều hoặc muộn hơn chút cũng được cứ chốt 6h đi
+Intent  : dong_y (0.73)
+Entities: [{'entity': 'thoi_gian', 'start': 8, 'end': 16, 'confidence_entity': 0.4119392931461334, 'value': '6h chiều', 'extractor': 'DIETClassifier'}, {'entity': 'thoi_gian', 'start': 54, 'end': 56, 'confidence_entity': 0.5188801288604736, 'value': '6h', 'extractor': 'DIETClassifier'}]
+
+Text    : đoàn 3 người nhớ mang xe to chút cho thoải mái nhé
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'ho_ten', 'start': 0, 'end': 4, 'confidence_entity': 0.9221436381340027, 'value': 'đoàn', 'extractor': 'DIETClassifier'}, {'entity': 'so_luong', 'start': 5, 'end': 12, 'confidence_entity': 0.9833674430847168, 'value': '3 người', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}, {'entity': 'thoi_gian', 'start': 43, 'end': 46, 'confidence_entity': 0.6853605508804321, 'value': 'mái', 'extractor': 'DIETClassifier'}]
+
+Text    : đoàn 3 người nhớ mang xe to chút cho thoải mái nhé
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'ho_ten', 'start': 0, 'end': 4, 'confidence_entity': 0.9221436381340027, 'value': 'đoàn', 'extractor': 'DIETClassifier'}, {'entity': 'so_luong', 'start': 5, 'end': 12, 'confidence_entity': 0.9833674430847168, 'value': '3 người', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}, {'entity': 'thoi_gian', 'start': 43, 'end': 46, 'confidence_entity': 0.6853605508804321, 'value': 'mái', 'extractor': 'DIETClassifier'}]
+
+Text    : tên mình là đoàn nguyễn ngọc đoàn nhé
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'ho_ten', 'start': 12, 'end': 33, 'confidence_entity': 0.9719650745391846, 'value': 'đoàn nguyễn ngọc đoàn', 'extractor': 'DIETClassifier'}]
+
+Text    : tên mình là đoàn nguyễn ngọc đoàn nhé
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'ho_ten', 'start': 12, 'end': 33, 'confidence_entity': 0.9719650745391846, 'value': 'đoàn nguyễn ngọc đoàn', 'extractor': 'DIETClassifier'}]
+
+Text    : sđt là 0987654321 gọi số này là thấy mình ngay
+Intent  : dat_ve (0.99)
+Entities: [{'entity': 'dien_thoai', 'start': 7, 'end': 17, 'confidence_entity': 0.9976294636726379, 'value': '0987654321', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}, {'entity': 'dia_diem', 'start': 32, 'end': 36, 'confidence_entity': 0.7383926510810852, 'value': 'thấy', 'extractor': 'DIETClassifier'}]
+
+Text    : sđt là 0987654321 gọi số này là thấy mình ngay
+Intent  : dat_ve (0.99)
+Entities: [{'entity': 'dien_thoai', 'start': 7, 'end': 17, 'confidence_entity': 0.9976294636726379, 'value': '0987654321', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}, {'entity': 'dia_diem', 'start': 32, 'end': 36, 'confidence_entity': 0.7383926510810852, 'value': 'thấy', 'extractor': 'DIETClassifier'}]
+
+Text    : vâng đúng thông tin rồi triển thôi
+Intent  : dong_y (0.99)
+Entities: []
+
+Text    : vâng đúng thông tin rồi triển thôi
+Intent  : dong_y (0.99)
+Entities: []
+
+Text    : em ơi làm cho anh chuyến xe ra nội bài với
+Intent  : dat_ve (0.99)
+Entities: [{'entity': 'ho_ten', 'start': 14, 'end': 17, 'confidence_entity': 0.90975421667099, 'value': 'anh', 'extractor': 'DIETClassifier'}, {'entity': 'dia_diem', 'start': 31, 'end': 38, 'confidence_entity': 0.6358802318572998, 'value': 'nội bài', 'extractor': 'DIETClassifier'}]
+
+Text    : em ơi làm cho anh chuyến xe ra nội bài với
+Intent  : dat_ve (0.99)
+Entities: [{'entity': 'ho_ten', 'start': 14, 'end': 17, 'confidence_entity': 0.90975421667099, 'value': 'anh', 'extractor': 'DIETClassifier'}, {'entity': 'dia_diem', 'start': 31, 'end': 38, 'confidence_entity': 0.6358802318572998, 'value': 'nội bài', 'extractor': 'DIETClassifier'}]
+
+Text    : anh đang ở hà nội đây
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 11, 'end': 21, 'confidence_entity': 0.3497224748134613, 'value': 'hà nội đây', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : anh đang ở hà nội đây
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 11, 'end': 21, 'confidence_entity': 0.3497224748134613, 'value': 'hà nội đây', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : mai tầm 6h chiều chiều nhé
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'ho_ten', 'start': 0, 'end': 3, 'confidence_entity': 0.4726836383342743, 'value': 'mai', 'extractor': 'DIETClassifier'}, {'entity': 'thoi_gian', 'start': 8, 'end': 22, 'confidence_entity': 0.5341783761978149, 'value': '6h chiều chiều', 'extractor': 'DIETClassifier'}]
+
+Text    : mai tầm 6h chiều chiều nhé
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'ho_ten', 'start': 0, 'end': 3, 'confidence_entity': 0.4726836383342743, 'value': 'mai', 'extractor': 'DIETClassifier'}, {'entity': 'thoi_gian', 'start': 8, 'end': 22, 'confidence_entity': 0.5341783761978149, 'value': '6h chiều chiều', 'extractor': 'DIETClassifier'}]
+
+Text    : có 3 người thôi
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'so_luong', 'start': 3, 'end': 10, 'confidence_entity': 0.9808361530303955, 'value': '3 người', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : có 3 người thôi
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'so_luong', 'start': 3, 'end': 10, 'confidence_entity': 0.9808361530303955, 'value': '3 người', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : tên anh là nguyễn ngọc đoàn
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'ho_ten', 'start': 4, 'end': 7, 'confidence_entity': 0.8035423755645752, 'value': 'anh', 'extractor': 'DIETClassifier'}, {'entity': 'ho_ten', 'start': 11, 'end': 27, 'confidence_entity': 0.7758530974388123, 'value': 'nguyễn ngọc đoàn', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : tên anh là nguyễn ngọc đoàn
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'ho_ten', 'start': 4, 'end': 7, 'confidence_entity': 0.8035423755645752, 'value': 'anh', 'extractor': 'DIETClassifier'}, {'entity': 'ho_ten', 'start': 11, 'end': 27, 'confidence_entity': 0.7758530974388123, 'value': 'nguyễn ngọc đoàn', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : số gọi là 0987654321 nhé
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dien_thoai', 'start': 10, 'end': 20, 'confidence_entity': 0.9768733978271484, 'value': '0987654321', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : số gọi là 0987654321 nhé
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dien_thoai', 'start': 10, 'end': 20, 'confidence_entity': 0.9768733978271484, 'value': '0987654321', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : chuẩn men chốt nhé
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : chuẩn men chốt nhé
+Intent  : dong_y (1.00)
+Entities: []
+
+2026-06-25 14:12:36 | 14 messages
+Text    : tôi muốn đặt xe
+Intent  : dat_ve (1.00)
+Entities: []
+
+Text    : toán mình ở ngã trên
+Intent  : cung_cap_thong_tin (0.99)
+Entities: []
+
+Text    : cơ sở
+Intent  : cung_cap_thong_tin (1.00)
+Entities: []
+
+Text    : đón ở ngã tư sở
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 6, 'end': 9, 'confidence_entity': 0.6750662326812744, 'value': 'ngã', 'extractor': 'DIETClassifier'}]
+
+Text    : đi đến đà nẵng
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 7, 'end': 14, 'confidence_entity': 0.9960044026374817, 'value': 'đà nẵng', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : lúc
+Intent  : cung_cap_thong_tin (0.83)
+Entities: []
+
+Text    : 9h30
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 0, 'end': 4, 'confidence_entity': 0.5109264850616455, 'value': '9h30', 'extractor': 'DIETClassifier'}]
+
+Text    : đi 100 người
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'so_luong', 'start': 3, 'end': 12, 'confidence_entity': 0.9920349717140198, 'value': '100 người', 'extractor': 'DIETClassifier'}]
+
+Text    : nguyễn hoài nam
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'ho_ten', 'start': 0, 'end': 6, 'confidence_entity': 0.9569135904312134, 'value': 'nguyễn', 'extractor': 'DIETClassifier'}, {'entity': 'ho_ten', 'start': 12, 'end': 15, 'confidence_entity': 0.9214069843292236, 'value': 'nam', 'extractor': 'DIETClassifier'}]
+
+Text    : nam
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'ho_ten', 'start': 0, 'end': 3, 'confidence_entity': 0.9817818403244019, 'value': 'nam', 'extractor': 'DIETClassifier'}]
+
+Text    : 0 3 6 3 8 2 33
+Intent  : tu_choi (0.81)
+Entities: []
+
+Text    : 2 5
+Intent  : tu_choi (1.00)
+Entities: []
+
+Text    : 0363823325
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dien_thoai', 'start': 0, 'end': 10, 'confidence_entity': 0.9775632619857788, 'value': '0363823325', 'extractor': 'DIETClassifier'}]
+
+Text    : đúng rồi
+Intent  : dong_y (1.00)
+Entities: []
+
+2026-06-25 14:12:45 | 14 messages
+Text    : tôi muốn đặt xe
+Intent  : dat_ve (1.00)
+Entities: []
+
+Text    : toán mình ở ngã trên
+Intent  : cung_cap_thong_tin (0.99)
+Entities: []
+
+Text    : cơ sở
+Intent  : cung_cap_thong_tin (1.00)
+Entities: []
+
+Text    : đón ở ngã tư sở
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 6, 'end': 9, 'confidence_entity': 0.6750662326812744, 'value': 'ngã', 'extractor': 'DIETClassifier'}]
+
+Text    : đi đến đà nẵng
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 7, 'end': 14, 'confidence_entity': 0.9960044026374817, 'value': 'đà nẵng', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : lúc
+Intent  : cung_cap_thong_tin (0.83)
+Entities: []
+
+Text    : 9h30
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 0, 'end': 4, 'confidence_entity': 0.5109264850616455, 'value': '9h30', 'extractor': 'DIETClassifier'}]
+
+Text    : đi 100 người
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'so_luong', 'start': 3, 'end': 12, 'confidence_entity': 0.9920349717140198, 'value': '100 người', 'extractor': 'DIETClassifier'}]
+
+Text    : nguyễn hoài nam
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'ho_ten', 'start': 0, 'end': 6, 'confidence_entity': 0.9569135904312134, 'value': 'nguyễn', 'extractor': 'DIETClassifier'}, {'entity': 'ho_ten', 'start': 12, 'end': 15, 'confidence_entity': 0.9214069843292236, 'value': 'nam', 'extractor': 'DIETClassifier'}]
+
+Text    : nam
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'ho_ten', 'start': 0, 'end': 3, 'confidence_entity': 0.9817818403244019, 'value': 'nam', 'extractor': 'DIETClassifier'}]
+
+Text    : 0 3 6 3 8 2 33
+Intent  : tu_choi (0.81)
+Entities: []
+
+Text    : 2 5
+Intent  : tu_choi (1.00)
+Entities: []
+
+Text    : 0363823325
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dien_thoai', 'start': 0, 'end': 10, 'confidence_entity': 0.9775632619857788, 'value': '0363823325', 'extractor': 'DIETClassifier'}]
+
+Text    : đúng rồi
+Intent  : dong_y (1.00)
+Entities: []
+
+2026-07-02 10:29:04 | 0 messages
+(Không có message mới)
+
+2026-07-03 10:43:17 | 28 messages
+Text    : tôi muốn đặt xe
+Intent  : dat_ve (1.00)
+Entities: []
+
+Text    : đặt xe địa điểm 0912345679 xuống bệnh viện tai mũi họng thành phố hồ chí minh đón tại bệnh viện viện tim thành phố hồ chí minh cho an lúc 24h sáng mai đi 100 vé
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dien_thoai', 'start': 16, 'end': 26, 'confidence_entity': 0.9987156391143799, 'value': '0912345679', 'extractor': 'DIETClassifier'}, {'entity': 'dia_diem', 'start': 33, 'end': 77, 'confidence_entity': 0.9985973238945007, 'value': 'bệnh viện tai mũi họng thành phố hồ chí minh', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}, {'entity': 'dia_diem', 'start': 86, 'end': 126, 'confidence_entity': 0.9986079335212708, 'value': 'bệnh viện viện tim thành phố hồ chí minh', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}, {'entity': 'ho_ten', 'start': 131, 'end': 133, 'confidence_entity': 0.8315719962120056, 'value': 'an', 'extractor': 'DIETClassifier'}, {'entity': 'thoi_gian', 'start': 138, 'end': 150, 'confidence_entity': 0.37390705943107605, 'value': '24h sáng mai', 'extractor': 'DIETClassifier'}, {'entity': 'so_luong', 'start': 154, 'end': 160, 'confidence_entity': 0.9749106764793396, 'value': '100 vé', 'extractor': 'DIETClassifier'}]
+
+Text    : đặt xe địa điểm 0912345679 xuống bệnh viện tai mũi họng thành phố hồ chí minh đón tại bệnh viện viện tim thành phố hồ chí minh cho an lúc 24h sáng mai đi 100 vé
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dien_thoai', 'start': 16, 'end': 26, 'confidence_entity': 0.9987156391143799, 'value': '0912345679', 'extractor': 'DIETClassifier'}, {'entity': 'dia_diem', 'start': 33, 'end': 77, 'confidence_entity': 0.9985973238945007, 'value': 'bệnh viện tai mũi họng thành phố hồ chí minh', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}, {'entity': 'dia_diem', 'start': 86, 'end': 126, 'confidence_entity': 0.9986079335212708, 'value': 'bệnh viện viện tim thành phố hồ chí minh', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}, {'entity': 'ho_ten', 'start': 131, 'end': 133, 'confidence_entity': 0.8315719962120056, 'value': 'an', 'extractor': 'DIETClassifier'}, {'entity': 'thoi_gian', 'start': 138, 'end': 150, 'confidence_entity': 0.37390705943107605, 'value': '24h sáng mai', 'extractor': 'DIETClassifier'}, {'entity': 'so_luong', 'start': 154, 'end': 160, 'confidence_entity': 0.9749106764793396, 'value': '100 vé', 'extractor': 'DIETClassifier'}]
+
+Text    : đặt xe địa điểm 0912345679 xuống bệnh viện tai mũi họng thành phố hồ chí minh đón tại bệnh viện viện tim thành phố hồ chí minh cho an lúc 24h sáng mai đi 100 vé
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dien_thoai', 'start': 16, 'end': 26, 'confidence_entity': 0.9987156391143799, 'value': '0912345679', 'extractor': 'DIETClassifier'}, {'entity': 'dia_diem', 'start': 33, 'end': 77, 'confidence_entity': 0.9985973238945007, 'value': 'bệnh viện tai mũi họng thành phố hồ chí minh', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}, {'entity': 'dia_diem', 'start': 86, 'end': 126, 'confidence_entity': 0.9986079335212708, 'value': 'bệnh viện viện tim thành phố hồ chí minh', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}, {'entity': 'ho_ten', 'start': 131, 'end': 133, 'confidence_entity': 0.8315719962120056, 'value': 'an', 'extractor': 'DIETClassifier'}, {'entity': 'thoi_gian', 'start': 138, 'end': 150, 'confidence_entity': 0.37390705943107605, 'value': '24h sáng mai', 'extractor': 'DIETClassifier'}, {'entity': 'so_luong', 'start': 154, 'end': 160, 'confidence_entity': 0.9749106764793396, 'value': '100 vé', 'extractor': 'DIETClassifier'}]
+
+Text    : đúng rồi
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : tôi muốn đặt xe
+Intent  : dat_ve (1.00)
+Entities: []
+
+Text    : tôi muốn đặt xe
+Intent  : dat_ve (1.00)
+Entities: []
+
+Text    : tôi muốn đặt xe
+Intent  : dat_ve (1.00)
+Entities: []
+
+Text    : đón ở bến xe trung tâm đà nẵng
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 6, 'end': 30, 'confidence_entity': 0.9983843564987183, 'value': 'bến xe trung tâm đà nẵng', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : tôi muốn đặt xe
+Intent  : dat_ve (1.00)
+Entities: []
+
+Text    : tôi muốn đặt xe
+Intent  : dat_ve (1.00)
+Entities: []
+
+Text    : tôi muốn đặt xe
+Intent  : dat_ve (1.00)
+Entities: []
+
+Text    : hủy đặt đi
+Intent  : huy (1.00)
+Entities: []
+
+Text    : đúng rồi
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : tôi muốn đặt xe
+Intent  : dat_ve (1.00)
+Entities: []
+
+Text    : bỏ đi
+Intent  : huy (1.00)
+Entities: []
+
+Text    : đúng rồi
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : tôi muốn đặt xe
+Intent  : dat_ve (1.00)
+Entities: []
+
+Text    : bỏ đi
+Intent  : huy (1.00)
+Entities: []
+
+Text    : bỏ đi
+Intent  : huy (1.00)
+Entities: []
+
+Text    : bỏ đi
+Intent  : huy (1.00)
+Entities: []
+
+Text    : bỏ đi
+Intent  : huy (1.00)
+Entities: []
+
+Text    : đúng rồi
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : tôi muốn đặt xe
+Intent  : dat_ve (1.00)
+Entities: []
+
+Text    : đón ở bến xe trung tâm đà nẵng
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 6, 'end': 30, 'confidence_entity': 0.9983843564987183, 'value': 'bến xe trung tâm đà nẵng', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : đặt xe địa điểm 0912345679 xuống bệnh viện tai mũi họng thành phố hồ chí minh đón tại bệnh viện viện tim thành phố hồ chí minh cho an lúc 24h sáng mai đi 100 vé
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dien_thoai', 'start': 16, 'end': 26, 'confidence_entity': 0.9987156391143799, 'value': '0912345679', 'extractor': 'DIETClassifier'}, {'entity': 'dia_diem', 'start': 33, 'end': 77, 'confidence_entity': 0.9985973238945007, 'value': 'bệnh viện tai mũi họng thành phố hồ chí minh', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}, {'entity': 'dia_diem', 'start': 86, 'end': 126, 'confidence_entity': 0.9986079335212708, 'value': 'bệnh viện viện tim thành phố hồ chí minh', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}, {'entity': 'ho_ten', 'start': 131, 'end': 133, 'confidence_entity': 0.8315719962120056, 'value': 'an', 'extractor': 'DIETClassifier'}, {'entity': 'thoi_gian', 'start': 138, 'end': 150, 'confidence_entity': 0.37390705943107605, 'value': '24h sáng mai', 'extractor': 'DIETClassifier'}, {'entity': 'so_luong', 'start': 154, 'end': 160, 'confidence_entity': 0.9749106764793396, 'value': '100 vé', 'extractor': 'DIETClassifier'}]
+
+Text    : đúng rồi
+Intent  : dong_y (1.00)
+Entities: []
+
+Text    : tôi muốn đặt xe
+Intent  : dat_ve (1.00)
+Entities: []
+
+2026-07-03 15:50:14 | 51 messages
+Text    : xin chào
+Intent  : chao_hoi (1.00)
+Entities: []
+
+Text    : xin chào
+Intent  : chao_hoi (1.00)
+Entities: []
+
+Text    : tôi muốn đặt xe
+Intent  : dat_ve (1.00)
+Entities: []
+
+Text    : tôi muốn đặt xe
+Intent  : dat_ve (1.00)
+Entities: []
+
+Text    : đón ở thái nguyên
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 6, 'end': 17, 'confidence_entity': 0.9983843564987183, 'value': 'thái nguyên', 'extractor': 'DIETClassifier'}]
+
+Text    : đón ở thái nguyên
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 6, 'end': 17, 'confidence_entity': 0.9983843564987183, 'value': 'thái nguyên', 'extractor': 'DIETClassifier'}]
+
+Text    : bẩm sinh bằng tiếng anh bẩm sinh bằng chị
+Intent  : dat_ve (0.58)
+Entities: [{'entity': 'dia_diem', 'start': 14, 'end': 19, 'confidence_entity': 0.7391049265861511, 'value': 'tiếng', 'extractor': 'DIETClassifier'}, {'entity': 'dia_diem', 'start': 24, 'end': 32, 'confidence_entity': 0.3272089660167694, 'value': 'bẩm sinh', 'extractor': 'DIETClassifier'}]
+
+Text    : đại học thủy lợi
+Intent  : cung_cap_thong_tin (0.59)
+Entities: [{'entity': 'dia_diem', 'start': 0, 'end': 12, 'confidence_entity': 0.5650606751441956, 'value': 'đại học thủy', 'extractor': 'DIETClassifier'}, {'entity': 'dia_diem', 'start': 13, 'end': 16, 'confidence_entity': 0.5970262885093689, 'value': 'lợi', 'extractor': 'DIETClassifier'}]
+
+Text    : đi đến đại học thủy lợi
+Intent  : cung_cap_thong_tin (0.85)
+Entities: [{'entity': 'dia_diem', 'start': 7, 'end': 19, 'confidence_entity': 0.6482340097427368, 'value': 'đại học thủy', 'extractor': 'DIETClassifier'}, {'entity': 'dia_diem', 'start': 20, 'end': 23, 'confidence_entity': 0.5541673302650452, 'value': 'lợi', 'extractor': 'DIETClassifier'}]
+
+Text    : ng ngày mai
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 0, 'end': 11, 'confidence_entity': 0.4287813603878021, 'value': 'ng ngày mai', 'extractor': 'DIETClassifier'}]
+
+Text    : 4 người
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'so_luong', 'start': 0, 'end': 7, 'confidence_entity': 0.986143171787262, 'value': '4 người', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : tên là nguyễn đức tường
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'ho_ten', 'start': 7, 'end': 23, 'confidence_entity': 0.9475716948509216, 'value': 'nguyễn đức tường', 'extractor': 'DIETClassifier'}]
+
+Text    : từ 6 5 8 bẩy 0 2
+Intent  : tu_choi (0.89)
+Entities: [{'entity': 'dia_diem', 'start': 13, 'end': 16, 'confidence_entity': 0.33838242292404175, 'value': '0 2', 'extractor': 'DIETClassifier'}]
+
+Text    : n nặng
+Intent  : cung_cap_thong_tin (1.00)
+Entities: []
+
+Text    : cảm ứng vừa
+Intent  : cung_cap_thong_tin (1.00)
+Entities: []
+
+Text    : bảo
+Intent  : cung_cap_thong_tin (0.99)
+Entities: [{'entity': 'ho_ten', 'start': 0, 'end': 3, 'confidence_entity': 0.6509556174278259, 'value': 'bảo', 'extractor': 'DIETClassifier'}]
+
+Text    : 5 hỏi gì ấy
+Intent  : chao_hoi (0.89)
+Entities: []
+
+Text    : cung cấp số điện thoại à
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 23, 'end': 24, 'confidence_entity': 0.4548766016960144, 'value': 'à', 'extractor': 'DIETClassifier'}]
+
+Text    : tiền vốn 0 phẩy 2 ở đẳng cấp
+Intent  : tu_choi (0.84)
+Entities: [{'entity': 'dia_diem', 'start': 16, 'end': 17, 'confidence_entity': 0.48463672399520874, 'value': '2', 'extractor': 'DIETClassifier'}]
+
+Text    : 4 6 5 8 bẩy 0 2
+Intent  : tu_choi (0.82)
+Entities: [{'entity': 'dia_diem', 'start': 12, 'end': 15, 'confidence_entity': 0.31984952092170715, 'value': '0 2', 'extractor': 'DIETClassifier'}]
+
+Text    : 8 4 6 5 8 bẩy 0 2
+Intent  : tu_choi (0.80)
+Entities: [{'entity': 'dia_diem', 'start': 8, 'end': 9, 'confidence_entity': 0.45839276909828186, 'value': '8', 'extractor': 'DIETClassifier'}, {'entity': 'dia_diem', 'start': 14, 'end': 17, 'confidence_entity': 0.3083318769931793, 'value': '0 2', 'extractor': 'DIETClassifier'}]
+
+Text    : điện thoại là 0 9 8 4 6 5 8 bẩy 0 2
+Intent  : tu_choi (0.82)
+Entities: [{'entity': 'dia_diem', 'start': 14, 'end': 15, 'confidence_entity': 0.7326803207397461, 'value': '0', 'extractor': 'DIETClassifier'}, {'entity': 'dia_diem', 'start': 16, 'end': 17, 'confidence_entity': 0.5733571648597717, 'value': '9', 'extractor': 'DIETClassifier'}, {'entity': 'dia_diem', 'start': 18, 'end': 27, 'confidence_entity': 0.37151843309402466, 'value': '8 4 6 5 8', 'extractor': 'DIETClassifier'}, {'entity': 'thoi_gian', 'start': 32, 'end': 35, 'confidence_entity': 0.53155118227005, 'value': '0 2', 'extractor': 'DIETClassifier'}]
+
+Text    : cô điện thoại là 0 9 8 4 6 5 8 bẩy 0 2
+Intent  : tu_choi (0.80)
+Entities: [{'entity': 'dia_diem', 'start': 17, 'end': 18, 'confidence_entity': 0.792701780796051, 'value': '0', 'extractor': 'DIETClassifier'}, {'entity': 'dia_diem', 'start': 19, 'end': 30, 'confidence_entity': 0.28417226672172546, 'value': '9 8 4 6 5 8', 'extractor': 'DIETClassifier'}, {'entity': 'thoi_gian', 'start': 35, 'end': 38, 'confidence_entity': 0.5936089158058167, 'value': '0 2', 'extractor': 'DIETClassifier'}]
+
+Text    : số điện thoại là 0 9 8 4 6 5 66
+Intent  : tu_choi (0.88)
+Entities: [{'entity': 'dia_diem', 'start': 21, 'end': 31, 'confidence_entity': 0.3686091899871826, 'value': '8 4 6 5 66', 'extractor': 'DIETClassifier'}]
+
+Text    : 6 0 2
+Intent  : tu_choi (0.99)
+Entities: []
+
+Text    : là 0984656660 2
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dien_thoai', 'start': 3, 'end': 13, 'confidence_entity': 0.9962034821510315, 'value': '0984656660', 'extractor': 'DIETClassifier'}]
+
+Text    : 4 6 5 4 6 0 2
+Intent  : tu_choi (0.81)
+Entities: [{'entity': 'dia_diem', 'start': 8, 'end': 13, 'confidence_entity': 0.32483944296836853, 'value': '6 0 2', 'extractor': 'DIETClassifier'}]
+
+Text    : điểm đón tại thành phố thái nguyên
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 13, 'end': 22, 'confidence_entity': 0.5427860021591187, 'value': 'thành phố', 'extractor': 'DIETClassifier'}, {'entity': 'dia_diem', 'start': 23, 'end': 34, 'confidence_entity': 0.5597864389419556, 'value': 'thái nguyên', 'extractor': 'DIETClassifier'}]
+
+Text    : là đại học hà nội
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 7, 'end': 10, 'confidence_entity': 0.942410409450531, 'value': 'học', 'extractor': 'DIETClassifier'}, {'entity': 'dia_diem', 'start': 11, 'end': 17, 'confidence_entity': 0.940894603729248, 'value': 'hà nội', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : hà nội
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 0, 'end': 6, 'confidence_entity': 0.9833256006240845, 'value': 'hà nội', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : tôi thực xong việc rồi
+Intent  : dat_ve (0.60)
+Entities: []
+
+Text    : hay bị đoán à
+Intent  : cung_cap_thong_tin (0.97)
+Entities: []
+
+Text    : ng vòi rồi
+Intent  : cung_cap_thong_tin (0.51)
+Entities: []
+
+Text    : hủy ý ok
+Intent  : dong_y (0.83)
+Entities: []
+
+Text    : xin chào
+Intent  : chao_hoi (1.00)
+Entities: []
+
+Text    : muốn đặt xe đi hà nội
+Intent  : dat_ve (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 15, 'end': 21, 'confidence_entity': 0.9972478747367859, 'value': 'hà nội', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : đón ở hải phòng
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dia_diem', 'start': 6, 'end': 15, 'confidence_entity': 0.9983843564987183, 'value': 'hải phòng', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : đón vào ngày mai lúc 9h
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'thoi_gian', 'start': 8, 'end': 16, 'confidence_entity': 0.43075820803642273, 'value': 'ngày mai', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}, {'entity': 'thoi_gian', 'start': 21, 'end': 23, 'confidence_entity': 0.6638695001602173, 'value': '9h', 'extractor': 'DIETClassifier'}]
+
+Text    : đi 3 người
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'so_luong', 'start': 3, 'end': 10, 'confidence_entity': 0.9920349717140198, 'value': '3 người', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : tên là nguyễn đức cường
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'ho_ten', 'start': 7, 'end': 23, 'confidence_entity': 0.9812207221984863, 'value': 'nguyễn đức cường', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]
+
+Text    : số điện thoại là 0 9 8 6 5 8
+Intent  : tu_choi (0.90)
+Entities: [{'entity': 'dia_diem', 'start': 21, 'end': 28, 'confidence_entity': 0.36835676431655884, 'value': '8 6 5 8', 'extractor': 'DIETClassifier'}]
+
+Text    : 8
+Intent  : tu_choi (1.00)
+Entities: []
+
+Text    : 88 6 5 88 8 6 5 88 8
+Intent  : tu_choi (0.78)
+Entities: [{'entity': 'dia_diem', 'start': 10, 'end': 20, 'confidence_entity': 0.35251927375793457, 'value': '8 6 5 88 8', 'extractor': 'DIETClassifier'}]
+
+Text    : số điện thoại là 0 9 88 88 88 8
+Intent  : tu_choi (0.90)
+Entities: [{'entity': 'dia_diem', 'start': 21, 'end': 31, 'confidence_entity': 0.36835676431655884, 'value': '88 88 88 8', 'extractor': 'DIETClassifier'}]
+
+Text    : số điện thoại là
+Intent  : cung_cap_thong_tin (1.00)
+Entities: []
+
+Text    : 9 8 6 5 8 bẩy 0 8
+Intent  : tu_choi (0.80)
+Entities: [{'entity': 'dia_diem', 'start': 8, 'end': 9, 'confidence_entity': 0.45839276909828186, 'value': '8', 'extractor': 'DIETClassifier'}, {'entity': 'dia_diem', 'start': 14, 'end': 17, 'confidence_entity': 0.3083318769931793, 'value': '0 8', 'extractor': 'DIETClassifier'}]
+
+Text    : số điện thoại là 0 9 8 6 5 8 bẩy 0 8
+Intent  : tu_choi (0.88)
+Entities: [{'entity': 'dia_diem', 'start': 19, 'end': 20, 'confidence_entity': 0.6118759512901306, 'value': '9', 'extractor': 'DIETClassifier'}, {'entity': 'dia_diem', 'start': 21, 'end': 28, 'confidence_entity': 0.3869785666465759, 'value': '8 6 5 8', 'extractor': 'DIETClassifier'}, {'entity': 'thoi_gian', 'start': 33, 'end': 36, 'confidence_entity': 0.3497338593006134, 'value': '0 8', 'extractor': 'DIETClassifier'}]
+
+Text    : số điện thoại là 0986588082
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dien_thoai', 'start': 17, 'end': 27, 'confidence_entity': 0.9933439493179321, 'value': '0986588082', 'extractor': 'DIETClassifier'}]
+
+Text    : thoại 0986588082
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dien_thoai', 'start': 6, 'end': 16, 'confidence_entity': 0.9929797053337097, 'value': '0986588082', 'extractor': 'DIETClassifier'}]
+
+Text    : la gổ ôi
+Intent  : cung_cap_thong_tin (1.00)
+Entities: []
+
+Text    : đúng rồi
+Intent  : dong_y (1.00)
+Entities: []
+
+2026-07-04 08:59:36 | 4 messages
+Text    : 0 1 2 3 4 5 6 bẩy 8 9
+Intent  : tu_choi (0.96)
+Entities: [{'entity': 'dia_diem', 'start': 8, 'end': 13, 'confidence_entity': 0.36054307222366333, 'value': '4 5 6', 'extractor': 'DIETClassifier'}, {'entity': 'dia_diem', 'start': 18, 'end': 21, 'confidence_entity': 0.33179613947868347, 'value': '8 9', 'extractor': 'DIETClassifier'}]
+
+Text    : 0123456789
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dien_thoai', 'start': 0, 'end': 10, 'confidence_entity': 0.987444281578064, 'value': '0123456789', 'extractor': 'DIETClassifier'}]
+
+Text    : bỏ đi
+Intent  : huy (1.00)
+Entities: []
+
+Text    : đúng rồi
+Intent  : dong_y (1.00)
+Entities: []
+
+2026-07-04 09:05:06 | 1 messages
+Text    : 0123456789
+Intent  : cung_cap_thong_tin (1.00)
+Entities: [{'entity': 'dien_thoai', 'start': 0, 'end': 10, 'confidence_entity': 0.9671680331230164, 'value': '0123456789', 'extractor': 'DIETClassifier'}]
+
