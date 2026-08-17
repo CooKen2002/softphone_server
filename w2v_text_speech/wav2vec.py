@@ -1,11 +1,9 @@
+import os
 import numpy as np
 import argparse
 import soundfile as sf
 import onnxruntime
 import scipy
-
-CHUNK_LENGTH = 20  # 20 seconds
-MAX_N_SAMPLES = CHUNK_LENGTH * 16000
 
 tokenizer_dict = {
     0: "ẻ",
@@ -144,9 +142,36 @@ def ensure_channels(waveform, original_channels, desired_channels=1):
 
 def init_model(model_path, target=None, device_id=None):
     if model_path.endswith(".onnx"):
-        model = onnxruntime.InferenceSession(
-            model_path, providers=["CPUExecutionProvider"]
-        )
+        available = onnxruntime.get_available_providers()
+        providers = []
+
+        if "CUDAExecutionProvider" in available:
+            cuda_options = {"device_id": device_id if device_id is not None else 0}
+            providers.append(("CUDAExecutionProvider", cuda_options))
+            print(f"[wav2vec] Phát hiện GPU, dùng CUDAExecutionProvider (device_id={cuda_options['device_id']})")
+        else:
+            print("[wav2vec] Không có CUDAExecutionProvider khả dụng, chạy CPU.")
+
+        providers.append("CPUExecutionProvider")
+
+        sess_options = onnxruntime.SessionOptions()
+        # Tận dụng hết core CPU cho phần compute nội bộ 1 lượt infer (quan trọng
+        # khi CUDA không khả dụng, hoặc cho các node vẫn chạy trên CPU dù có GPU).
+        sess_options.intra_op_num_threads = os.cpu_count() or 4
+
+        try:
+            model = onnxruntime.InferenceSession(
+                model_path, sess_options=sess_options, providers=providers
+            )
+        except Exception as e:
+            # Provider CUDA có mặt trong danh sách nhưng load thất bại thực tế
+            # (VD thiếu cuDNN/driver không khớp version) -> fallback cứng về CPU.
+            print(f"[wav2vec] Lỗi khởi tạo với providers={providers}: {e}. Fallback CPU.")
+            model = onnxruntime.InferenceSession(
+                model_path, sess_options=sess_options, providers=["CPUExecutionProvider"]
+            )
+
+        print(f"[wav2vec] Model đang chạy trên: {model.get_providers()}")
 
     return model
 
@@ -162,21 +187,6 @@ def release_model(model):
     if "onnx" in str(type(model)):
         del model
     model = None
-
-
-def pre_process(audio_array, max_length, pad_value=0):
-    array_length = len(audio_array)
-
-    if array_length < max_length:
-        pad_length = max_length - array_length
-        audio_array = np.pad(
-            audio_array, (0, pad_length), mode="constant", constant_values=pad_value
-        )
-    elif array_length > max_length:
-        audio_array = audio_array[:max_length]
-
-    return audio_array
-
 
 def compress_sequence(sequence):
     compressed_sequence = [sequence[0]]
@@ -211,26 +221,18 @@ def post_process(output):
 
 
 if __name__ == "__main__":
-    # model_path = "wav2vec2_base_960h_20s.onnx"
     model_path = "../model/wav2vec2_vietnamese.onnx"
-    # Set inputs
     audio_data, sample_rate = sf.read("2.mp3")
     channels = audio_data.ndim
     audio_data, channels = ensure_channels(audio_data, channels)
     audio_data, sample_rate = ensure_sample_rate(audio_data, sample_rate)
     audio_array = np.array(audio_data, dtype=np.float32)
-    audio_array = pre_process(audio_array, MAX_N_SAMPLES)
     audio_array = np.expand_dims(audio_array, axis=0)
 
-    # Init model
     model = init_model(model_path, None, None)
-    # model.run()
-    # Run model
     outputs = run_model(model, audio_array)
 
-    # Post process
     transcription = post_process(outputs)
     print("\nWav2vec2 output:", transcription)
 
-    # Release model
     release_model(model)

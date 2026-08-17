@@ -6,6 +6,8 @@ DEVICE = "gpu" if torch.cuda.is_available() else "cpu"
 
 # ============================== AUDIO / SERVER ==============================
 SAMPLE_RATE = 16000
+MIN_N_SAMPLES = int(0.3 * 16000)   # sàn ~0.3s, tránh input quá ngắn vỡ conv layer
+MAX_N_SAMPLES = int(20 * 16000)
 
 # Adaptive VAD
 CALIBRATE_SECONDS = 3.0  # đo noise floor lúc khởi động
@@ -23,3 +25,5 @@ PORT = 8000
 
 DEBUG = True
 SHOW_TIMING = True
+
+RESULT_PATH = "./results"

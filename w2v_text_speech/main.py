@@ -1,7 +1,7 @@
 """
 SERVER PYTHON - VOICE BOT (wav2vec + Rasa + TTS)
 CREATED: 17/08/2026
-UPDATED: 05/08/2026
+UPDATED: 17/08/2026
 """
 
 import asyncio
@@ -14,6 +14,7 @@ import websockets
 
 import scipy.signal as signal
 import noisereduce as nr
+import numpy as np
 
 from vieneu import Vieneu
 
@@ -45,6 +46,7 @@ log(f"LOADED model Vieneu", "INFO")
 rasa_session = requests.Session()
 log(f"CREATED RASA SESSION", "INFO")
 
+
 # MARK: STS FLOW
 def load_and_validate_audio_buffer(raw_bytes: bytes, expected_sr: int = 16000):
     if raw_bytes[:4] == b'RIFF':
@@ -63,14 +65,20 @@ def load_and_validate_audio_buffer(raw_bytes: bytes, expected_sr: int = 16000):
             "AUDIO",
         )
 
+        # FIX #3: trước đây chỉ log warning khi channels != 1 nhưng không thực
+        # sự downmix — data vẫn là chuỗi interleaved L/R, nghe như nhiễu.
+        # Reshape về (n_frames, channels) rồi dùng ensure_channels (từ wav2vec.py)
+        # để mix trung bình về mono thật sự.
+        if channels != 1:
+            log(f"Audio không phải Mono ({channels} channels), đang downmix...", "AUDIO")
+            data = data.reshape(-1, channels)
+            data, channels = ensure_channels(data, channels)
+
         if sr != expected_sr:
             log(f"Resampling {sr}Hz → {expected_sr}Hz bằng scipy...", "AUDIO")
             data = signal.resample_poly(data, up=expected_sr, down=sr).astype(np.float32)
             sr = expected_sr
             log(f"Resample xong: {len(data)/sr:.2f}s", "AUDIO")
-
-        if channels != 1:
-            log(f"Warning: Audio không phải Mono ({channels} channels)", "ERROR")
 
         return data, sr
     else:
@@ -93,18 +101,15 @@ def load_and_validate_audio_buffer(raw_bytes: bytes, expected_sr: int = 16000):
         # (không crash, nhưng audio bị méo tốc độ) — không có cách nào phát hiện được ở đây.
 
         return data, sr
-    
 
 
 def preprocess_audio(audio_data: np.ndarray, sr: int) -> np.ndarray:
-    """Tiền xử lý audio gộp thành 1 bước duy nhất:
-    1. Resample thẳng từ `sr` gốc về `target_sr` (16kHz, yêu cầu của Whisper) — chỉ 1 lần,
-       không qua sample rate trung gian nào (thay cho việc từng phải lên 48kHz cho DFN).
-    2. Khử nhiễu bằng `noisereduce` (spectral gating, thuần CPU, không cần model/GPU riêng
+    """Tiền xử lý audio (audio đã ở 16kHz mono từ load_and_validate_audio_buffer):
+    1. Khử nhiễu bằng `noisereduce` (spectral gating, thuần CPU, không cần model/GPU riêng
        như DeepFilterNet) — nhẹ và đơn giản hơn nhiều để chạy trên máy CPU-only.
-    3. Normalize biên độ.
-    4. Trim khoảng lặng ở đầu/cuối.
-    Fail-safe: nếu bước khử nhiễu lỗi thì bỏ qua bước đó, dùng audio đã resample.
+    2. Normalize biên độ.
+    3. Trim khoảng lặng ở đầu/cuối.
+    Fail-safe: nếu bước khử nhiễu lỗi thì bỏ qua bước đó, dùng audio gốc.
     """
 
     # Khử nhiễu (spectral gating, stationary noise estimate)
@@ -132,17 +137,27 @@ def preprocess_audio(audio_data: np.ndarray, sr: int) -> np.ndarray:
         audio_data = audio_data[start:end]
     return audio_data
 
-def wav_bytes_to_text(audio_data: np.ndarray):
-    outputs = run_model(model, audio_array)
-    transcription = post_process(outputs)
-    return transcription
 
-def request_to_rasa(text: str) -> str:
+def wav_bytes_to_text(audio_data: np.ndarray) -> str:
+    audio_array = np.array(audio_data, dtype=np.float32)
+
+    if len(audio_array) < MIN_N_SAMPLES:
+        audio_array = np.pad(audio_array, (0, MIN_N_SAMPLES - len(audio_array)))
+    elif len(audio_array) > MAX_N_SAMPLES:
+        log(f"Audio {len(audio_array)/16000:.1f}s vượt trần, cắt còn {MAX_N_SAMPLES/16000:.0f}s", "ERROR")
+        audio_array = audio_array[:MAX_N_SAMPLES]
+
+    audio_array = np.expand_dims(audio_array, axis=0)  # bắt buộc phải có nếu model rank-2
+    outputs = run_model(model, audio_array)
+    return post_process(outputs)
+
+
+def request_to_rasa(text: str, sender_id: str) -> str:
     if not text or not text.strip():
-        return "default|Bạn nói gì vậy?"
+        return "Bạn nói gì vậy?"
 
     try:
-        payload = {"sender": SENDER_ID, "message": text.strip()}
+        payload = {"sender": sender_id, "message": text.strip()}
         response = rasa_session.post(RASA_URL, json=payload, timeout=8)
         response_data = response.json()
 
@@ -154,7 +169,7 @@ def request_to_rasa(text: str) -> str:
 
     except Exception as e:
         log(f"Lỗi kết nối Rasa: {e}", "ERROR")
-        return "default|Xin lỗi, tôi đang gặp vấn đề kỹ thuật. Bạn nói lại được không?"
+        return "Xin lỗi, tôi đang gặp vấn đề kỹ thuật. Bạn nói lại được không?"
 
 
 async def text_to_wav_bytes(text: str) -> bytes:
@@ -193,10 +208,11 @@ def warmup_models():
     """
     try:
         dummy = np.zeros(SAMPLE_RATE, dtype=np.float32)  # 1s silence @ 16kHz
-        t0 = time.perf_counter()
-        preprocess_audio(dummy, SAMPLE_RATE)
+        processed = preprocess_audio(dummy, SAMPLE_RATE)
 
-        # Warmup w2v
+        t0 = time.perf_counter()
+        wav_bytes_to_text(processed)
+        log(f" Warmup W2V : {time.perf_counter() - t0:.2f}s", "STT")
 
         t0 = time.perf_counter()
         tts.infer(text="xin chào", voice="Ngọc Linh")
@@ -221,41 +237,57 @@ def warmup_rasa():
 async def handle_client(websocket):
     client_addr = websocket.remote_address
     log(f"Client connected: {client_addr}", "INFO")
+
+    loop = asyncio.get_running_loop()
+
     try:
         async for message in websocket:
-            # log(f"{message[:16]}", "INFO")
-            if not isinstance(message, bytes):
-                log("Nhận dữ liệu không phải bytes!", "ERROR")
+            # Try/except riêng cho từng message: 1 audio/model lỗi không làm
+            # rớt kết nối, server tiếp tục chờ message tiếp theo của client này.
+            try:
+                if not isinstance(message, bytes):
+                    log("Nhận dữ liệu không phải bytes!", "ERROR")
+                    continue
+
+                # ==================== PIPELINE ====================
+                # 1. Nhận & validate audio
+                audio_data, sr = load_and_validate_audio_buffer(message)
+                save_audio(audio_data, "load", RESULT_PATH, sr)
+
+                # 2. Preprocess
+                processed = preprocess_audio(audio_data, sr)
+                save_audio(audio_data, "preprocess", RESULT_PATH, sr)
+
+                # 3. Speech-to-Text
+                t0 = time.perf_counter()
+                transcript = await loop.run_in_executor(None, wav_bytes_to_text, processed)
+                log(f"STT : {time.perf_counter() - t0:.2f}s", "STT")
+                log(f"↳ response: {transcript.strip()}", "STT")
+
+                # 4. Rasa Dialog
+                t0 = time.perf_counter()
+                rasa_text = await loop.run_in_executor(
+                    None, request_to_rasa, transcript, SENDER_ID
+                )
+                log(f"↳ response: {rasa_text.strip()[:100]}", "RASA")
+                log(f"Rasa : {time.perf_counter() - t0:.2f}s", "RASA")
+
+                # 5. Text-to-Speech
+                t0 = time.perf_counter()
+                wav_bytes = await text_to_wav_bytes(rasa_text)
+                log(f"TTS : {time.perf_counter() - t0:.2f}s", "TTS")
+
+                # 6. Gửi về Flutter
+                await websocket.send(wav_bytes)
+                log(f"Đã gửi audio trả lời ({len(wav_bytes)/1024:.1f} KB)", "INFO")
+
+            except Exception as e:
+                log(f"Lỗi xử lý message từ {client_addr}: {e}", "ERROR")
+                # Kết nối vẫn mở, tiếp tục chờ message tiếp theo của client này.
                 continue
-            # ==================== PIPELINE ====================
-            # 1. Nhận & validate audio
-            audio_data, sr = load_and_validate_audio_buffer(message)
 
-            # 2. Preprocess
-            processed = preprocess_audio(audio_data, sr)
-
-            # 3. Speech-to-Text
-
-            transcript = wav_bytes_to_text(processed)
-            log(f"STT : {time.perf_counter() - t0:.2f}s", "STT")
-
-            # 4. Rasa Dialog
-            t0 = time.perf_counter()
-            rasa_text = request_to_rasa(transcript)
-            log(f"↳ response: {rasa_text.strip()[:100]}", "RASA")
-            log(f"Rasa : {time.perf_counter() - t0:.2f}s", "RASA")
-
-            # 5. Text-to-Speech
-            t0 = time.perf_counter()
-            wav_bytes = await text_to_wav_bytes(rasa_text)
-            log(f"TTS : {time.perf_counter() - t0:.2f}s", "TTS")
-            # 6. Gửi về Flutter
-            await websocket.send(wav_bytes)
-            log(f"Đã gửi audio trả lời ({len(wav_bytes)/1024:.1f} KB)", "INFO")
     except websockets.exceptions.ConnectionClosed:
         log(f"Client disconnected: {client_addr}", "INFO")
-    except Exception as e:
-        log(f"Lỗi xử lý client: {e}", "ERROR")
     finally:
         log(f"Đóng kết nối với {client_addr}", "INFO")
 
