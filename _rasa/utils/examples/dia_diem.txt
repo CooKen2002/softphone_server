@@ -428,3 +428,5 @@ sân bay quốc tế
 sân bay quốc tế cam ranh
 phong nha kẻ bàng
 phong nha kẽ bàng
+bến xe
+kim mã

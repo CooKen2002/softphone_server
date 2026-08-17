@@ -24,7 +24,7 @@ class PostProcess(GraphComponent):
     def get_default_config(cls) -> Dict[Text, Any]:
         return {
             "min_intent_confidence": 0.9,
-            "min_entity_confidence": 0.5,
+            "min_entity_confidence": 0.3,
             "min_merging_confidence": 0.2,
         }
 

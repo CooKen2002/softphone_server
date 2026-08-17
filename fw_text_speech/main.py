@@ -12,6 +12,7 @@ import wave
 import websockets
 
 import scipy.signal as signal
+import noisereduce as nr
 
 from faster_whisper import WhisperModel
 from vieneu import Vieneu
@@ -21,7 +22,7 @@ from config import *
 from utils import *
 
 # MARK: LOAD MODELS
-log(f"Device: {DEVICE}", "INFO")
+log(f"Device: {DEVICE} - CPU_THREADS: {CPU_THREADS}", "INFO")
 
 model = WhisperModel(
     MODEL_PATH,
@@ -50,34 +51,80 @@ log(f"LOADED model Vieneu", "INFO")
 rasa_session = requests.Session()
 log(f"CREATED RASA SESSION", "INFO")
 
-
 # MARK: STS FLOW
 def load_and_validate_audio_buffer(raw_bytes: bytes, expected_sr: int = 16000):
-    """Đọc buffer WAV và trả về numpy array"""
-    with wave.open(io.BytesIO(raw_bytes), "r") as wf:
-        sr = wf.getframerate()
-        channels = wf.getnchannels()
-        sampwidth = wf.getsampwidth()
-        frames = wf.readframes(wf.getnframes())
+    if raw_bytes[:4] == b'RIFF':
+        # Trường hợp có WAV header đầy đủ — parse như cũ
+        """Đọc buffer WAV và trả về numpy array"""
+        with wave.open(io.BytesIO(raw_bytes), "r") as wf:
+            sr = wf.getframerate()
+            channels = wf.getnchannels()
+            sampwidth = wf.getsampwidth()
+            frames = wf.readframes(wf.getnframes())
 
-    data = np.frombuffer(frames, dtype=np.int16).astype(np.float32) / 32768.0
+        data = np.frombuffer(frames, dtype=np.int16).astype(np.float32) / 32768.0
 
-    log(
-        f"Nhận audio: {len(raw_bytes)/1024:.1f} KB | {sr}Hz | {channels}ch | {len(data)/sr:.2f}s",
-        "AUDIO",
-    )
+        log(
+            f"Nhận audio: {len(raw_bytes)/1024:.1f} KB | {sr}Hz | {channels}ch | {len(data)/sr:.2f}s",
+            "AUDIO",
+        )
 
-    # Resample chuẩn về 16kHz nếu nhận 8kHz từ bareSIP
-    if sr != expected_sr:
-        log(f"Resampling {sr}Hz → {expected_sr}Hz bằng scipy...", "AUDIO")
-        data = signal.resample_poly(data, up=expected_sr, down=sr).astype(np.float32)
-        sr = expected_sr
-        log(f"Resample xong: {len(data)/sr:.2f}s", "AUDIO")
+        if sr != expected_sr:
+            log(f"Resampling {sr}Hz → {expected_sr}Hz bằng scipy...", "AUDIO")
+            data = signal.resample_poly(data, up=expected_sr, down=sr).astype(np.float32)
+            sr = expected_sr
+            log(f"Resample xong: {len(data)/sr:.2f}s", "AUDIO")
 
-    if channels != 1:
-        log(f"Warning: Audio không phải Mono ({channels} channels)", "ERROR")
+        if channels != 1:
+            log(f"Warning: Audio không phải Mono ({channels} channels)", "ERROR")
 
-    return data, sr
+        return data, sr
+    else:
+        # Không có RIFF header -> coi là raw PCM 16-bit mono
+        if len(raw_bytes) % 2 != 0:
+            # PCM 16-bit phải là số byte chẵn, lệch 1 byte thường do frame bị cắt giữa chừng
+            raw_bytes = raw_bytes[:-1]
+
+        pcm = np.frombuffer(raw_bytes, dtype=np.int16)
+        data = pcm.astype(np.float32) / 32768.0
+        sr = expected_sr  # raw PCM không mang sample rate, buộc phải giả định cố định
+
+        log(
+            f"Nhận audio (raw PCM): {len(raw_bytes)/1024:.1f} KB | {sr}Hz (giả định) | 1ch | {len(data)/sr:.2f}s",
+            "AUDIO",
+        )
+
+        # Không cần resample vì client luôn gửi đúng expected_sr (16kHz),
+        # nhưng nếu sau này client đổi sample rate mà quên báo, hàm này sẽ ÂM THẦM sai
+        # (không crash, nhưng audio bị méo tốc độ) — không có cách nào phát hiện được ở đây.
+
+        return data, sr
+    
+    # """Đọc buffer WAV và trả về numpy array"""
+    # with wave.open(io.BytesIO(raw_bytes), "r") as wf:
+    #     sr = wf.getframerate()
+    #     channels = wf.getnchannels()
+    #     sampwidth = wf.getsampwidth()
+    #     frames = wf.readframes(wf.getnframes())
+
+    # data = np.frombuffer(frames, dtype=np.int16).astype(np.float32) / 32768.0
+    
+    # log(
+    #     f"Nhận audio: {len(raw_bytes)/1024:.1f} KB | {sr}Hz | {channels}ch | {len(data)/sr:.2f}s",
+    #     "AUDIO",
+    # )
+
+    # # Resample chuẩn về 16kHz nếu nhận 8kHz từ bareSIP
+    # if sr != expected_sr:
+    #     log(f"Resampling {sr}Hz → {expected_sr}Hz bằng scipy...", "AUDIO")
+    #     data = signal.resample_poly(data, up=expected_sr, down=sr).astype(np.float32)
+    #     sr = expected_sr
+    #     log(f"Resample xong: {len(data)/sr:.2f}s", "AUDIO")
+
+    # if channels != 1:
+    #     log(f"Warning: Audio không phải Mono ({channels} channels)", "ERROR")
+
+    # return data, sr
 
 
 def preprocess_audio(audio_data: np.ndarray, sr: int) -> np.ndarray:
@@ -90,6 +137,17 @@ def preprocess_audio(audio_data: np.ndarray, sr: int) -> np.ndarray:
     4. Trim khoảng lặng ở đầu/cuối.
     Fail-safe: nếu bước khử nhiễu lỗi thì bỏ qua bước đó, dùng audio đã resample.
     """
+
+    # Khử nhiễu (spectral gating, stationary noise estimate)
+    try:
+        audio_data = nr.reduce_noise(
+            y=audio_data,
+            sr=sr,
+            stationary=True,
+            prop_decrease=0.8,
+        )
+    except Exception as e:
+        log(f"noisereduce lỗi, bỏ qua bước khử nhiễu: {e}", "ERROR")
 
     # Normalize
     max_val = np.max(np.abs(audio_data))
@@ -107,8 +165,9 @@ def preprocess_audio(audio_data: np.ndarray, sr: int) -> np.ndarray:
 
 
 def transcribe_faster_whisper(
-    audio_data: np.ndarray, initial_prompt: str = None, hotwords: str = None
+    audio_data: np.ndarray, initial_prompt: str = None, hotwords: str = None, state: str = None,
 ):
+    is_numeric_context = state in NUMERIC_STATES
     segments, info = model.transcribe(
         audio_data,
         language=LANGUAGE,
@@ -116,16 +175,9 @@ def transcribe_faster_whisper(
         best_of=5,  # số candidate khi temperature > 0, tăng cơ hội chọn kết quả tốt
         patience=1.0,  # beam search patience, >1 tìm kỹ hơn (đổi lấy tốc độ)
         length_penalty=1.0,
-        repetition_penalty=1.1,  # >1 giảm lặp từ, hữu ích với audio nhiễu/khoảng lặng ngắn
-        no_repeat_ngram_size=3,  # chặn lặp cụm n-gram (tránh hallucination lặp câu)
-        temperature=[
-            0.0,
-            0.2,
-            0.4,
-            0.6,
-            0.8,
-            1.0,
-        ],  # fallback list thay vì temperature=0 cứng
+        repetition_penalty=1.0 if is_numeric_context else 1.1,  # tắt penalty khi cần lặp digit
+        no_repeat_ngram_size=0 if is_numeric_context else 3,     # tắt chặn n-gram khi cần lặp digit
+        temperature=[0.0, 0.2, 0.4, 0.6, 0.8, 1.0], # fallback list thay vì temperature=0 cứng
         compression_ratio_threshold=2.4,  # loại segment "hallucinate" (lặp/nhiễu)
         log_prob_threshold=-1.0,  # loại segment có avg logprob quá thấp
         vad_filter=VAD_FILTER,
@@ -238,6 +290,7 @@ async def handle_client(websocket):
     rasa_prompt = RasaPrompt()
     try:
         async for message in websocket:
+            # log(f"{message[:16]}", "INFO")
             if not isinstance(message, bytes):
                 log("Nhận dữ liệu không phải bytes!", "ERROR")
                 continue
@@ -252,6 +305,7 @@ async def handle_client(websocket):
                 processed,
                 initial_prompt=rasa_prompt.initial_prompt,
                 hotwords=rasa_prompt.hot_word,
+                state=rasa_prompt.state # nhận state sửa config transcribe
             )
             log(f"STT : {time.perf_counter() - t0:.2f}s", "STT")
             # 4. Rasa Dialog

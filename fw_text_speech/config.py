@@ -18,7 +18,7 @@ if DEVICE == "cuda":
         4  # cho phép pipeline nhiều request qua CUDA streams khi có nhiều client 
     )
 else:
-    MODEL_PATH = r"./models/PhoWhisper-small-ct2-fasterWhisper"
+    MODEL_PATH = r"./models/PhoWhisper-medium-ct2-fasterWhisper"
     COMPUTE_TYPE = (
         "int8"  # tối ưu nhất cho CPU (CTranslate2 dùng VNNI/AVX512 nếu CPU hỗ trợ)
     )
@@ -62,6 +62,7 @@ MIN_SILENCE_MS = 500  # im lặng bao lâu thì coi là kết thúc câu
 SPEECH_PAD_MS = 100  # đệm thêm ở 2 đầu segment
 PRE_ROLL_CHUNKS = 10  # ~320ms buffer trước khi phát hiện speech, chống mất âm đầu câu
 MIN_SPEECH_SEC = 0.3
+NUMERIC_STATES = {"dien_thoai"} 
 
 # Adaptive VAD
 CALIBRATE_SECONDS = 3.0  # đo noise floor lúc khởi động
