@@ -63,7 +63,7 @@ def save_audio(audio_data, name: str, output_path: str, samplerate: int = 16000)
         pcm_data = audio_data.astype(np.int16)
 
     # Ghi ra file WAV chuẩn bằng thư viện wave
-    filename = f"{output_path}_{name}_{datetime.now().strftime('%d_%m_%y_%H_%M_%S.%f')}.wav"
+    filename = f"./{output_path}/{name}_{datetime.now().strftime('%d_%m_%y_%H_%M_%S.%f')}.wav"
 
     with wave.open(filename, "wb") as wf:
         wf.setnchannels(1)             # Mặc định Mono

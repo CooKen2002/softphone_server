@@ -353,7 +353,7 @@ class submit_dat_ve(Action):
         confirm = tracker.get_slot(CONFIRM_FORM)
         flag_form = tracker.get_slot(FLAG_FORM)
         if confirm and flag_form == "form_dat_ve":
-            dispatcher.utter_message(text=(f"Đã đặt vé thành công!"))
+            dispatcher.utter_message(text=(f"Đã đặt xe thành công. Anh chị có muốn hỗ trợ gì không ạ"))
             events = [Restarted()]
 
         return events

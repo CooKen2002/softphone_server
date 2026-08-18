@@ -172,33 +172,58 @@ def request_to_rasa(text: str, sender_id: str) -> str:
         return "Xin lỗi, tôi đang gặp vấn đề kỹ thuật. Bạn nói lại được không?"
 
 
-async def text_to_wav_bytes(text: str) -> bytes:
-    # 1. Synthesize (từ vieNeu tts)
-    # voice_codes = tts.get_preset_voice("Ly")
-    audio = tts.infer(text=text, voice="Ngọc Linh")
+async def text_to_wav_bytes(text: str) -> bytes:   
+    default_speech_path = f"{ASSETS_PATH}/audio_default/{text}.wav"
 
-    # 2. Xử lý khoảng lặng (padding) 350ms
-    sample_rate = 48000
-    padding_samples = int(0.35 * sample_rate)
-    silence = np.zeros(padding_samples, dtype=np.float32)
-    audio = np.concatenate([silence, audio, silence])
+    if os.path.exists(default_speech_path):
+        log("Đã gửi default audio: {text}", "TTS")
+        
+        # 1. Đọc file WAV có sẵn bằng librosa (hỗ trợ tự động đọc mọi sample rate)
+        audio, sample_rate = librosa.load(default_speech_path, sr=None)
+        
+        # 2. Resample về 8kHz (nếu file gốc chưa phải 8kHz)
+        if sample_rate != 8000:
+            audio_8k = librosa.resample(audio, orig_sr=sample_rate, target_sr=8000)
+        else:
+            audio_8k = audio
+            
+        # 3. Chuyển đổi về 16-bit PCM (int16)
+        audio_int16 = np.clip(audio_8k * 32767, -32768, 32767).astype(np.int16)
+        
+        # 4. Ghi lại vào bytes
+        wav_io = io.BytesIO()
+        with wave.open(wav_io, "wb") as wf:
+            wf.setnchannels(1)  # Mono
+            wf.setsampwidth(2)  # 16-bit = 2 bytes
+            wf.setframerate(8000)  # 8kHz
+            wf.writeframes(audio_int16.tobytes())
+            
+        return wav_io.getvalue()
+    else:
+        audio = tts.infer(text=text, voice="Ngọc Linh")
 
-    # 3. Chuyển đổi về 8kHz (Resampling)
-    # Dùng librosa.resample thay vì librosa.load vì audio đã ở dạng array rồi
-    audio_8k = librosa.resample(audio, orig_sr=sample_rate, target_sr=8000)
+        # 2. Xử lý khoảng lặng (padding) 350ms
+        sample_rate = 48000
+        padding_samples = int(0.35 * sample_rate)
+        silence = np.zeros(padding_samples, dtype=np.float32)
+        audio = np.concatenate([silence, audio, silence])
 
-    # 4. Chuyển đổi về 16-bit PCM (int16)
-    audio_int16 = np.clip(audio_8k * 32767, -32768, 32767).astype(np.int16)
+        # 3. Chuyển đổi về 8kHz (Resampling)
+        # Dùng librosa.resample thay vì librosa.load vì audio đã ở dạng array rồi
+        audio_8k = librosa.resample(audio, orig_sr=sample_rate, target_sr=8000)
 
-    # 5. Ghi vào bytes (Memory Buffer) thay vì file vật lý
-    wav_io = io.BytesIO()
-    with wave.open(wav_io, "wb") as wf:
-        wf.setnchannels(1)  # Mono
-        wf.setsampwidth(2)  # 16-bit = 2 bytes
-        wf.setframerate(8000)  # 8kHz
-        wf.writeframes(audio_int16.tobytes())
+        # 4. Chuyển đổi về 16-bit PCM (int16)
+        audio_int16 = np.clip(audio_8k * 32767, -32768, 32767).astype(np.int16)
 
-    return wav_io.getvalue()
+        # 5. Ghi vào bytes (Memory Buffer) thay vì file vật lý
+        wav_io = io.BytesIO()
+        with wave.open(wav_io, "wb") as wf:
+            wf.setnchannels(1)  # Mono
+            wf.setsampwidth(2)  # 16-bit = 2 bytes
+            wf.setframerate(8000)  # 8kHz
+            wf.writeframes(audio_int16.tobytes())
+
+        return wav_io.getvalue()
 
 
 # MARK: WARMUP

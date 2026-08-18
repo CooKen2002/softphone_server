@@ -5,6 +5,9 @@ import soundfile as sf
 import onnxruntime
 import scipy
 
+CHUNK_LENGTH = 20  # 20 seconds
+MAX_N_SAMPLES = CHUNK_LENGTH * 16000
+
 tokenizer_dict = {
     0: "ẻ",
     1: "6",
@@ -139,6 +142,13 @@ def ensure_channels(waveform, original_channels, desired_channels=1):
         waveform = np.mean(waveform, axis=1)
     return waveform, desired_channels
 
+# def init_model(model_path, target=None, device_id=None):
+#     if model_path.endswith(".onnx"):
+#         model = onnxruntime.InferenceSession(
+#             model_path, providers=["CPUExecutionProvider"]
+#         )
+
+#     return model
 
 def init_model(model_path, target=None, device_id=None):
     if model_path.endswith(".onnx"):
@@ -155,8 +165,6 @@ def init_model(model_path, target=None, device_id=None):
         providers.append("CPUExecutionProvider")
 
         sess_options = onnxruntime.SessionOptions()
-        # Tận dụng hết core CPU cho phần compute nội bộ 1 lượt infer (quan trọng
-        # khi CUDA không khả dụng, hoặc cho các node vẫn chạy trên CPU dù có GPU).
         sess_options.intra_op_num_threads = os.cpu_count() or 4
 
         try:
@@ -164,8 +172,6 @@ def init_model(model_path, target=None, device_id=None):
                 model_path, sess_options=sess_options, providers=providers
             )
         except Exception as e:
-            # Provider CUDA có mặt trong danh sách nhưng load thất bại thực tế
-            # (VD thiếu cuDNN/driver không khớp version) -> fallback cứng về CPU.
             print(f"[wav2vec] Lỗi khởi tạo với providers={providers}: {e}. Fallback CPU.")
             model = onnxruntime.InferenceSession(
                 model_path, sess_options=sess_options, providers=["CPUExecutionProvider"]
@@ -182,6 +188,18 @@ def run_model(model, audio_array):
 
     return outputs
 
+def pre_process(audio_array, max_length, pad_value=0):
+    array_length = len(audio_array)
+
+    if array_length < max_length:
+        pad_length = max_length - array_length
+        audio_array = np.pad(
+            audio_array, (0, pad_length), mode="constant", constant_values=pad_value
+        )
+    elif array_length > max_length:
+        audio_array = audio_array[:max_length]
+
+    return audio_array
 
 def release_model(model):
     if "onnx" in str(type(model)):
@@ -219,19 +237,20 @@ def post_process(output):
     transcription = decode(predicted_ids[0])
     return transcription
 
-
 if __name__ == "__main__":
     model_path = "../model/wav2vec2_vietnamese.onnx"
     audio_data, sample_rate = sf.read("2.mp3")
+
     channels = audio_data.ndim
     audio_data, channels = ensure_channels(audio_data, channels)
     audio_data, sample_rate = ensure_sample_rate(audio_data, sample_rate)
     audio_array = np.array(audio_data, dtype=np.float32)
+    # audio_array = pre_process(audio_array, MAX_N_SAMPLES)
     audio_array = np.expand_dims(audio_array, axis=0)
 
     model = init_model(model_path, None, None)
-    outputs = run_model(model, audio_array)
 
+    outputs = run_model(model, audio_array)
     transcription = post_process(outputs)
     print("\nWav2vec2 output:", transcription)
 

@@ -27,3 +27,4 @@ DEBUG = True
 SHOW_TIMING = True
 
 RESULT_PATH = "./results"
+ASSETS_PATH = "./assets"
