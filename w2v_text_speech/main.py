@@ -22,6 +22,7 @@ from rasa_utils import *
 from config import *
 from utils import *
 from wav2vec import *
+from fuzzy_correct import *
 
 # MARK: LOAD MODELS
 
@@ -149,7 +150,16 @@ def wav_bytes_to_text(audio_data: np.ndarray) -> str:
 
     audio_array = np.expand_dims(audio_array, axis=0)  # bắt buộc phải có nếu model rank-2
     outputs = run_model(model, audio_array)
-    return post_process(outputs)
+    transcription = post_process(outputs)
+    output_text = process_text_semantic(
+        input_text=transcription,
+        tokenizer_dict=fuzyy_tokenizer_dict,
+        max_phrase_length=4,
+        phrase_threshold=0.75,
+        word_threshold=0.78,
+        add_unknown=False
+    )
+    return output_text
 
 
 def request_to_rasa(text: str, sender_id: str) -> str:
