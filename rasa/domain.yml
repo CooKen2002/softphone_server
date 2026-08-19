@@ -88,85 +88,79 @@ forms:
 
 responses:
   utter_ask_form_dat_ve_diem_don:
-    - text: "Anh chị muốn được đón ở đâu ạ"
+    - text: "anh chị muốn được đón ở đâu ạ"
 
   utter_ask_form_dat_ve_diem_den:
-    - text: "Anh chị muốn đi đến đâu ạ"
+    - text: "anh chị muốn đi đến đâu ạ"
 
   utter_ask_form_dat_ve_thoi_gian:
-    - text: "Anh chị muốn đón vào lúc nào ạ"
+    - text: "anh chị muốn đón vào lúc nào ạ"
 
   utter_ask_form_dat_ve_loai_xe:
-    - text: "Anh chị muốn loại xe nào ạ"
+    - text: "anh chị muốn loại xe nào ạ"
 
   utter_ask_form_dat_ve_so_luong:
-    - text: "Anh chị đi bao nhiêu người ạ"
+    - text: "anh chị đi bao nhiêu người ạ"
 
   utter_ask_form_dat_ve_ho_ten:
-    - text: "Anh chị vui lòng cung cấp họ tên ạ"
+    - text: "anh chị vui lòng cung cấp họ tên ạ"
 
   utter_ask_form_dat_ve_dien_thoai:
-    - text: "Anh chị vui lòng cung cấp số điện thoại ạ"
+    - text: "anh chị có muốn dùng số điện thoại này để đặt vé không. nếu không anh chị vui lòng cung cấp số điện thoại đặt vé ạ"
 
   utter_ask_form_sua_ve_diem_don:
-    - text: "Anh chị muốn được đón ở đâu ạ"
+    - text: "anh chị muốn được đón ở đâu ạ"
 
   utter_ask_form_sua_ve_diem_den:
-    - text: "Anh chị muốn đi đến đâu ạ"
+    - text: "anh chị muốn đi đến đâu ạ"
 
   utter_ask_form_sua_ve_thoi_gian:
-    - text: "Anh chị muốn đón vào lúc nào ạ"
+    - text: "anh chị muốn đón vào lúc nào ạ"
 
   utter_ask_form_sua_ve_loai_xe:
-    - text: "Anh chị muốn loại xe nào ạ"
+    - text: "anh chị muốn loại xe nào ạ"
 
   utter_ask_form_sua_ve_so_luong:
-    - text: "Anh chị đi bao nhiêu người ạ"
+    - text: "anh chị đi bao nhiêu người ạ"
 
   utter_ask_form_sua_ve_ho_ten:
-    - text: "Anh chị vui lòng cung cấp họ tên ạ"
+    - text: "anh chị vui lòng cung cấp họ tên ạ"
 
   utter_ask_form_sua_ve_dien_thoai:
-    - text: "Anh chị vui lòng cung cấp số điện thoại ạ"
+    - text: "anh chị có muốn dùng số điện thoại này để đặt vé không. nếu không anh chị vui lòng cung cấp số điện thoại đặt vé ạ"
 
   utter_ask_form_huy_ve_dien_thoai:
-    - text: "Anh chị vui lòng cung cấp số điện thoại lúc đặt vé ạ"
+    - text: "anh chị vui lòng cung cấp số điện thoại lúc đặt vé ạ"
 
   utter_ask_form_huy_ve_thoi_gian:
-    - text: "Vui lòng anh chị cung cấp thời gian đi ạ"
+    - text: "vui lòng anh chị cung cấp thời gian đi ạ"
 
   utter_ask_form_huy_ve_ho_ten:
-    - text: "Vui lòng anh chị cung cấp họ tên người đặt vé ạ"
+    - text: "vui lòng anh chị cung cấp họ tên người đặt vé ạ"
 
   utter_ask_form_huy_ve_diem_don:
-    - text: "Vui lòng anh chị cung cấp điểm đón ạ"
+    - text: "vui lòng anh chị cung cấp điểm đón ạ"
 
   utter_ask_form_huy_ve_diem_den:
-    - text: "Vui lòng anh chị cung cấp điểm đến ạ"
+    - text: "vui lòng anh chị cung cấp điểm đến ạ"
 
   utter_ask_form_huy_ve_so_luong:
-    - text: "Anh chị muốn hủy bao nhiêu vé"
+    - text: "anh chị muốn hủy bao nhiêu vé"
 
   utter_huy_dat_ve_trong_form_thanh_cong:
-    - text: "Xác nhận hủy thao tác, Anh chị có muốn hỗ trợ gì thêm không"
+    - text: "xác nhận hủy thao tác, anh chị có muốn hỗ trợ gì thêm không"
 
   utter_dat_ve_sai:
-    - text: "Anh chị muốn thay đổi thông tin gì ạ"
+    - text: "anh chị muốn thay đổi thông tin gì ạ"
 
   utter_xac_nhan_huy_dat_ve_trong_form:
-    - text: "Anh chị chắc chắn hủy đặt xe ạ"
+    - text: "anh chị chắc chắn hủy đặt xe ạ"
 
   utter_fallback:
-    - text: "Xin lỗi, tôi chưa hiểu ý anh, chị. Anh, chị có thể nói lại không ạ"
+    - text: "xin lỗi, tôi chưa hiểu ý anh, chị. anh, chị có thể nói lại không ạ"
 
   utter_default_fallback:
-    - text: "Xin lỗi, tôi chưa hiểu ý anh, chị. Anh, chị có thể nói lại không ạ"
-
-  utter_default:
-    - text: "Tổng đài xin chào quý khách, em giúp gì cho anh chị ạ"
-
-  utter_chao_hoi:
-    - text: "Tổng đài đặt xe tự động xin chào quý khách, em giúp gì cho anh chị ạ"
+    - text: "xin lỗi, tôi chưa hiểu ý anh, chị. anh, chị có thể nói lại không ạ"
 
 actions:
   - validate_form_dat_ve

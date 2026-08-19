@@ -280,6 +280,16 @@ async def handle_client(websocket):
             # Try/except riêng cho từng message: 1 audio/model lỗi không làm
             # rớt kết nối, server tiếp tục chờ message tiếp theo của client này.
             try:
+                if isinstance(message, str):
+                    info = message.split("|") 
+                    if len(info) == 2:
+                        session_company, session_phone = info
+                        SENDER_ID = message
+                        log(f"Call info: company={session_company}, phone={session_phone}", "INFO")
+                    else:
+                        log(f"Call info không đúng định dạng: {message}", "ERROR")
+                    continue
+
                 if not isinstance(message, bytes):
                     log("Nhận dữ liệu không phải bytes!", "ERROR")
                     continue
