@@ -100,7 +100,7 @@ responses:
     - text: "anh chị muốn loại xe nào ạ"
 
   utter_ask_form_dat_ve_so_luong:
-    - text: "anh chị đi bao nhiêu người ạ"
+    - text: "anh chị có muốn dùng số điện thoại này để đặt vé không. nếu không anh chị vui lòng cung cấp số điện thoại đặt vé ạ"
 
   utter_ask_form_dat_ve_ho_ten:
     - text: "anh chị vui lòng cung cấp họ tên ạ"
