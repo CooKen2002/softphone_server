@@ -243,12 +243,13 @@ class ValidateFormDatXe(FormValidationAction):
         if intent == HUY:
             return []
         if intent == DONG_Y:
-            sender_id = tracker.sender_id.strip().title() # sender có dạng 'tên nhà xe|số điện thoại khách hàng'
-            info_sender = split_string(sender_id)
-            if len(info_sender) == 2:
-                _, phone_num = info_sender
-                return[SlotSet(DIEN_THOAI, phone_num)]
-        
+            if tracker.get_slot(REQUESTED_SLOT) == DIEN_THOAI:
+                sender_id = tracker.sender_id.strip().title() # sender có dạng 'tên nhà xe|số điện thoại khách hàng'
+                info_sender = split_string(sender_id)
+                if len(info_sender) == 2:
+                    _, phone_num = info_sender
+                    return[SlotSet(DIEN_THOAI, phone_num)]
+            
         event = [
             SlotSet(FLAG_FORM, "form_dat_ve"),
             SlotSet(CONFIRM_FORM, False),

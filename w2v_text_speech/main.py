@@ -274,7 +274,7 @@ async def handle_client(websocket):
                     info = message.split("|") 
                     if len(info) == 2:
                         session_company, session_phone = info
-                        SENDER_ID = session_phone
+                        SENDER_ID = message
                         log(f"Call info: company={session_company}, phone={session_phone}", "INFO")
                     else:
                         log(f"Call info không đúng định dạng: {message}", "ERROR")
