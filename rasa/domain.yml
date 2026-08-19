@@ -162,12 +162,6 @@ responses:
   utter_default_fallback:
     - text: "Xin lỗi, tôi chưa hiểu ý anh, chị. Anh, chị có thể nói lại không ạ"
 
-  utter_default:
-    - text: "Tổng đài xin chào quý khách, em giúp gì cho anh chị ạ"
-
-  utter_chao_hoi:
-    - text: "Tổng đài đặt xe tự động xin chào quý khách, em giúp gì cho anh chị ạ"
-
 actions:
   - validate_form_dat_ve
   - action_tra_cuu_ve

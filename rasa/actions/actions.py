@@ -195,15 +195,18 @@ class chao_hoi(Action):
         domain: Dict[Text, Any],
     ) -> List[Dict[Text, Any]]:
 
-        ten_nha_xe = tracker.sender_id.strip().title()
-        if ten_nha_xe.strip() != "":
-            dispatcher.utter_message(
-                text=f"Nhà xe {ten_nha_xe} xin chào quý khách, em giúp gì cho anh chị ạ"
-            )
-        else:
-            dispatcher.utter_message(
-                text="Xin chào quý khách, em giúp gì cho anh chị ạ?"
-            )
+        sender_id = tracker.sender_id.strip().title() # sender có dạng 'tên nhà xe|số điện thoại khách hàng'
+        info_sender = split_string(sender_id)
+        if len(info_sender) == 2:
+            ten_nha_xe, _ = info_sender
+            if ten_nha_xe.strip() != "":
+                dispatcher.utter_message(
+                    text=f"Nhà xe {ten_nha_xe} xin chào quý khách, em giúp gì cho anh chị ạ"
+                )
+            else:
+                dispatcher.utter_message(
+                    text="Xin chào quý khách, em giúp gì cho anh chị ạ?"
+                )
 
         return []
 
@@ -239,7 +242,13 @@ class ValidateFormDatXe(FormValidationAction):
         # Kiểm tra intent
         if intent == HUY:
             return []
-
+        if intent == DONG_Y:
+            sender_id = tracker.sender_id.strip().title() # sender có dạng 'tên nhà xe|số điện thoại khách hàng'
+            info_sender = split_string(sender_id)
+            if len(info_sender) == 2:
+                _, phone_num = info_sender
+                return[SlotSet(DIEN_THOAI, phone_num)]
+        
         event = [
             SlotSet(FLAG_FORM, "form_dat_ve"),
             SlotSet(CONFIRM_FORM, False),

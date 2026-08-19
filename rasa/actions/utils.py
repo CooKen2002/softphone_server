@@ -5,6 +5,9 @@ import re
 from .constants import *
 from .services import *
 
+def split_string(string: str):
+    info = string.split("|")
+    return info
 
 def extract_entity(value):
     slots = []
