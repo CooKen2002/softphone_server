@@ -201,11 +201,11 @@ class chao_hoi(Action):
             ten_nha_xe, _ = info_sender
             if ten_nha_xe.strip() != "":
                 dispatcher.utter_message(
-                    text=f"Nhà xe {ten_nha_xe} xin chào quý khách, em giúp gì cho anh chị ạ"
+                    text=f"nhà xe {ten_nha_xe} xin chào quý khách, em giúp gì cho anh chị ạ"
                 )
             else:
                 dispatcher.utter_message(
-                    text="Xin chào quý khách, em giúp gì cho anh chị ạ?"
+                    text="xin chào quý khách, em giúp gì cho anh chị ạ?"
                 )
 
         return []
@@ -284,29 +284,29 @@ class ValidateFormDatXe(FormValidationAction):
                     event.append(SlotSet(role, value))
             elif entity_name == THOI_GIAN:
                 if valid_thoi_gian(value, entiti) is None:
-                    dispatcher.utter_message(text=f"Thời gian đặt không hợp lệ")
+                    dispatcher.utter_message(text=f"thời gian đặt không hợp lệ")
                 event.append(SlotSet(THOI_GIAN, valid_thoi_gian(value, entiti)))
             elif entity_name == DIEN_THOAI:
                 if valid_dien_thoai(value, entiti) is None:
-                    dispatcher.utter_message(text=f"Số điện thoại không hợp lệ")
+                    dispatcher.utter_message(text=f"số điện thoại không hợp lệ")
                 event.append(SlotSet(DIEN_THOAI, valid_dien_thoai(value, entiti)))
             elif entity_name == SO_LUONG:
                 if valid_so_luong(value, entiti) is None:
-                    dispatcher.utter_message(text=f"Không xác định được số vé đặt")
+                    dispatcher.utter_message(text=f"không xác định được số vé đặt")
                 event.append(SlotSet(SO_LUONG, valid_so_luong(value, entiti)))
             elif entity_name == HO_TEN:
                 if valid_ho_ten(value, entiti) is None:
-                    dispatcher.utter_message(text=f"Không xác định được tên người")
+                    dispatcher.utter_message(text=f"không xác định được tên người")
                 event.append(SlotSet(HO_TEN, valid_ho_ten(value, entiti)))
             # TODO: Có xử lý loại xe trong form đặt xe:
             # elif entity_name == LOAI_XE:
             #     if valid_loai_xe(value, entiti) is None:
-            #         dispatcher.utter_message(text=f"Không có loại xe {value}")
+            #         dispatcher.utter_message(text=f"không có loại xe {value}")
             #     event.append(SlotSet(LOAI_XE, valid_loai_xe(value, entiti)))
 
             # if entiti.get("extractor") == DIET_CLASSIFIER:
             #     diet_conf = entiti.get("confidence_entity")
-            #     dispatcher.utter_message(text=f"Không hiểu {entiti.get('entity')} là {entiti.get('value')}")
+            #     dispatcher.utter_message(text=f"không hiểu {entiti.get('entity')} là {entiti.get('value')}")
             #     # TODO: làm phần tự hiểu
             #     return event
             # elif entiti.get("extractor") == REGEX_ENTITY_EXTRACTOR:
@@ -362,7 +362,7 @@ class submit_dat_ve(Action):
         confirm = tracker.get_slot(CONFIRM_FORM)
         flag_form = tracker.get_slot(FLAG_FORM)
         if confirm and flag_form == "form_dat_ve":
-            dispatcher.utter_message(text=(f"Đã đặt xe thành công. Anh chị có muốn hỗ trợ gì không ạ"))
+            dispatcher.utter_message(text=(f"đã đặt xe thành công. anh chị có muốn hỗ trợ gì không ạ"))
             events = [Restarted()]
 
         return events
@@ -396,14 +396,14 @@ class xac_nhan_form_dat_ve(Action):
 
         dispatcher.utter_message(
             text=(
-                f"Em xác nhận thông tin đặt vé của anh chị:"
-                f"Đón tại: {diem_don}"
-                f"Đến: {diem_den}"
-                f"Giờ: {thoi_gian}"
-                f"Loại xe: {loai_xe}"
-                f"Số lượng: {so_luong}"
-                f"Họ tên: {ho_ten}"
-                f"Điện thoại: {dien_thoai}"
+                f"em xác nhận thông tin đặt vé của anh chị:"
+                f"đón tại: {diem_don}"
+                f"đến: {diem_den}"
+                f"giờ: {thoi_gian}"
+                f"loại xe: {loai_xe}"
+                f"số lượng: {so_luong}"
+                f"họ tên: {ho_ten}"
+                f"điện thoại: {dien_thoai}"
             )
         )
 
@@ -541,7 +541,7 @@ class tra_cuu_ve(Action):
         if list_tickets:
             count = len(list_tickets)
             if count == 0:
-                dispatcher.utter_message(text=f"Em không tìm thấy vé nào có số {phone}")
+                dispatcher.utter_message(text=f"em không tìm thấy vé nào có số {phone}")
                 return [Restarted()]
 
             if count == 1:
@@ -617,7 +617,7 @@ class xac_nhan_sua_ve(Action):
 
         status_form = tracker.get_slot(STATUS_FORM)
         if status_form == IN_PROCESS:
-            dispatcher.utter_message(text=("Anh chị muốn sửa thông tin gì ạ"))
+            dispatcher.utter_message(text=("anh chị muốn sửa thông tin gì ạ"))
             return [FollowupAction("action_listen")]
 
         list_ticket = tracker.get_slot(LIST_TICKETS)
@@ -631,17 +631,17 @@ class xac_nhan_sua_ve(Action):
 
         dispatcher.utter_message(
             text=(
-                f"Em xác nhận thông tin của anh chị:"
-                f"Đón tại: {diem_don}"
-                f"Đến: {diem_den}"
-                f"Giờ: {thoi_gian}"
-                f"Loại xe: {loai_xe}"
-                f"Số lượng: {so_luong}"
-                f"Họ tên: {ho_ten}"
-                f"Điện thoại: {dien_thoai}"
+                f"em xác nhận thông tin của anh chị:"
+                f"đón tại: {diem_don},"
+                f"đến: {diem_den},"
+                f"giờ: {thoi_gian},"
+                f"loại xe: {loai_xe},"
+                f"số lượng: {so_luong},"
+                f"họ tên: {ho_ten},"
+                f"điện thoại: {dien_thoai},"
             )
         )
-        dispatcher.utter_message(text=f"Thông tin vé đã đúng chưa ạ")
+        dispatcher.utter_message(text=f"thông tin vé đã đúng chưa ạ")
 
         return [SlotSet(CONFIRM_FORM, True), FollowupAction("action_listen")]
 
@@ -658,7 +658,7 @@ class submit_sua_ve(Action):
     ) -> List[Dict[Text, Any]]:
 
         event = [AllSlotsReset(), Restarted()]
-        dispatcher.utter_message(text=f"Sửa vé thành công, Anh chị cần giúp gì không ạ")
+        dispatcher.utter_message(text=f"sửa vé thành công, anh chị cần giúp gì không ạ")
         return event
 
 
@@ -724,7 +724,7 @@ class ValidateFormHuyVe(FormValidationAction):
         count_booking = len(ticket_list)
         if count_booking == 0:
             events.append(ActiveLoop(None))
-            dispatcher.utter_message(text=f"Anh chị không có vé nào")
+            dispatcher.utter_message(text=f"anh chị không có vé nào")
         elif count_booking == 1:
             if ticket_list[0].get(SO_LUONG) == 1:
                 events.append(ActiveLoop(None))
@@ -765,16 +765,16 @@ class xac_nhan_huy_ve(Action):
                 if list_tickets[0].get(SO_LUONG) == 1:
                     dispatcher.utter_message(
                         text=
-                        f"Em xác nhận thông tin hủy vé của anh chị:"
-                        f"Điểm đón: {list_tickets[0].get('diem_don')}"
-                        f"Điểm đến: {list_tickets[0].get('diem_den')}"
-                        f"Thời gian: {list_tickets[0].get('thoi_gian')}"
-                        f"Họ tên: {list_tickets[0].get('ho_ten')}"
+                        f"em xác nhận thông tin hủy vé của anh chị:"
+                        f"điểm đón: {list_tickets[0].get('diem_don')}"
+                        f"điểm đến: {list_tickets[0].get('diem_den')}"
+                        f"thời gian: {list_tickets[0].get('thoi_gian')}"
+                        f"họ tên: {list_tickets[0].get('ho_ten')}"
                     )
                     ask_so_luong = False
 
         if ask_so_luong:
-            dispatcher.utter_message(text=f"Em xác nhận anh chị muốn hủy {so_luong} vé")
+            dispatcher.utter_message(text=f"em xác nhận anh chị muốn hủy {so_luong} vé")
 
         return events
 
@@ -798,16 +798,16 @@ class submit_huy_ve(Action):
 
         if len(list_tickets) == 1:
             if list_tickets[0].get(SO_LUONG) == 1:
-                text = "finished|Đã hủy vé thành công!"
+                text = "đã hủy vé thành công!"
             else:
                 if so_luong > list_tickets[0].get(SO_LUONG):
-                    text = f"Số lượng vé không đủ"
+                    text = f"số lượng vé không đủ"
                     events = [
                         ActiveLoop("form_huy_ve"),
                         SlotSet(REQUESTED_SLOT, SO_LUONG),
                     ]
                 else:
-                    text = f"Đã hủy {so_luong} vé thành công!"
+                    text = f"đã hủy {so_luong} vé thành công!"
         else:
             # Trùng toàn bộ
             count = 0
@@ -815,10 +815,10 @@ class submit_huy_ve(Action):
                 count += int(ticket.get(SO_LUONG))
 
             if so_luong > count:
-                text = f"Số lượng vé không đủ"
+                text = f"số lượng vé không đủ"
                 events = [ActiveLoop("form_huy_ve"), SlotSet(REQUESTED_SLOT, SO_LUONG)]
             else:
-                text = f"Đã hủy {so_luong} vé thành công!"
+                text = f"đã hủy {so_luong} vé thành công!"
 
         dispatcher.utter_message(text=(text))
 
