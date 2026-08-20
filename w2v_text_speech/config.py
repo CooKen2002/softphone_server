@@ -17,7 +17,6 @@ SPEECH_BAND_MIN = 0.40  # tối thiểu 40% năng lượng trong 300-3400 Hz
 
 # rasa
 RASA_PATH = "../rasa"
-SENDER_ID = "hà lan"
 RASA_URL = "http://localhost:5005/webhooks/rest/webhook"
 RASA_BASE_URL = "http://localhost:5005"
 HOST = "127.0.0.1"
@@ -41,3 +40,6 @@ DICT_FILES = {
 }
 
 SPECIAL_TOKENS = {"<pad>", "<unk>"}
+
+# gen default audio
+AUDIO_ASSETS_PATH = "./assets/audio"

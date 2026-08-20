@@ -103,13 +103,13 @@ class route_action(Action):
             #     events.append(FollowupAction("action_tra_cuu_ve"))
 
             if status_form == IN_PROCESS:
-                dispatcher.utter_message(f"Anh chị chắc chắn muốn hủy ạ")
+                dispatcher.utter_message(f"anh chị chắc chắn muốn hủy ạ")
                 events.append(SlotSet(STATUS_FORM, CANCEL_PROCESS))
                 events.append(ActiveLoop(None))
 
             if status_form == POST_PROCESS:
                 dispatcher.utter_message(
-                    f"Đã hủy thành công. Anh chị muốn em hỗ trợ gì không ạ"
+                    f"đã hủy thành công. anh chị muốn em hỗ trợ gì không ạ"
                 )
                 events.append(Restarted())
 
@@ -122,7 +122,7 @@ class route_action(Action):
         if intent == DONG_Y:
             if status_form == CANCEL_PROCESS:
                 dispatcher.utter_message(
-                    f"Đã hủy thành công. Anh chị muốn em hỗ trợ gì không ạ"
+                    f"đã hủy thành công. anh chị muốn em hỗ trợ gì không ạ"
                 )
                 events.append(Restarted())
 
@@ -139,7 +139,7 @@ class route_action(Action):
                 events.append(FollowupAction(flag_form))
 
             if status_form == POST_PROCESS:
-                dispatcher.utter_message(text=f"Anh chị muốn sửa thêm thông tin gì ạ")
+                dispatcher.utter_message(text=f"anh chị muốn sửa thêm thông tin gì ạ")
                 events.append(SlotSet(STATUS_FORM, MODIFI_PROCESS))
 
             # if status_form == MODIFI_PROCESS:

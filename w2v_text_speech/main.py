@@ -177,7 +177,7 @@ def request_to_rasa(text: str, sender_id: str) -> str:
 
 
 async def text_to_wav_bytes(text: str) -> bytes:   
-    default_speech_path = f"{ASSETS_PATH}/audio_default/{text}.wav"
+    default_speech_path = f"{AUDIO_ASSETS_PATH}/{text}.wav"
 
     if os.path.exists(default_speech_path):
         log("Đã gửi default audio: {text}", "TTS")
@@ -269,9 +269,9 @@ async def handle_client(websocket):
                     info = message.split("|") 
                     if len(info) == 2:
                         session_company, session_phone = info
-                        SENDER_ID = message
+                        sender_id = message
                         rasa_text = await loop.run_in_executor(
-                            None, request_to_rasa, "xin chào", SENDER_ID
+                            None, request_to_rasa, "xin chào", sender_id
                         )
                         wav_bytes = await text_to_wav_bytes(rasa_text)
                         await websocket.send(wav_bytes)
@@ -302,7 +302,7 @@ async def handle_client(websocket):
                 # 4. Rasa Dialog
                 t0 = time.perf_counter()
                 rasa_text = await loop.run_in_executor(
-                    None, request_to_rasa, transcript, SENDER_ID
+                    None, request_to_rasa, transcript, sender_id
                 )
                 log(f"↳ response: {rasa_text.strip()[:100]}", "RASA")
                 log(f"Rasa : {time.perf_counter() - t0:.2f}s", "RASA")
