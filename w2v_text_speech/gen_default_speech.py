@@ -9,7 +9,7 @@ if DEVICE == "cpu":
 else:
     tts = Vieneu(mode="v3turbo")
 
-def create_speech(text: str, sample_rate: int = 8000):
+def create_speech(text: str):
     output_dir = Path(AUDIO_ASSETS_PATH)
     output_dir.mkdir(parents=True, exist_ok=True)
     
@@ -29,7 +29,7 @@ def create_speech(text: str, sample_rate: int = 8000):
     abs_filename_path = str(filename_path.resolve())
     
     # 3. Ghi dữ liệu audio ra file .wav
-    sf.write(abs_filename_path, audio, sample_rate)
+    sf.write(abs_filename_path, audio, 48000)
     
     print(f"Đã tạo audio tại: {abs_filename_path}")
 
@@ -52,6 +52,8 @@ if __name__ == "__main__":
         "anh chị vui lòng cung cấp họ tên ạ",
         "anh chị có muốn dùng số điện thoại này để đặt vé không. nếu không anh chị vui lòng cung cấp số điện thoại đặt vé ạ",
         "xác nhận hủy thao tác, anh chị có muốn hỗ trợ gì thêm không",
+        "xin lỗi, tôi đang gặp vấn đề kỹ thuật. bạn nói lại được không",
+        "em chưa nghe rõ. anh chị có thể nói lại được không",
     ]
     
     for sentence in default_sentences:

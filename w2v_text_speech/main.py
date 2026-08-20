@@ -158,7 +158,7 @@ def wav_bytes_to_text(audio_data: np.ndarray) -> str:
 
 def request_to_rasa(text: str, sender_id: str) -> str:
     if not text or not text.strip():
-        return "Bạn nói gì vậy?"
+        return "em chưa nghe rõ. anh chị có thể nói lại được không"
 
     try:
         payload = {"sender": sender_id, "message": text.strip()}
@@ -173,11 +173,15 @@ def request_to_rasa(text: str, sender_id: str) -> str:
 
     except Exception as e:
         log(f"Lỗi kết nối Rasa: {e}", "ERROR")
-        return "Xin lỗi, tôi đang gặp vấn đề kỹ thuật. Bạn nói lại được không?"
+        return "xin lỗi, tôi đang gặp vấn đề kỹ thuật. bạn nói lại được không"
 
 
 async def text_to_wav_bytes(text: str) -> bytes:   
-    default_speech_path = f"{AUDIO_ASSETS_PATH}/{text}.wav"
+    safe_text = text.replace('/', '_').replace('\\', '_').replace(':', '_') \
+                .replace('*', '_').replace('?', '_').replace('"', '_') \
+                .replace('<', '_').replace('>', '_').replace('|', '_')
+                    
+    default_speech_path = f"{AUDIO_ASSETS_PATH}/{safe_text}.wav"
 
     if os.path.exists(default_speech_path):
         log("Đã gửi default audio: {text}", "TTS")
