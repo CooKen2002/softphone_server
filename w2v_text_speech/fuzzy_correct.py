@@ -559,7 +559,7 @@ def process_text_semantic(
     )
     return normalized_text
 
-def main():
+def fuzzy_main():
 
     print("\nText nhận dạng từ WAV2VEC2:")
     user_input = "cho tôi môt xe đến kin mã từ ha phòng"
@@ -577,4 +577,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    fuzzy_main()
