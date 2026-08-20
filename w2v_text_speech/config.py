@@ -28,3 +28,16 @@ SHOW_TIMING = True
 
 RESULT_PATH = "./results"
 ASSETS_PATH = "./assets"
+
+# leven config
+DICT_DIR = r"./assets"
+
+DICT_FILES = {
+    "common":    "common_dict.json",
+    "cartype":   "Cartype_dict.json",
+    "location":  "location_dict.json",
+    "time":      "Time_dict.json",
+    "province":  "VietNam_Provinces_dict.json",
+}
+
+SPECIAL_TOKENS = {"<pad>", "<unk>"}

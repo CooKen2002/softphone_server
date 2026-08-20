@@ -22,7 +22,7 @@ from rasa_utils import *
 from config import *
 from utils import *
 from wav2vec import *
-from fuzzy_correct import *
+from correct_text import *
 
 # MARK: LOAD MODELS
 
@@ -151,14 +151,8 @@ def wav_bytes_to_text(audio_data: np.ndarray) -> str:
     audio_array = np.expand_dims(audio_array, axis=0)  # bắt buộc phải có nếu model rank-2
     outputs = run_model(model, audio_array)
     transcription = post_process(outputs)
-    output_text = process_text_semantic(
-        input_text=transcription,
-        tokenizer_dict=fuzyy_tokenizer_dict,
-        max_phrase_length=4,
-        phrase_threshold=0.75,
-        word_threshold=0.78,
-        add_unknown=False
-    )
+    output_text = correct(transcription)
+    log(f"Correct từ {transcription} -> {output_text}", "STT")
     return output_text
 
 
@@ -210,7 +204,7 @@ async def text_to_wav_bytes(text: str) -> bytes:
             
         return wav_io.getvalue()
     else:
-        audio = tts.infer(text=text, voice="Ngọc Linh")
+        audio = tts.infer(text=text, voice="Đoan Trang")
 
         # 2. Xử lý khoảng lặng (padding) 350ms
         sample_rate = 48000
@@ -258,15 +252,6 @@ def warmup_models():
         log(f"Warmup lỗi (bỏ qua): {e}", "ERROR")
 
 
-def warmup_rasa():
-    payload = {"sender": SENDER_ID, "message": "xin chào"}
-    res_post = rasa_session.post(RASA_URL, json=payload, timeout=8)
-    if res_post.status_code == 200:
-        log(f"Warmup RASA session thành công", "RASA")
-    else:
-        log(f"PORT: {RASA_BASE_URL} not available", "ERROR")
-
-
 # MARK: WEBSOCKET
 # ====================== WEBSOCKET HANDLER ======================
 async def handle_client(websocket):
@@ -285,7 +270,12 @@ async def handle_client(websocket):
                     if len(info) == 2:
                         session_company, session_phone = info
                         SENDER_ID = message
-                        log(f"Call info: company={session_company}, phone={session_phone}", "INFO")
+                        rasa_text = await loop.run_in_executor(
+                            None, request_to_rasa, "xin chào", SENDER_ID
+                        )
+                        wav_bytes = await text_to_wav_bytes(rasa_text)
+                        await websocket.send(wav_bytes)
+                        log(f"Đã gửi câu chào từ {session_company} cho số {session_phone}", "INFO")
                     else:
                         log(f"Call info không đúng định dạng: {message}", "ERROR")
                     continue
@@ -317,6 +307,8 @@ async def handle_client(websocket):
                 log(f"↳ response: {rasa_text.strip()[:100]}", "RASA")
                 log(f"Rasa : {time.perf_counter() - t0:.2f}s", "RASA")
 
+                # rasa_text ="em xác nhận thông tin đặt vé của anh chị: đón tại: hà nội, đi đến: hải phòng. giờ: 9h sáng mai; loại xe: xe limousine... số lượng: 4! họ tên: nguyễn đức cường? điện thoại: 0987654321"
+
                 # 5. Text-to-Speech
                 t0 = time.perf_counter()
                 wav_bytes = await text_to_wav_bytes(rasa_text)
@@ -341,7 +333,6 @@ async def handle_client(websocket):
 # ====================== MAIN ======================
 async def main():
     warmup_models()
-    warmup_rasa()
     print("=" * 70)
     print("          SERVER VOICE BOT WEBSOCKET ĐÃ KHỞI ĐỘNG")
     print(f"          Listening on ws://0.0.0.0:8765")
