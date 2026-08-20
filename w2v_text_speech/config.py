@@ -27,10 +27,9 @@ DEBUG = True
 SHOW_TIMING = True
 
 RESULT_PATH = "./results"
-ASSETS_PATH = "./assets"
 
 # leven config
-DICT_DIR = r"./assets"
+DICT_DIR = r"./assets/dict"
 
 DICT_FILES = {
     "common":    "common_dict.json",
