@@ -1,0 +1,12 @@
+{
+  "0": "<pad>",
+  "1": "<unk>",
+  "2": "xe khách giường nằm",
+  "3": "xe khách ghế ngồi",
+  "4": "limousine",
+  "8": "xe 45 chỗ",
+  "9": "xe 29 chỗ",
+  "10": "xe 16 chỗ",
+  "11": "xe 9 chỗ",
+  "12": "xe 7 chỗ"
+}

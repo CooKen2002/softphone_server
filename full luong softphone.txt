@@ -2,74 +2,10 @@ FULL LUỒNG SOFTPHONE
 
 USER -> HOTLINE-FLUTTER: VAD -> VOICE -> STT(Faster whisper):TEXT -> RASA: TEXT_RESPONSE -> TTS
 
-Cấu trúc thư mục (các folders & files key)
-├── full luong softphone.txt
-├── LỘ TRÌNH XE HÀ LAN.docx
-│
-├── rasa\
-│   ├── config.yml
-│   ├── credentials.yml
-│   ├── domain.yml
-│   ├── endpoints.yml
-│   ├── requirements.txt
-│   ├── actions\
-│   │   ├── actions.py
-│   │   ├── constants.py
-│   │   ├── http_ulti.py
-│   │   ├── models.py
-│   │   ├── services.py
-│   │   ├── utils.py
-│   │   └── __init__.py
-│   ├── components\
-│   │   ├── postProcess.py
-│   │   └── sks_tokenizer\
-│   │       ├── aliases.json
-│   │       ├── entities.json
-│   │       ├── phrases.txt
-│   │       ├── phrases_runtime.txt
-│   │       ├── placeholder.json
-│   │       └── sks_tokenizer.py
-│   ├── data\
-│   │   ├── rules.yml
-│   │   ├── stories.yml
-│   │   └── nlu\
-│   │       ├── lookup_tables.yml
-│   │       ├── regex.yml
-│   │       ├── synonyms.yml
-│   │       └── intents\
-│   │           ├── booking.yml
-│   │           ├── correcting.yml
-│   │           ├── others.yml
-│   │           └── providing.yml
-│   ├── models\
-│   └── utils\
-│       ├── gen_txt_json.py
-│       ├── load.py
-│       ├── rasa_utils.py
-│       ├── utils.py
-│       ├── __init__.py
-│       └── examples\
-│           ├── dia_diem.json
-│           ├── dia_diem.txt
-│           ├── ho_ten.json
-│           ├── ho_ten.txt
-│           ├── intent.txt
-│           └── word.txt
-│
-├── sts\
-│   ├── config.py
-│   ├── postprocess.py
-│   ├── rasa_suggest.py
-│   ├── requirements.txt
-│   ├── utils.py
-│   └── whisper_server.py
-│
-└── sks talkie\
-
-Chuẩn bị trước khi chạy sv
-	- cài venv và activate (rasa (py < 3.11) riêng sts (py version có thể lấy phiên bản > 3.10) riêng do incompitable về một số lib)
+Chuẩn bị trước khi chạy server
+	- cài venv và activate (rasa (py < 3.11) riêng src (py version có thể lấy phiên bản > 3.10) riêng do incompitable về một số lib)
 	
-	- sts
+	- src/
 		- pip install sts/requirements.txt
 		- khai baos model:
 			tts = Vieneu()
@@ -95,7 +31,7 @@ Chuẩn bị trước khi chạy sv
 				"tin tuc"
 				"doc_truyen"
 	
-	- Rasa:
+	- rasa/
 		- pip install rasa/requirements.txt
 		- Nếu chưa có model: 
 			Train full(core và nlu): chạy python utils/rasa_utils.py
@@ -110,10 +46,82 @@ Chạy full luồng(CMD):
 		- flutter pub get
 		- flutter run -d window
 		
-	server faster whisper (folder sts)
+	server src
 		chạy file whisper_server.py 
 		
 	server rasa (folder rasa)
 		rasa run actions -vv							/// bật actions 
 		rasa run --enable-api --cors "*" -vv			/// bật server ( đoạn --log kia để lấy log runtime ra file trong /logs)
 		
+Cấu trúc thư mục (các folders & files key)
+D:.
+├── full luong softphone.txt
+│
+├── LỘ TRÌNH XE HÀ LAN.docs
+│
+├── client(flutter)                    # Flutter app 
+│   ├── pubspec.yaml
+│   ├── pubspec.lock
+│   ├── README.md
+│   ├── talkie_v2.iml
+│   ├── assets/
+│   │   ├── *.wav                      # câu thoại thông báo (khonghieunoigi, noichamlai, ...)
+│   │   ├── dll/                       # baresip-window.dll, silero_vad_legacy.onnx, sndfile.dll
+│   │   ├── images/
+│   │   │   ├── skysoft_logo_ok_h80.png
+│   │   │   ├── places/               
+│   │   │   └── vehicles/              # ảnh xe (0_d01_1.png ... 4_d16_7.png), icon_lock.png, icon_repair.png
+│   │   └── vosk-model-vn-0.4/         # model nhận dạng giọng nói (am, conf, graph, ivector)
+│   ├── lib/
+│   │   ├── main.dart
+│   │   ├── models/                    # action_result, admin, limousine, login, map, soft_phone, vehicle
+│   │   ├── screens/
+│   │   │   ├── dashboard/             # call_in/out chart, recent_call, todo_list
+│   │   │   ├── excavator_managment/
+│   │   │   ├── limousine_ticket/      
+│   │   │   ├── map/                   
+│   │   │   ├── operation/             
+│   │   │   ├── root/                  # dashboard, delivery, excavator, limousine_ticket, login, main, map, operation, soft_phone, splash, talkie
+│   │   │   ├── soft_phone/            # call_history, call_incoming/outgoing, call_log_details, contact_detail, player_screen, soft_phone_setting
+│   │   │   └── talkie/                # audio_message, talkie_record_audio, talkie_user_search_page
+│   │   ├── services/                  # admin, limousine, map, soft_phone
+│   │   ├── utils/                     # bare_sip(+receiver), constants, date_utils, dynamic_library_loader, global, http_service, lunar_calendar_utils, string_utils, wave_file
+│   │   └── widgets/                   # calendar_ticket, help_dialog, progress_hud, tab_widget
+│   ├── recordings/                    # file ghi âm cuộc gọi (.mp3, .wav, .pcm) — dữ liệu runtime, không phải mã nguồn
+│   └── windows/                       # cấu hình build Windows (CMakeLists, runner, flutter plugin registrant, app_icon.ico)
+│
+└── server                              # Backend: NLU (Rasa) + STT/pipeline (Python)
+    ├── rasa/                          # Rasa chatbot project
+    │   ├── config.yml
+	│	├── credentials.yml
+	│	├── domain.yml
+	│	├── endpoints.yml
+	│	├──	logging.yml
+	│	├──	requirements.txt
+    │   ├── actions/                   # actions.py, constants.py, http_ulti.py, models.py, services.py, utils.py
+    │   ├── components/                # countVectorsFeaturizer, lexicalSyntacticFeaturizer, postProcess, regexFeaturizer, tokenizer
+    │   │   └── sks_tokenizer/         # aliases.json, entities.json, phrases(.txt/_runtime.txt), sks_tokenizer.py
+    │   ├── data/
+    │   │   ├── rules.yml
+	│ 	│ 	├── stories.yml
+    │   │   └── nlu/                   # lookup_tables, regex, synonyms + intents/ (booking, correcting, others, providing)
+    │   ├── logs/                      # server_debug.log
+    │   ├── models/                    # core/full/nlu *.tar.gz (bản train)
+    │   ├── scripts/                   # user_text_from_log.py, diet_result.txt
+    │   └── utils/                     # gen_txt_json, load, rasa_utils, utils + examples/ (dữ liệu mẫu NLU)
+    │
+    └── src/                          # STT / xử lý giọng nói pipeline
+        ├── config.py
+		├── correct_text.py
+		├── download_model.py
+		├── main.py
+		├── rasa_utils.py
+		├── utils.py
+		├── wav2vec.py
+		├── requirements.txt
+        ├── assets/
+        │   ├── audio/                # các câu thoại TTS sẵn của nhà xe Hà Lan (.wav)
+        │   └── dict/                 # cartype, common, location, time, tokenizer, vietNam_provinces dict (.json)
+        ├── models/                   # wav2vec2_vietnamese.onnx (+ .data)
+        └── results/                  # (thư mục kết quả output, trống hoặc runtime)
+
