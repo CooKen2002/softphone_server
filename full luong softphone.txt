@@ -56,7 +56,7 @@ Cấu trúc thư mục (các folders & files key)
 │           ├── intent.txt
 │           └── word.txt
 │
-├── sts\
+├── sts\ (fw flow or w2v flow)
 │   ├── config.py
 │   ├── postprocess.py
 │   ├── rasa_suggest.py
@@ -64,7 +64,7 @@ Cấu trúc thư mục (các folders & files key)
 │   ├── utils.py
 │   └── whisper_server.py
 │
-└── sks talkie\
+└── sks talkie\ (client)
 
 Chuẩn bị trước khi chạy sv
 	- cài venv và activate (rasa (py < 3.11) riêng sts (py version có thể lấy phiên bản > 3.10) riêng do incompitable về một số lib)
@@ -110,8 +110,8 @@ Chạy full luồng(CMD):
 		- flutter pub get
 		- flutter run -d window
 		
-	server faster whisper (folder sts)
-		chạy file whisper_server.py 
+	chay server sts (folder sts)
+		chạy file main.py 
 		
 	server rasa (folder rasa)
 		rasa run actions -vv							/// bật actions 
