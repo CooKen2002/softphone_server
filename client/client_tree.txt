@@ -1,0 +1,730 @@
+Folder PATH listing
+Volume serial number is 000000A6 90F1:471D
+D:.
+¦   .gitignore
+¦   .metadata
+¦   accounts
+¦   analysis_options.yaml
+¦   client_tree.txt
+¦   config
+¦   contacts
+¦   current_contact
+¦   pubspec.lock
+¦   pubspec.yaml
+¦   README.md
+¦   talkie_v2.iml
+¦   uuid
+¦   
++---assets
+¦   ¦   khonghieunoigi.wav
+¦   ¦   noichamlai.wav
+¦   ¦   noilainhe.wav
+¦   ¦   noinhanhmotchut.wav
+¦   ¦   
+¦   +---dll
+¦   ¦       baresip-window.dll
+¦   ¦       silero_vad_legacy.onnx
+¦   ¦       sndfile.dll
+¦   ¦       
+¦   +---images
+¦   ¦   ¦   skysoft_logo_ok_h80.png
+¦   ¦   ¦   
+¦   ¦   +---places
+¦   ¦   ¦       0.png
+¦   ¦   ¦       1.png
+¦   ¦   ¦       10.png
+¦   ¦   ¦       11.png
+¦   ¦   ¦       12.png
+¦   ¦   ¦       13.png
+¦   ¦   ¦       14.png
+¦   ¦   ¦       15.png
+¦   ¦   ¦       16.png
+¦   ¦   ¦       17.png
+¦   ¦   ¦       18.png
+¦   ¦   ¦       19.png
+¦   ¦   ¦       2.png
+¦   ¦   ¦       20.png
+¦   ¦   ¦       21.png
+¦   ¦   ¦       22.png
+¦   ¦   ¦       23.png
+¦   ¦   ¦       3.png
+¦   ¦   ¦       4.png
+¦   ¦   ¦       5.png
+¦   ¦   ¦       6.png
+¦   ¦   ¦       7.png
+¦   ¦   ¦       8.png
+¦   ¦   ¦       9.png
+¦   ¦   ¦       
+¦   ¦   +---vehicles
+¦   ¦           0_d01_1.png
+¦   ¦           0_d01_2.png
+¦   ¦           0_d01_3.png
+¦   ¦           0_d01_4.png
+¦   ¦           0_d01_5.png
+¦   ¦           0_d02_1.png
+¦   ¦           0_d02_2.png
+¦   ¦           0_d02_3.png
+¦   ¦           0_d02_4.png
+¦   ¦           0_d02_5.png
+¦   ¦           0_d03_1.png
+¦   ¦           0_d03_2.png
+¦   ¦           0_d03_3.png
+¦   ¦           0_d03_4.png
+¦   ¦           0_d03_5.png
+¦   ¦           0_d04_1.png
+¦   ¦           0_d04_2.png
+¦   ¦           0_d04_3.png
+¦   ¦           0_d04_4.png
+¦   ¦           0_d04_5.png
+¦   ¦           0_d05_1.png
+¦   ¦           0_d05_2.png
+¦   ¦           0_d05_3.png
+¦   ¦           0_d05_4.png
+¦   ¦           0_d05_5.png
+¦   ¦           0_d06_1.png
+¦   ¦           0_d06_2.png
+¦   ¦           0_d06_3.png
+¦   ¦           0_d06_4.png
+¦   ¦           0_d06_5.png
+¦   ¦           0_d07_1.png
+¦   ¦           0_d07_2.png
+¦   ¦           0_d07_3.png
+¦   ¦           0_d07_4.png
+¦   ¦           0_d07_5.png
+¦   ¦           0_d08_1.png
+¦   ¦           0_d08_2.png
+¦   ¦           0_d08_3.png
+¦   ¦           0_d08_4.png
+¦   ¦           0_d08_5.png
+¦   ¦           0_d09_1.png
+¦   ¦           0_d09_2.png
+¦   ¦           0_d09_3.png
+¦   ¦           0_d09_4.png
+¦   ¦           0_d09_5.png
+¦   ¦           0_d10_1.png
+¦   ¦           0_d10_2.png
+¦   ¦           0_d10_3.png
+¦   ¦           0_d10_4.png
+¦   ¦           0_d10_5.png
+¦   ¦           0_d11_1.png
+¦   ¦           0_d11_2.png
+¦   ¦           0_d11_3.png
+¦   ¦           0_d11_4.png
+¦   ¦           0_d11_5.png
+¦   ¦           0_d12_1.png
+¦   ¦           0_d12_2.png
+¦   ¦           0_d12_3.png
+¦   ¦           0_d12_4.png
+¦   ¦           0_d12_5.png
+¦   ¦           0_d13_1.png
+¦   ¦           0_d13_2.png
+¦   ¦           0_d13_3.png
+¦   ¦           0_d13_4.png
+¦   ¦           0_d13_5.png
+¦   ¦           0_d14_1.png
+¦   ¦           0_d14_2.png
+¦   ¦           0_d14_3.png
+¦   ¦           0_d14_4.png
+¦   ¦           0_d14_5.png
+¦   ¦           0_d15_1.png
+¦   ¦           0_d15_2.png
+¦   ¦           0_d15_3.png
+¦   ¦           0_d15_4.png
+¦   ¦           0_d15_5.png
+¦   ¦           0_d16_1.png
+¦   ¦           0_d16_2.png
+¦   ¦           0_d16_3.png
+¦   ¦           0_d16_4.png
+¦   ¦           0_d16_5.png
+¦   ¦           1_d01_1.png
+¦   ¦           1_d01_2.png
+¦   ¦           1_d01_3.png
+¦   ¦           1_d01_4.png
+¦   ¦           1_d01_5.png
+¦   ¦           1_d01_6.png
+¦   ¦           1_d02_1.png
+¦   ¦           1_d02_2.png
+¦   ¦           1_d02_3.png
+¦   ¦           1_d02_4.png
+¦   ¦           1_d02_5.png
+¦   ¦           1_d02_6.png
+¦   ¦           1_d03_1.png
+¦   ¦           1_d03_2.png
+¦   ¦           1_d03_3.png
+¦   ¦           1_d03_4.png
+¦   ¦           1_d03_5.png
+¦   ¦           1_d03_6.png
+¦   ¦           1_d04_1.png
+¦   ¦           1_d04_2.png
+¦   ¦           1_d04_3.png
+¦   ¦           1_d04_4.png
+¦   ¦           1_d04_5.png
+¦   ¦           1_d04_6.png
+¦   ¦           1_d05_1.png
+¦   ¦           1_d05_2.png
+¦   ¦           1_d05_3.png
+¦   ¦           1_d05_4.png
+¦   ¦           1_d05_5.png
+¦   ¦           1_d05_6.png
+¦   ¦           1_d06_1.png
+¦   ¦           1_d06_2.png
+¦   ¦           1_d06_3.png
+¦   ¦           1_d06_4.png
+¦   ¦           1_d06_5.png
+¦   ¦           1_d06_6.png
+¦   ¦           1_d07_1.png
+¦   ¦           1_d07_2.png
+¦   ¦           1_d07_3.png
+¦   ¦           1_d07_4.png
+¦   ¦           1_d07_5.png
+¦   ¦           1_d07_6.png
+¦   ¦           1_d08_1.png
+¦   ¦           1_d08_2.png
+¦   ¦           1_d08_3.png
+¦   ¦           1_d08_4.png
+¦   ¦           1_d08_5.png
+¦   ¦           1_d08_6.png
+¦   ¦           1_d09_1.png
+¦   ¦           1_d09_2.png
+¦   ¦           1_d09_3.png
+¦   ¦           1_d09_4.png
+¦   ¦           1_d09_5.png
+¦   ¦           1_d09_6.png
+¦   ¦           1_d10_1.png
+¦   ¦           1_d10_2.png
+¦   ¦           1_d10_3.png
+¦   ¦           1_d10_4.png
+¦   ¦           1_d10_5.png
+¦   ¦           1_d10_6.png
+¦   ¦           1_d11_1.png
+¦   ¦           1_d11_2.png
+¦   ¦           1_d11_3.png
+¦   ¦           1_d11_4.png
+¦   ¦           1_d11_5.png
+¦   ¦           1_d11_6.png
+¦   ¦           1_d12_1.png
+¦   ¦           1_d12_2.png
+¦   ¦           1_d12_3.png
+¦   ¦           1_d12_4.png
+¦   ¦           1_d12_5.png
+¦   ¦           1_d12_6.png
+¦   ¦           1_d13_1.png
+¦   ¦           1_d13_2.png
+¦   ¦           1_d13_3.png
+¦   ¦           1_d13_4.png
+¦   ¦           1_d13_5.png
+¦   ¦           1_d13_6.png
+¦   ¦           1_d14_1.png
+¦   ¦           1_d14_2.png
+¦   ¦           1_d14_3.png
+¦   ¦           1_d14_4.png
+¦   ¦           1_d14_5.png
+¦   ¦           1_d14_6.png
+¦   ¦           1_d15_1.png
+¦   ¦           1_d15_2.png
+¦   ¦           1_d15_3.png
+¦   ¦           1_d15_4.png
+¦   ¦           1_d15_5.png
+¦   ¦           1_d15_6.png
+¦   ¦           1_d16_1.png
+¦   ¦           1_d16_2.png
+¦   ¦           1_d16_3.png
+¦   ¦           1_d16_4.png
+¦   ¦           1_d16_5.png
+¦   ¦           1_d16_6.png
+¦   ¦           2_d01_1.png
+¦   ¦           2_d01_2.png
+¦   ¦           2_d01_3.png
+¦   ¦           2_d01_4.png
+¦   ¦           2_d01_5.png
+¦   ¦           2_d01_6.png
+¦   ¦           2_d01_7.png
+¦   ¦           2_d01_8.png
+¦   ¦           2_d01_9.png
+¦   ¦           2_d02_1.png
+¦   ¦           2_d02_2.png
+¦   ¦           2_d02_3.png
+¦   ¦           2_d02_4.png
+¦   ¦           2_d02_5.png
+¦   ¦           2_d02_6.png
+¦   ¦           2_d02_7.png
+¦   ¦           2_d02_8.png
+¦   ¦           2_d02_9.png
+¦   ¦           2_d03_1.png
+¦   ¦           2_d03_2.png
+¦   ¦           2_d03_3.png
+¦   ¦           2_d03_4.png
+¦   ¦           2_d03_5.png
+¦   ¦           2_d03_6.png
+¦   ¦           2_d03_7.png
+¦   ¦           2_d03_8.png
+¦   ¦           2_d03_9.png
+¦   ¦           2_d04_1.png
+¦   ¦           2_d04_2.png
+¦   ¦           2_d04_3.png
+¦   ¦           2_d04_4.png
+¦   ¦           2_d04_5.png
+¦   ¦           2_d04_6.png
+¦   ¦           2_d04_7.png
+¦   ¦           2_d04_8.png
+¦   ¦           2_d04_9.png
+¦   ¦           2_d05_1.png
+¦   ¦           2_d05_2.png
+¦   ¦           2_d05_3.png
+¦   ¦           2_d05_4.png
+¦   ¦           2_d05_5.png
+¦   ¦           2_d05_6.png
+¦   ¦           2_d05_7.png
+¦   ¦           2_d05_8.png
+¦   ¦           2_d05_9.png
+¦   ¦           2_d06_1.png
+¦   ¦           2_d06_2.png
+¦   ¦           2_d06_3.png
+¦   ¦           2_d06_4.png
+¦   ¦           2_d06_5.png
+¦   ¦           2_d06_6.png
+¦   ¦           2_d06_7.png
+¦   ¦           2_d06_8.png
+¦   ¦           2_d06_9.png
+¦   ¦           2_d07_1.png
+¦   ¦           2_d07_2.png
+¦   ¦           2_d07_3.png
+¦   ¦           2_d07_4.png
+¦   ¦           2_d07_5.png
+¦   ¦           2_d07_6.png
+¦   ¦           2_d07_7.png
+¦   ¦           2_d07_8.png
+¦   ¦           2_d07_9.png
+¦   ¦           2_d08_1.png
+¦   ¦           2_d08_2.png
+¦   ¦           2_d08_3.png
+¦   ¦           2_d08_4.png
+¦   ¦           2_d08_5.png
+¦   ¦           2_d08_6.png
+¦   ¦           2_d08_7.png
+¦   ¦           2_d08_8.png
+¦   ¦           2_d08_9.png
+¦   ¦           2_d09_1.png
+¦   ¦           2_d09_2.png
+¦   ¦           2_d09_3.png
+¦   ¦           2_d09_4.png
+¦   ¦           2_d09_5.png
+¦   ¦           2_d09_6.png
+¦   ¦           2_d09_7.png
+¦   ¦           2_d09_8.png
+¦   ¦           2_d09_9.png
+¦   ¦           2_d10_1.png
+¦   ¦           2_d10_2.png
+¦   ¦           2_d10_3.png
+¦   ¦           2_d10_4.png
+¦   ¦           2_d10_5.png
+¦   ¦           2_d10_6.png
+¦   ¦           2_d10_7.png
+¦   ¦           2_d10_8.png
+¦   ¦           2_d10_9.png
+¦   ¦           2_d11_1.png
+¦   ¦           2_d11_2.png
+¦   ¦           2_d11_3.png
+¦   ¦           2_d11_4.png
+¦   ¦           2_d11_5.png
+¦   ¦           2_d11_6.png
+¦   ¦           2_d11_7.png
+¦   ¦           2_d11_8.png
+¦   ¦           2_d11_9.png
+¦   ¦           2_d12_1.png
+¦   ¦           2_d12_2.png
+¦   ¦           2_d12_3.png
+¦   ¦           2_d12_4.png
+¦   ¦           2_d12_5.png
+¦   ¦           2_d12_6.png
+¦   ¦           2_d12_7.png
+¦   ¦           2_d12_8.png
+¦   ¦           2_d12_9.png
+¦   ¦           2_d13_1.png
+¦   ¦           2_d13_2.png
+¦   ¦           2_d13_3.png
+¦   ¦           2_d13_4.png
+¦   ¦           2_d13_5.png
+¦   ¦           2_d13_6.png
+¦   ¦           2_d13_7.png
+¦   ¦           2_d13_8.png
+¦   ¦           2_d13_9.png
+¦   ¦           2_d14_1.png
+¦   ¦           2_d14_2.png
+¦   ¦           2_d14_3.png
+¦   ¦           2_d14_4.png
+¦   ¦           2_d14_5.png
+¦   ¦           2_d14_6.png
+¦   ¦           2_d14_7.png
+¦   ¦           2_d14_8.png
+¦   ¦           2_d14_9.png
+¦   ¦           2_d15_1.png
+¦   ¦           2_d15_2.png
+¦   ¦           2_d15_3.png
+¦   ¦           2_d15_4.png
+¦   ¦           2_d15_5.png
+¦   ¦           2_d15_6.png
+¦   ¦           2_d15_7.png
+¦   ¦           2_d15_8.png
+¦   ¦           2_d15_9.png
+¦   ¦           2_d16_1.png
+¦   ¦           2_d16_2.png
+¦   ¦           2_d16_3.png
+¦   ¦           2_d16_4.png
+¦   ¦           2_d16_5.png
+¦   ¦           2_d16_6.png
+¦   ¦           2_d16_7.png
+¦   ¦           2_d16_8.png
+¦   ¦           2_d16_9.png
+¦   ¦           3_d01_1.png
+¦   ¦           3_d01_2.png
+¦   ¦           3_d01_3.png
+¦   ¦           3_d01_4.png
+¦   ¦           3_d01_5.png
+¦   ¦           3_d02_1.png
+¦   ¦           3_d02_2.png
+¦   ¦           3_d02_3.png
+¦   ¦           3_d02_4.png
+¦   ¦           3_d02_5.png
+¦   ¦           3_d03_1.png
+¦   ¦           3_d03_2.png
+¦   ¦           3_d03_3.png
+¦   ¦           3_d03_4.png
+¦   ¦           3_d03_5.png
+¦   ¦           3_d04_1.png
+¦   ¦           3_d04_2.png
+¦   ¦           3_d04_3.png
+¦   ¦           3_d04_4.png
+¦   ¦           3_d04_5.png
+¦   ¦           3_d05_1.png
+¦   ¦           3_d05_2.png
+¦   ¦           3_d05_3.png
+¦   ¦           3_d05_4.png
+¦   ¦           3_d05_5.png
+¦   ¦           3_d06_1.png
+¦   ¦           3_d06_2.png
+¦   ¦           3_d06_3.png
+¦   ¦           3_d06_4.png
+¦   ¦           3_d06_5.png
+¦   ¦           3_d07_1.png
+¦   ¦           3_d07_2.png
+¦   ¦           3_d07_3.png
+¦   ¦           3_d07_4.png
+¦   ¦           3_d07_5.png
+¦   ¦           3_d08_1.png
+¦   ¦           3_d08_2.png
+¦   ¦           3_d08_3.png
+¦   ¦           3_d08_4.png
+¦   ¦           3_d08_5.png
+¦   ¦           3_d09_1.png
+¦   ¦           3_d09_2.png
+¦   ¦           3_d09_3.png
+¦   ¦           3_d09_4.png
+¦   ¦           3_d09_5.png
+¦   ¦           3_d10_1.png
+¦   ¦           3_d10_2.png
+¦   ¦           3_d10_3.png
+¦   ¦           3_d10_4.png
+¦   ¦           3_d10_5.png
+¦   ¦           3_d11_1.png
+¦   ¦           3_d11_2.png
+¦   ¦           3_d11_3.png
+¦   ¦           3_d11_4.png
+¦   ¦           3_d11_5.png
+¦   ¦           3_d12_1.png
+¦   ¦           3_d12_2.png
+¦   ¦           3_d12_3.png
+¦   ¦           3_d12_4.png
+¦   ¦           3_d12_5.png
+¦   ¦           3_d13_1.png
+¦   ¦           3_d13_2.png
+¦   ¦           3_d13_3.png
+¦   ¦           3_d13_4.png
+¦   ¦           3_d13_5.png
+¦   ¦           3_d14_1.png
+¦   ¦           3_d14_2.png
+¦   ¦           3_d14_3.png
+¦   ¦           3_d14_4.png
+¦   ¦           3_d14_5.png
+¦   ¦           3_d15_1.png
+¦   ¦           3_d15_2.png
+¦   ¦           3_d15_3.png
+¦   ¦           3_d15_4.png
+¦   ¦           3_d15_5.png
+¦   ¦           3_d16_1.png
+¦   ¦           3_d16_2.png
+¦   ¦           3_d16_3.png
+¦   ¦           3_d16_4.png
+¦   ¦           3_d16_5.png
+¦   ¦           4_d01_1.png
+¦   ¦           4_d01_2.png
+¦   ¦           4_d01_3.png
+¦   ¦           4_d01_4.png
+¦   ¦           4_d01_5.png
+¦   ¦           4_d01_6.png
+¦   ¦           4_d01_7.png
+¦   ¦           4_d02_1.png
+¦   ¦           4_d02_2.png
+¦   ¦           4_d02_3.png
+¦   ¦           4_d02_4.png
+¦   ¦           4_d02_5.png
+¦   ¦           4_d02_6.png
+¦   ¦           4_d02_7.png
+¦   ¦           4_d03_1.png
+¦   ¦           4_d03_2.png
+¦   ¦           4_d03_3.png
+¦   ¦           4_d03_4.png
+¦   ¦           4_d03_5.png
+¦   ¦           4_d03_6.png
+¦   ¦           4_d03_7.png
+¦   ¦           4_d04_1.png
+¦   ¦           4_d04_2.png
+¦   ¦           4_d04_3.png
+¦   ¦           4_d04_4.png
+¦   ¦           4_d04_5.png
+¦   ¦           4_d04_6.png
+¦   ¦           4_d04_7.png
+¦   ¦           4_d05_1.png
+¦   ¦           4_d05_2.png
+¦   ¦           4_d05_3.png
+¦   ¦           4_d05_4.png
+¦   ¦           4_d05_5.png
+¦   ¦           4_d05_6.png
+¦   ¦           4_d05_7.png
+¦   ¦           4_d06_1.png
+¦   ¦           4_d06_2.png
+¦   ¦           4_d06_3.png
+¦   ¦           4_d06_4.png
+¦   ¦           4_d06_5.png
+¦   ¦           4_d06_6.png
+¦   ¦           4_d06_7.png
+¦   ¦           4_d07_1.png
+¦   ¦           4_d07_2.png
+¦   ¦           4_d07_3.png
+¦   ¦           4_d07_4.png
+¦   ¦           4_d07_5.png
+¦   ¦           4_d07_6.png
+¦   ¦           4_d07_7.png
+¦   ¦           4_d08_1.png
+¦   ¦           4_d08_2.png
+¦   ¦           4_d08_3.png
+¦   ¦           4_d08_4.png
+¦   ¦           4_d08_5.png
+¦   ¦           4_d08_6.png
+¦   ¦           4_d08_7.png
+¦   ¦           4_d09_1.png
+¦   ¦           4_d09_2.png
+¦   ¦           4_d09_3.png
+¦   ¦           4_d09_4.png
+¦   ¦           4_d09_5.png
+¦   ¦           4_d09_6.png
+¦   ¦           4_d09_7.png
+¦   ¦           4_d10_1.png
+¦   ¦           4_d10_2.png
+¦   ¦           4_d10_3.png
+¦   ¦           4_d10_4.png
+¦   ¦           4_d10_5.png
+¦   ¦           4_d10_6.png
+¦   ¦           4_d10_7.png
+¦   ¦           4_d11_1.png
+¦   ¦           4_d11_2.png
+¦   ¦           4_d11_3.png
+¦   ¦           4_d11_4.png
+¦   ¦           4_d11_5.png
+¦   ¦           4_d11_6.png
+¦   ¦           4_d11_7.png
+¦   ¦           4_d12_1.png
+¦   ¦           4_d12_2.png
+¦   ¦           4_d12_3.png
+¦   ¦           4_d12_4.png
+¦   ¦           4_d12_5.png
+¦   ¦           4_d12_6.png
+¦   ¦           4_d12_7.png
+¦   ¦           4_d13_1.png
+¦   ¦           4_d13_2.png
+¦   ¦           4_d13_3.png
+¦   ¦           4_d13_4.png
+¦   ¦           4_d13_5.png
+¦   ¦           4_d13_6.png
+¦   ¦           4_d13_7.png
+¦   ¦           4_d14_1.png
+¦   ¦           4_d14_2.png
+¦   ¦           4_d14_3.png
+¦   ¦           4_d14_4.png
+¦   ¦           4_d14_5.png
+¦   ¦           4_d14_6.png
+¦   ¦           4_d14_7.png
+¦   ¦           4_d15_1.png
+¦   ¦           4_d15_2.png
+¦   ¦           4_d15_3.png
+¦   ¦           4_d15_4.png
+¦   ¦           4_d15_5.png
+¦   ¦           4_d15_6.png
+¦   ¦           4_d15_7.png
+¦   ¦           4_d16_1.png
+¦   ¦           4_d16_2.png
+¦   ¦           4_d16_3.png
+¦   ¦           4_d16_4.png
+¦   ¦           4_d16_5.png
+¦   ¦           4_d16_6.png
+¦   ¦           4_d16_7.png
+¦   ¦           icon_lock.png
+¦   ¦           icon_repair.png
+¦   ¦           
+¦   +---vosk-model-vn-0.4
+¦       ¦   README
+¦       ¦   
+¦       +---am
+¦       ¦       final.mdl
+¦       ¦       
+¦       +---conf
+¦       ¦       mfcc.conf
+¦       ¦       model.conf
+¦       ¦       
+¦       +---graph
+¦       ¦   ¦   HCLG.fst
+¦       ¦   ¦   words.txt
+¦       ¦   ¦   
+¦       ¦   +---phones
+¦       ¦           word_boundary.int
+¦       ¦           
+¦       +---ivector
+¦               final.dubm
+¦               final.ie
+¦               final.mat
+¦               global_cmvn.stats
+¦               online_cmvn.conf
+¦               splice.conf
+¦               
++---lib
+¦   ¦   main.dart
+¦   ¦   
+¦   +---models
+¦   ¦       action_result.dart
+¦   ¦       admin_model.dart
+¦   ¦       limousine_model.dart
+¦   ¦       login_model.dart
+¦   ¦       map_model.dart
+¦   ¦       soft_phone_model.dart
+¦   ¦       vehicle_model.dart
+¦   ¦       
+¦   +---screens
+¦   ¦   +---dashboard
+¦   ¦   ¦       call_in_chart_screen.dart
+¦   ¦   ¦       call_in_week_chart_screen.dart
+¦   ¦   ¦       call_out_chart_screen.dart
+¦   ¦   ¦       recent_call_screen.dart
+¦   ¦   ¦       todo_list_screen.dart
+¦   ¦   ¦       
+¦   ¦   +---excavator_managment
+¦   ¦   +---limousine_ticket
+¦   ¦   ¦       edit_trip_screen.dart
+¦   ¦   ¦       
+¦   ¦   +---map
+¦   ¦   ¦       marker_popup.dart
+¦   ¦   ¦       marker_search_box.dart
+¦   ¦   ¦       place_search_box.dart
+¦   ¦   ¦       vehicle_search_box.dart
+¦   ¦   ¦       
+¦   ¦   +---operation
+¦   ¦   ¦       driver_list_screen.dart
+¦   ¦   ¦       limo_ticket_dashboard_screen.dart
+¦   ¦   ¦       ticket_managment_screen.dart
+¦   ¦   ¦       trip_managment_screen.dart
+¦   ¦   ¦       
+¦   ¦   +---root
+¦   ¦   ¦       dashboard_screen.dart
+¦   ¦   ¦       delivery_screen.dart
+¦   ¦   ¦       excavator_screen.dart
+¦   ¦   ¦       limousine_ticket_screen.dart
+¦   ¦   ¦       login_screen.dart
+¦   ¦   ¦       main_screen.dart
+¦   ¦   ¦       map_screen.dart
+¦   ¦   ¦       operation_screen.dart
+¦   ¦   ¦       soft_phone_screen.dart
+¦   ¦   ¦       splash_screen.dart
+¦   ¦   ¦       talkie_screen.dart
+¦   ¦   ¦       
+¦   ¦   +---soft_phone
+¦   ¦   ¦       call_history_screen.dart
+¦   ¦   ¦       call_incoming.dart
+¦   ¦   ¦       call_log_details.dart
+¦   ¦   ¦       call_outgoing.dart
+¦   ¦   ¦       contact_detail.dart
+¦   ¦   ¦       player_screen.dart
+¦   ¦   ¦       soft_phone_setting.dart
+¦   ¦   ¦       
+¦   ¦   +---talkie
+¦   ¦           audio_message.dart
+¦   ¦           talkie_record_audio.dart
+¦   ¦           talkie_user_search_page.dart
+¦   ¦           
+¦   +---services
+¦   ¦       admin_service.dart
+¦   ¦       limousine_service.dart
+¦   ¦       map_service.dart
+¦   ¦       soft_phone_service.dart
+¦   ¦       
+¦   +---utils
+¦   ¦       bare_sip.dart
+¦   ¦       bare_sip_receiver.dart
+¦   ¦       constants.dart
+¦   ¦       date_utils.dart
+¦   ¦       dynamic_library_loader.dart
+¦   ¦       global.dart
+¦   ¦       http_service.dart
+¦   ¦       lunar_calendar_utils.dart
+¦   ¦       string_utils.dart
+¦   ¦       wave_file.dart
+¦   ¦       
+¦   +---widgets
+¦           calendar_ticket.dart
+¦           help_dialog.dart
+¦           progress_hud.dart
+¦           tab_widget.dart
+¦           
++---recordings
+¦       12-08-2026_10-24-08_02473083088_to_0984658702.mp3
+¦       12-08-2026_11-48-06_02473083088_to_0984658702.mp3
+¦       17-08-2026_16-40-08_02473083088_to_0984658702.mp3
+¦       27-08-2026_16-06-31_02473083088_to_0984658702.mp3
+¦       answer.wav
+¦       dump-02473083088-0984658702-12-08-2026_09-28-36-dec.wav
+¦       dump-02473083088-0984658702-12-08-2026_09-28-36-enc.wav
+¦       dump-02473083088-0984658702-12-08-2026_10-54-33-dec.wav
+¦       dump-02473083088-0984658702-12-08-2026_10-54-33-enc.wav
+¦       dump-02473083088-0984658702-12-08-2026_11-19-37-dec.wav
+¦       dump-02473083088-0984658702-12-08-2026_11-19-37-enc.wav
+¦       dump-02473083088-0984658702-17-08-2026_11-28-34-dec.wav
+¦       dump-02473083088-0984658702-17-08-2026_11-28-34-enc.wav
+¦       dump-02473083088-0984658702-17-08-2026_14-17-32-dec.wav
+¦       dump-02473083088-0984658702-17-08-2026_14-17-32-enc.wav
+¦       pcm_test.pcm
+¦       vad_test.pcm
+¦       
++---windows
+    ¦   .gitignore
+    ¦   CMakeLists.txt
+    ¦   
+    +---flutter
+    ¦       CMakeLists.txt
+    ¦       generated_plugins.cmake
+    ¦       generated_plugin_registrant.cc
+    ¦       generated_plugin_registrant.h
+    ¦       
+    +---runner
+        ¦   CMakeLists.txt
+        ¦   flutter_window.cpp
+        ¦   flutter_window.h
+        ¦   main.cpp
+        ¦   resource.h
+        ¦   runner.exe.manifest
+        ¦   Runner.rc
+        ¦   utils.cpp
+        ¦   utils.h
+        ¦   win32_window.cpp
+        ¦   win32_window.h
+        ¦   
+        +---resources
+                app_icon.ico
+                
