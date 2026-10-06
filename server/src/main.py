@@ -5,6 +5,7 @@ CREATED: 17/08/2026
 
 import asyncio
 import io
+import traceback
 import librosa
 import requests
 import time
@@ -477,9 +478,9 @@ async def main():
 
 
 if __name__ == "__main__":
-    # if not rasa_scripts(rasa_session):
-    #     print("Không khởi động được Rasa, thoát.")
-    #     exit(1)
+    if not rasa_scripts(rasa_session):
+        print("Không khởi động được Rasa, thoát.")
+        exit(1)
     try:
         asyncio.run(main())
     except KeyboardInterrupt:

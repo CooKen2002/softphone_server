@@ -20,11 +20,11 @@ def rasa_scripts(rasa_session=None, wait_seconds=90, poll_interval=3):
         return True
 
     subprocess.Popen(
-        f'start "Rasa API" cmd /k "cd /d {RASA_PATH} && call .venv_rasa\\Scripts\\activate && rasa run --enable-api --cors \\"*\\" -vv"',
+        f'start "Rasa API" cmd /k "cd /d {RASA_PATH} && call .venv\\Scripts\\activate && rasa run --enable-api --cors \\"*\\" -vv"',
         shell=True,
     )
     subprocess.Popen(
-        f'start "Rasa Actions" cmd /k "cd /d {RASA_PATH} && call .venv_rasa\\Scripts\\activate && rasa run actions -vv"',
+        f'start "Rasa Actions" cmd /k "cd /d {RASA_PATH} && call .venv\\Scripts\\activate && rasa run actions -vv"',
         shell=True,
     )
 
