@@ -7,11 +7,11 @@ import 'dart:ffi';
 import 'dart:typed_data';
 
 import 'package:ffi/ffi.dart';
-import 'package:talkie_v2/models/action_result.dart';
-import 'package:talkie_v2/utils/constants.dart';
-import 'package:talkie_v2/utils/date_utils.dart';
-import 'package:talkie_v2/utils/string_utils.dart';
-import 'package:talkie_v2/utils/wave_file.dart';
+import '../models/action_result.dart';
+import '../utils/constants.dart';
+import '../utils/date_utils.dart';
+import '../utils/string_utils.dart';
+import '../utils/wave_file.dart';
 import 'package:vad/vad.dart';
 
 class CallLog {

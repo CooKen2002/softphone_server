@@ -1,7 +1,7 @@
-import 'package:talkie_v2/models/soft_phone_model.dart';
-import 'package:talkie_v2/utils/constants.dart';
-import 'package:talkie_v2/utils/global.dart';
-import 'package:talkie_v2/utils/http_service.dart';
+import '../models/soft_phone_model.dart';
+import '../utils/constants.dart';
+import '../utils/global.dart';
+import '../utils/http_service.dart';
 
 class SoftPhoneService {
   Future<CallLogsResponse> listCallLogs(String fromDate, String toDate) async {
