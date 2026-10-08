@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../models/soft_phone_model.dart';
+import 'package:talkie_v2/models/soft_phone_model.dart';
 
 class ContactDetail extends StatefulWidget {
   const ContactDetail({super.key, required this.contact});

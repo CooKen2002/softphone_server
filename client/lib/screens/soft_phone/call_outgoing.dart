@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import '../models/soft_phone_model.dart';
-import '../services/soft_phone_service.dart';
-import '../utils/global.dart';
+import 'package:talkie_v2/models/soft_phone_model.dart';
+import 'package:talkie_v2/services/soft_phone_service.dart';
+import 'package:talkie_v2/utils/global.dart';
 import 'package:toastification/toastification.dart';
 
 class CallOutgoing extends StatefulWidget {

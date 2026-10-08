@@ -242,7 +242,7 @@ async def text_to_wav_bytes(text: str) -> bytes:
 
         return wav_io.getvalue()
 
-
+# MARK: Xem lại hàm tts
 async def stream_tts_to_websocket(
     websocket,
     tts,
@@ -380,10 +380,10 @@ async def handle_client(websocket):
                     info = message.split("|")
                     if len(info) == 2:
                         session_company, session_phone = info
-                        SENDER_ID = message
                         rasa_text = await loop.run_in_executor(
-                            None, request_to_rasa, "xin chào", SENDER_ID
+                            None, request_to_rasa, "xin chào", message
                         )
+                        print(rasa_text)
                         wav_bytes = await text_to_wav_bytes(rasa_text)
                         await websocket.send(wav_bytes)
                         log(
@@ -427,24 +427,24 @@ async def handle_client(websocket):
                 rasa_text ="em xác nhận thông tin đặt vé của anh chị: đón tại: hà nội, đi đến: hải phòng. giờ: 9h sáng mai; loại xe: xe limousine... số lượng: 4! họ tên: nguyễn đức cường? điện thoại: 0987654321"
 
                 # 5. Text-to-Speech
-                t0 = time.perf_counter()
-                try:
-                    sent_bytes = await asyncio.wait_for(
-                        stream_tts_to_websocket(websocket, tts, rasa_text),
-                        timeout=15,
-                    )
-                    np.log(
-                        f"TTS stream: {time.perf_counter() - t0:.2f}s, "
-                        f"{sent_bytes/1024:.1f} KB",
-                        "TTS",
-                    )
-                except asyncio.TimeoutError:
-                    np.log(f"TTS timeout sau {time.perf_counter() - t0:.2f}s", "ERROR")
-                    continue
+                # t0 = time.perf_counter()
+                # try:
+                #     sent_bytes = await asyncio.wait_for(
+                #         stream_tts_to_websocket(websocket, tts, rasa_text),
+                #         timeout=15,
+                #     )
+                #     np.log(
+                #         f"TTS stream: {time.perf_counter() - t0:.2f}s, "
+                #         f"{sent_bytes/1024:.1f} KB",
+                #         "TTS",
+                #     )
+                # except asyncio.TimeoutError:
+                #     np.log(f"TTS timeout sau {time.perf_counter() - t0:.2f}s", "ERROR")
+                #     continue
 
-                # 6. Gửi về Flutter
-                await websocket.send(wav_bytes)
-                log(f"Đã gửi audio trả lời ({len(wav_bytes)/1024:.1f} KB)", "INFO")
+                # # 6. Gửi về Flutter
+                # await websocket.send(wav_bytes)
+                # log(f"Đã gửi audio trả lời ({len(wav_bytes)/1024:.1f} KB)", "INFO")
 
             except Exception as e:
                 log(f"Lỗi xử lý message từ {client_addr}: {e}", "ERROR")

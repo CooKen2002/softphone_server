@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:crypto/crypto.dart';
 import 'package:intl/intl.dart';
-import '../utils/constants.dart';
+import 'package:talkie_v2/utils/constants.dart';
 
 final String charFormNoHorn =
     "aaaaaaaaaaaaaaaaaeeeeeeeeeeeiiiiiooooooooooooooooouuuuuuuuuuuyyyyydAAAAAAAAAAAAAAAAAEEEEEEEEEEEIIIIIOOOOOOOOOOOOOOOOOUUUUUUUUUUUYYYYYDAAAAAAaaaaaaOOOOOOOooooooEEEEeeeeeCcDIIIIiiiiUUUUuuuuNnSsYyyZz"; //extra

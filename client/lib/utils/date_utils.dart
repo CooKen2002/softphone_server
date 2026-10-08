@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import '../utils/constants.dart';
+import 'package:talkie_v2/utils/constants.dart';
 
 extension StartOfDay on DateTime {
   DateTime get startOfDay => DateTime(year, month, day, 0, 0, 0, 0);

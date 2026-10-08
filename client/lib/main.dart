@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:toastification/toastification.dart';
 import 'package:window_manager/window_manager.dart';
 
-import './soft_phone_screen.dart';
+import 'screens/root/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         themeMode: ThemeMode.system,
-        home: const SoftPhoneScreen(),
+        home: const SplashScreen(),
       ),
     );
   }

@@ -10,19 +10,19 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../models/soft_phone_model.dart';
-import '../soft_phone/call_history_screen.dart';
-import '../soft_phone/call_incoming.dart';
-import '../soft_phone/call_log_details.dart';
-import '../soft_phone/call_outgoing.dart';
-import '../soft_phone/soft_phone_setting.dart';
-import '../services/soft_phone_service.dart';
-import '../utils/bare_sip.dart';
-import '../utils/constants.dart';
-import '../utils/dynamic_library_loader.dart';
-import '../utils/global.dart';
-import '../utils/string_utils.dart';
-import '../utils/wave_file.dart';
+import 'package:talkie_v2/models/soft_phone_model.dart';
+import 'package:talkie_v2/screens/soft_phone/call_history_screen.dart';
+import 'package:talkie_v2/screens/soft_phone/call_incoming.dart';
+import 'package:talkie_v2/screens/soft_phone/call_log_details.dart';
+import 'package:talkie_v2/screens/soft_phone/call_outgoing.dart';
+import 'package:talkie_v2/screens/soft_phone/soft_phone_setting.dart';
+import 'package:talkie_v2/services/soft_phone_service.dart';
+import 'package:talkie_v2/utils/bare_sip.dart';
+import 'package:talkie_v2/utils/constants.dart';
+import 'package:talkie_v2/utils/dynamic_library_loader.dart';
+import 'package:talkie_v2/utils/global.dart';
+import 'package:talkie_v2/utils/string_utils.dart';
+import 'package:talkie_v2/utils/wave_file.dart';
 import 'package:toastification/toastification.dart';
 import 'package:vad/vad.dart';
 import 'package:web_socket_channel/status.dart' as status;
@@ -685,7 +685,7 @@ class _SoftPhoneScreenState extends State<SoftPhoneScreen> {
     audioReader.stop();
     super.dispose();
   }
-
+  // MARK: UI
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -782,7 +782,9 @@ class _SoftPhoneScreenState extends State<SoftPhoneScreen> {
                   ],
                 ),
               ),
+              
               SizedBox(height: 5),
+              
               Stack(
                 children: [
                   Container(
@@ -833,7 +835,9 @@ class _SoftPhoneScreenState extends State<SoftPhoneScreen> {
                   ),
                 ],
               ),
+              
               SizedBox(height: 5),
+              
               ValueListenableBuilder(
                 valueListenable: phoneName,
                 builder: (context, value, child) {

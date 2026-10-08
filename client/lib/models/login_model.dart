@@ -1,5 +1,5 @@
-import '../models/action_result.dart';
-import '../utils/string_utils.dart';
+import 'package:talkie_v2/models/action_result.dart';
+import 'package:talkie_v2/utils/string_utils.dart';
 
 import '../utils/constants.dart';
 

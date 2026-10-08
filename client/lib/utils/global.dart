@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import '../models/login_model.dart';
+import 'package:talkie_v2/models/login_model.dart';
 import 'package:toastification/toastification.dart';
 
 import 'bare_sip.dart';

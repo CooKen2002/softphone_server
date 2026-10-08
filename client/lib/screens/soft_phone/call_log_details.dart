@@ -5,15 +5,15 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../models/soft_phone_model.dart';
-import '../soft_phone/contact_detail.dart';
-import '../soft_phone/player_screen.dart';
-import '../services/soft_phone_service.dart';
-import '../utils/constants.dart';
-import '../utils/date_utils.dart';
-import '../utils/global.dart';
-import '../utils/string_utils.dart';
-import '../widgets/progress_hud.dart';
+import 'package:talkie_v2/models/soft_phone_model.dart';
+import 'package:talkie_v2/screens/soft_phone/contact_detail.dart';
+import 'package:talkie_v2/screens/soft_phone/player_screen.dart';
+import 'package:talkie_v2/services/soft_phone_service.dart';
+import 'package:talkie_v2/utils/constants.dart';
+import 'package:talkie_v2/utils/date_utils.dart';
+import 'package:talkie_v2/utils/global.dart';
+import 'package:talkie_v2/utils/string_utils.dart';
+import 'package:talkie_v2/widgets/progress_hud.dart';
 import 'package:toastification/toastification.dart';
 
 class CallLogDetails extends StatefulWidget {
