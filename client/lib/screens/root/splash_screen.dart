@@ -92,7 +92,8 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void _gotoHomeScreen() {
     Navigator.of(context).pushReplacement(
-      PageTransition(child: MainScreen(), type: PageTransitionType.leftToRight),
+      // PageTransition(child: MainScreen(), type: PageTransitionType.leftToRight),
+      PageTransition(child: SoftPhoneScreen(), type: PageTransitionType.leftToRight),
     );
   }
 
