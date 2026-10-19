@@ -16,11 +16,10 @@ import numpy as np
 
 from vieneu import Vieneu
 
-from tts import AssetTTS
 from config import *
 from utils import *
 from stt import *
-from test.correct_text import *
+from tts import *
 
 # MARK: LOAD MODELS
 
@@ -320,9 +319,9 @@ async def main():
 
 
 if __name__ == "__main__":
-    if not rasa_scripts(rasa_session):
-        print("Không khởi động được Rasa, thoát.")
-        exit(1)
+    # if not rasa_scripts(rasa_session):
+    #     print("Không khởi động được Rasa, thoát.")
+    #     exit(1)
     try:
         asyncio.run(main())
     except KeyboardInterrupt:
