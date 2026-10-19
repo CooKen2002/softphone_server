@@ -103,6 +103,11 @@ if __name__ == "__main__":
         "tôi muốn đặt xe",
         "đón ở hà nội",
         "đến hải phòng",
+        "lúc 9 giờ ngày mai",
+        "đi bốn người",
+        "số điện thoại 0984658702",
+        "tên là nguyễn văn a"
+        "đúng rồi"
         # "Cảm ơn anh chị, em đã ghi nhận thông tin đặt vé thành công."
     ]
 
