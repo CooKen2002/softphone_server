@@ -1,5 +1,4 @@
-import 'dart:math';
-
+import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 import 'package:web_socket_channel/status.dart' as status;
@@ -19,7 +18,7 @@ class VoiceChatBotController extends ChangeNotifier {
       isConnected = true;
       return true;
     } catch (e) {
-      log("$e" as num);
+      log(e.toString());
     }
     return false;
   }
@@ -31,7 +30,7 @@ class VoiceChatBotController extends ChangeNotifier {
       isConnected = false;
       return true;
     } catch (e) {
-      log("$e" as num);
+      log(e.toString());
     }
     // Ngắt kết nối luôn trả về đúng
     channel = null;
