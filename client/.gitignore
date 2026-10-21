@@ -46,6 +46,13 @@ app.*.map.json
 
 # temporary ignore
 assets/
+android/
+ios/
+linux/
+macos/
+packages/
+.env
+
 *.mp3
 *.wav
 *.pcm
