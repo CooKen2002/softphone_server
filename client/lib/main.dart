@@ -23,9 +23,11 @@ class SoftPhonePage extends StatefulWidget {
 
 class _SoftPhonePageState extends State<SoftPhonePage> {
   SoftPhoneController? _phone;
+  // Websocket controller
   String _status = 'Chưa khởi động';
 
   final _server = TextEditingController();
+  final _ws_server = TextEditingController();
   final _hotline = TextEditingController();
   final _password = TextEditingController();
   final _number = TextEditingController();
@@ -54,7 +56,7 @@ class _SoftPhonePageState extends State<SoftPhonePage> {
   void dispose() {
     _phone?.shutdown();
     _phone?.dispose();
-    for (final c in [_server, _hotline, _password, _number]) {
+    for (final c in [_server,_ws_server, _hotline, _password, _number]) {
       c.dispose();
     }
     super.dispose();
@@ -123,6 +125,22 @@ class _SoftPhonePageState extends State<SoftPhonePage> {
                               : null,
                           child: const Text('Huỷ đăng ký'),
                         ),
+                        const SizedBox(width: 16),
+                        Text(phone.isOnline ? 'Online' : 'Offline'), // Thay phone bằng ws
+                      ],
+                    ),
+                    const Divider(height: 32),
+                    // MARK: CONNECT WS SV
+                    TextField(
+                      controller: _ws_server,
+                      decoration: const InputDecoration(
+                        labelText: 'Websocket IP server'
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Row(
+                      children: [
+                        FilledButton(onPressed: () {}, child: const Text('Kết nối')), // Thêm hàm connect ws
                         const SizedBox(width: 16),
                         Text(phone.isOnline ? 'Online' : 'Offline'),
                       ],
