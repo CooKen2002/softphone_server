@@ -114,6 +114,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_voice_chatbot:
+    dependency: "direct main"
+    description:
+      path: "packages/flutter_voice_chatbot"
+      relative: true
+    source: path
+    version: "1.2.1"
   flutter_web_plugins:
     dependency: transitive
     description: flutter
@@ -468,13 +475,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "15.4.0"
-  voice_chatbot:
-    dependency: "direct main"
-    description:
-      path: "packages/voice_chatbot"
-      relative: true
-    source: path
-    version: "1.2.1"
   web:
     dependency: transitive
     description:

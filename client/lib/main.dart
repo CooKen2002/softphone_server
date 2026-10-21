@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_soft_phone/flutter_soft_phone.dart';
+import 'package:flutter_voice_chatbot/voice_chatbot_controller.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,6 +25,8 @@ class SoftPhonePage extends StatefulWidget {
 class _SoftPhonePageState extends State<SoftPhonePage> {
   SoftPhoneController? _phone;
   // Websocket controller
+  late final VoiceChatBotController _wsServer = VoiceChatBotController();
+
   String _status = 'Chưa khởi động';
 
   final _server = TextEditingController();
@@ -56,7 +59,7 @@ class _SoftPhonePageState extends State<SoftPhonePage> {
   void dispose() {
     _phone?.shutdown();
     _phone?.dispose();
-    for (final c in [_server,_ws_server, _hotline, _password, _number]) {
+    for (final c in [_server, _ws_server, _hotline, _password, _number]) {
       c.dispose();
     }
     super.dispose();
@@ -126,7 +129,9 @@ class _SoftPhonePageState extends State<SoftPhonePage> {
                           child: const Text('Huỷ đăng ký'),
                         ),
                         const SizedBox(width: 16),
-                        Text(phone.isOnline ? 'Online' : 'Offline'), // Thay phone bằng ws
+                        Text(
+                          phone.isOnline ? 'Online' : 'Offline',
+                        ), // Thay phone bằng ws
                       ],
                     ),
                     const Divider(height: 32),
@@ -134,15 +139,34 @@ class _SoftPhonePageState extends State<SoftPhonePage> {
                     TextField(
                       controller: _ws_server,
                       decoration: const InputDecoration(
-                        labelText: 'Websocket IP server'
+                        labelText: 'Websocket IP server',
+                        hintText: 'ws://your_server_ip:port',
                       ),
                     ),
                     const SizedBox(height: 8),
                     Row(
                       children: [
-                        FilledButton(onPressed: () {}, child: const Text('Kết nối')), // Thêm hàm connect ws
+                        FilledButton(
+                          onPressed: () async {
+                            // Gán URL từ TextField vào controller trước khi kết nối
+                            _wsServer.webSocketURL = _ws_server.text.trim();
+                            await _wsServer.connectWebSocketChatBot();
+                            setState(() {}); // Cập nhật lại giao diện trạng thái Online/Offline
+                          },
+                          child: const Text('Kết nối'),
+                        ),
                         const SizedBox(width: 16),
-                        Text(phone.isOnline ? 'Online' : 'Offline'),
+                        FilledButton(
+                          onPressed: () async {
+                            // Gán URL từ TextField vào controller trước khi kết nối
+                            _wsServer.webSocketURL = _ws_server.text.trim();
+                            await _wsServer.disconnectWebSocketChatBot();
+                            setState(() {}); // Cập nhật lại giao diện trạng thái Online/Offline
+                          },
+                          child: const Text('Đóng kết nối'),
+                        ),
+                        const SizedBox(width: 16),
+                        Text(_wsServer.isConnected ? 'Online' : 'Offline'),
                       ],
                     ),
                     const Divider(height: 32),
