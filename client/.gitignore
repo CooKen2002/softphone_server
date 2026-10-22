@@ -50,3 +50,4 @@ assets/
 *.wav
 *.pcm
 
+.env
