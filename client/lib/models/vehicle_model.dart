@@ -60,11 +60,6 @@ class Vehicle {
   Vehicle();
 
   String getVehicleColorState() {
-    // Tránh lỗi nếu iconID bị rỗng hoặc không đúng định dạng chứa dấu '_'
-    if (iconID.isEmpty || !iconID.contains('_')) {
-      return "green"; // Trả về màu mặc định hoặc màu dự phòng tùy ý bạn
-    }
-
     Map<String, List<String>> data = {
       "0": ["green", "red", "yellow", "purple", "lightpink"],
       "1": ["green", "red", "lightpink", "lightblue", "yellow", "purple"],
@@ -90,31 +85,11 @@ class Vehicle {
         "lightgray",
       ],
     };
-
     List<String> strSplit = iconID.split("_");
-
-    // Kiểm tra xem mảng sau khi split có đủ phần tử không (ít nhất phải có 3 phần tử để lấy index 2)
-    if (strSplit.length < 3) {
-      return "green";
-    }
-
     String start = strSplit[0];
-
-    // Kiểm tra xem key `start` có tồn tại trong map `data` không
-    if (!data.containsKey(start)) {
-      return "green";
-    }
-
-    int index = (int.tryParse(strSplit[2]) ?? 1) - 1;
-    List<String> colorList = data[start]!;
-
-    // Đảm bảo index nằm trong khoảng hợp lệ của mảng tránh lỗi RangeError
-    if (index >= 0 && index < colorList.length) {
-      return colorList[index];
-    }
-
-    // Nếu index vẫn vượt quá giới hạn, trả về phần tử đầu tiên hoặc mặc định
-    return colorList.isNotEmpty ? colorList[0] : "green";
+    int index = int.parse(strSplit[2]) - 1;
+    String color = data[start]![index];
+    return color;
   }
 
   factory Vehicle.fromJson(Map<String, dynamic> json) {

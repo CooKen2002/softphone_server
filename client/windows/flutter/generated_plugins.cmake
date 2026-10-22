@@ -6,7 +6,7 @@ list(APPEND FLUTTER_PLUGIN_LIST
   audioplayers_windows
   flutter_secure_storage_windows
   flutter_window_close
-  geolocator_windows
+  permission_handler_windows
   record_windows
   screen_retriever_windows
   url_launcher_windows

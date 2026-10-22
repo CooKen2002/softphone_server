@@ -10,6 +10,7 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:talkie_v2/models/soft_phone_model.dart';
 import 'package:talkie_v2/screens/soft_phone/call_history_screen.dart';
 import 'package:talkie_v2/screens/soft_phone/call_incoming.dart';
@@ -50,7 +51,7 @@ class _SoftPhoneScreenState extends State<SoftPhoneScreen> {
 
   Isolate? bareSipIsolate;
 
-
+  late BareSip bareSip;
   late AudioStreamReader audioReader;
   late AudioStreamWriter audioWriter;
   bool isAutoAnswer = false;
@@ -637,21 +638,21 @@ class _SoftPhoneScreenState extends State<SoftPhoneScreen> {
     audioWriter.readDataSendFrame(rawPcm);
   }
 
-  // void requestMicroPhonePermission() async {
-  //   var status = await Permission.microphone.request();
-  //   if (!status.isGranted) {
-  //     showToast(
-  //       "Ứng dụng cần cấp quyền microphone để có thể sử dụng",
-  //       ToastificationType.error,
-  //     );
-  //   }
-  // }
+  void requestMicroPhonePermission() async {
+    var status = await Permission.microphone.request();
+    if (!status.isGranted) {
+      showToast(
+        "Ứng dụng cần cấp quyền microphone để có thể sử dụng",
+        ToastificationType.error,
+      );
+    }
+  }
 
   @override
   void initState() {
     super.initState();
     Directory("recordings").create(recursive: true);
-    // requestMicroPhonePermission();
+    requestMicroPhonePermission();
     getAllUa();
     getAllCallHistory();
     initSoftPhone();
