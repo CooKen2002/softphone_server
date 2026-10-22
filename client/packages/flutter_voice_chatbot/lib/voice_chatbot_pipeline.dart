@@ -1,14 +1,23 @@
+// import "dart:io";
 import 'dart:developer';
-import 'package:flutter/material.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 import 'package:web_socket_channel/status.dart' as status;
+import "package:flutter_soft_phone/audio_stream.dart";
+import "package:flutter_voice_chatbot/flutter_voice_chatbot.dart";
+// import "package:web_socket_channel/web_socket_channel.dart";
 
-class VoiceChatBotController extends ChangeNotifier {
+class VoiceChatbot {
+  // Cấu hình ws
   String webSocketURL = "";
   bool isConnected = false;
   bool isWaitingResponse = false; // Đang đợi phản hồi từ server
   bool isBotPlaying = false; 
   WebSocketChannel? channel;
+  // VAD
+  late final VAD vad;
+  // Audio buffer
+  late final AudioRxStream audioIn;
+
   Future<bool> connectWebSocketChatBot() async {
     if (channel != null) return true;
     try {
