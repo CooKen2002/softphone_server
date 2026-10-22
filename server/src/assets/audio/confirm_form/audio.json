@@ -1,0 +1,10 @@
+{
+    "em xác nhận thông tin đặt vé của anh chị:":"confirm_header.wav",
+    "đón tại: ":"pick_up.wav",
+    "đến: ":"drop_off.wav",
+    "giờ: ":"time.wav",
+    "loại xe: ":"car_types.wav",
+    "số lượng: ":"amount.wav",
+    "họ tên: ":"full_name.wav",
+    "điện thoại: ":"phone_number.wav"
+}

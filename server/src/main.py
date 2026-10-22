@@ -5,8 +5,6 @@ CREATED: 17/08/2026
 
 import asyncio
 import io
-import traceback
-import librosa
 import requests
 import time
 import wave
@@ -18,11 +16,10 @@ import numpy as np
 
 from vieneu import Vieneu
 
-from rasa_utils import *
 from config import *
 from utils import *
-from wav2vec import *
-from correct_text import *
+from stt import *
+from tts import *
 
 # MARK: LOAD MODELS
 
@@ -30,9 +27,9 @@ model = init_model("./models/wav2vec2_vietnamese.onnx", None, None)
 log(f"LOADED model W2V", "INFO")
 
 if DEVICE == "cpu":
-    tts = Vieneu()
+    tts_model = Vieneu()
 else:
-    tts = Vieneu(
+    tts_model = Vieneu(
         mode="v3turbo"
         # v3turbo (Mặc định): Sử dụng V3TurboVieNeuTTS (48 kHz, chạy CPU qua ONNX Runtime không cần torch, GPU dùng PyTorch).
         # remote hoặc api: Sử dụng RemoteVieNeuTTS (chạy qua API).
@@ -43,6 +40,9 @@ else:
         # standard: Sử dụng VieNeuTTS (CPU/GPU-GGUF).
     )
 log(f"LOADED model Vieneu", "INFO")
+
+# TTS ưu tiên WAV có sẵn trong assets/audio, đoạn nào chưa có mới gọi model
+speech = AssetTTS(tts_model, assets_dir=f"{ASSETS_PATH}/audio", log=log)
 
 rasa_session = requests.Session()
 log(f"CREATED RASA SESSION", "INFO")
@@ -147,7 +147,6 @@ def preprocess_audio(audio_data: np.ndarray, sr: int) -> np.ndarray:
 
 
 def wav_bytes_to_text(audio_data: np.ndarray) -> str:
-
     audio_array = np.array(audio_data, dtype=np.float32)
 
     if len(audio_array) < MIN_N_SAMPLES:
@@ -178,11 +177,8 @@ def request_to_rasa(text: str, sender_id: str) -> str:
         response = rasa_session.post(RASA_URL, json=payload, timeout=8)
         response_data = response.json()
 
-        rasa_text = ""
-        for msg in response_data:
-            if "text" in msg:
-                rasa_text += msg["text"] + " "
-        return rasa_text.strip()
+        lines = [msg["text"].strip() for msg in response_data if msg.get("text")]
+        return "\n".join(lines)
 
     except Exception as e:
         log(f"Lỗi kết nối Rasa: {e}", "ERROR")
@@ -190,155 +186,12 @@ def request_to_rasa(text: str, sender_id: str) -> str:
 
 
 async def text_to_wav_bytes(text: str) -> bytes:
-    default_speech_path = f"{ASSETS_PATH}/audio/{text}.wav"
-
-    if os.path.exists(default_speech_path):
-        log("Đã gửi default audio: {text}", "TTS")
-
-        # 1. Đọc file WAV có sẵn bằng librosa (hỗ trợ tự động đọc mọi sample rate)
-        audio, sample_rate = librosa.load(default_speech_path, sr=None)
-
-        # 2. Resample về 8kHz (nếu file gốc chưa phải 8kHz)
-        if sample_rate != 8000:
-            audio_8k = librosa.resample(audio, orig_sr=sample_rate, target_sr=8000)
-        else:
-            audio_8k = audio
-
-        # 3. Chuyển đổi về 16-bit PCM (int16)
-        audio_int16 = np.clip(audio_8k * 32767, -32768, 32767).astype(np.int16)
-
-        # 4. Ghi lại vào bytes
-        wav_io = io.BytesIO()
-        with wave.open(wav_io, "wb") as wf:
-            wf.setnchannels(1)  # Mono
-            wf.setsampwidth(2)  # 16-bit = 2 bytes
-            wf.setframerate(8000)  # 8kHz
-            wf.writeframes(audio_int16.tobytes())
-
-        return wav_io.getvalue()
-    else:
-        audio = tts.infer(text=text, voice="Đoan Trang")
-
-        # 2. Xử lý khoảng lặng (padding) 350ms
-        sample_rate = 48000
-        padding_samples = int(0.35 * sample_rate)
-        silence = np.zeros(padding_samples, dtype=np.float32)
-        audio = np.concatenate([silence, audio, silence])
-
-        # 3. Chuyển đổi về 8kHz (Resampling)
-        # Dùng librosa.resample thay vì librosa.load vì audio đã ở dạng array rồi
-        audio_8k = librosa.resample(audio, orig_sr=sample_rate, target_sr=8000)
-
-        # 4. Chuyển đổi về 16-bit PCM (int16)
-        audio_int16 = np.clip(audio_8k * 32767, -32768, 32767).astype(np.int16)
-
-        # 5. Ghi vào bytes (Memory Buffer) thay vì file vật lý
-        wav_io = io.BytesIO()
-        with wave.open(wav_io, "wb") as wf:
-            wf.setnchannels(1)  # Mono
-            wf.setsampwidth(2)  # 16-bit = 2 bytes
-            wf.setframerate(8000)  # 8kHz
-            wf.writeframes(audio_int16.tobytes())
-
-        return wav_io.getvalue()
-
-
-async def stream_tts_to_websocket(
-    websocket,
-    tts,
-    text: str,
-    voice: str = "Đoan Trang",
-    src_sample_rate: int = 48000,
-    target_sample_rate: int = 8000,
-    pad_ms: int = 350,
-) -> int:
-    """
-    Chạy tts.infer_stream() (generator đồng bộ) trong thread riêng,
-    đẩy từng chunk qua asyncio.Queue, resample + encode PCM16 8kHz,
-    và gửi ngay qua websocket khi có (không đợi cả câu xong).
-
-    Trả về tổng số bytes PCM đã gửi (không tính padding/JSON control).
-    Raise exception nếu tts lỗi hoặc websocket lỗi khi gửi.
-    """
+    """Text -> WAV 8kHz mono 16-bit.
+    Khớp text với WAV có sẵn trong assets/audio; đoạn nào chưa có mới gọi model TTS,
+    rồi ghép lại (xem tts.py). Chạy trong executor để không chặn event loop
+    (nếu chặn, ping/pong WebSocket và các client khác sẽ bị đứng theo)."""
     loop = asyncio.get_running_loop()
-    queue: asyncio.Queue = asyncio.Queue(maxsize=20)
-    SENTINEL = object()
-
-    def _put_threadsafe(item):
-        """
-        Đưa item vào queue một cách AN TOÀN giữa thread khác và event loop:
-        dùng run_coroutine_threadsafe + queue.put() (có chờ/block khi đầy),
-        thay vì call_soon_threadsafe + put_nowait (raise QueueFull ngay khi đầy,
-        làm producer crash âm thầm mà consumer không hề biết).
-        """
-        fut = asyncio.run_coroutine_threadsafe(queue.put(item), loop)
-        fut.result()  # đợi cho đến khi có chỗ trống và item được đưa vào queue
-
-    def _producer():
-        """Chạy trong thread pool - lấy chunk từ generator đồng bộ (blocking/CPU-bound)."""
-        try:
-            for chunk in tts.infer_stream(text, voice=voice):
-                _put_threadsafe(chunk)
-        except Exception as e:
-            _put_threadsafe(e)
-        finally:
-            _put_threadsafe(SENTINEL)
-
-    producer_future = loop.run_in_executor(None, _producer)
-
-    def _to_pcm16_8k(audio_f32: np.ndarray) -> bytes:
-        if src_sample_rate != target_sample_rate:
-            audio_ds = librosa.resample(
-                audio_f32, orig_sr=src_sample_rate, target_sr=target_sample_rate
-            )
-        else:
-            audio_ds = audio_f32
-        audio_int16 = np.clip(audio_ds * 32767, -32768, 32767).astype(np.int16)
-        return audio_int16.tobytes()
-
-    total_bytes = 0
-    first_chunk_logged = False
-
-    try:
-        # --- padding đầu ---
-        pad_samples = int((pad_ms / 1000) * src_sample_rate)
-        silence = np.zeros(pad_samples, dtype=np.float32)
-        await websocket.send(_to_pcm16_8k(silence))
-
-        # --- các chunk audio thật ---
-        while True:
-            item = await queue.get()
-
-            if item is SENTINEL:
-                break
-            if isinstance(item, Exception):
-                raise item
-
-            pcm_bytes = _to_pcm16_8k(item)
-            if pcm_bytes:
-                await websocket.send(pcm_bytes)
-                total_bytes += len(pcm_bytes)
-                if not first_chunk_logged:
-                    log("Chunk audio đầu tiên đã gửi", "TTS")
-                    first_chunk_logged = True
-
-        # --- padding cuối ---
-        await websocket.send(_to_pcm16_8k(silence))
-
-        # --- báo hiệu kết thúc stream cho client ---
-        await websocket.send(json.dumps({"type": "audio_end"}))
-
-        return total_bytes
-
-    finally:
-        # Đảm bảo producer thread luôn được chờ xong, tránh warning "never awaited"
-        # hoặc thread bị bỏ lửng khi có exception giữa chừng.
-        try:
-            await producer_future
-        except Exception:
-            # Lỗi trong producer đã được đẩy qua queue và raise ở trên rồi,
-            # nhưng nếu producer future tự nó raise riêng thì log thêm để không mất log.
-            log(f"Producer thread lỗi: {traceback.format_exc()}", "TTS")
+    return await loop.run_in_executor(None, speech.synthesize, text)
 
 
 # MARK: WARMUP
@@ -355,7 +208,7 @@ def warmup_models():
         log(f" Warmup W2V : {time.perf_counter() - t0:.2f}s", "STT")
 
         t0 = time.perf_counter()
-        tts.infer(text="xin chào", voice="Ngọc Linh")
+        speech.warmup()
         log(f" Warmup TTS : {time.perf_counter() - t0:.2f}s", "TTS")
 
         log(f"Warmup models hoàn tất!", "INFO")
@@ -370,6 +223,7 @@ async def handle_client(websocket):
     log(f"Client connected: {client_addr}", "INFO")
 
     loop = asyncio.get_running_loop()
+    sender_id = SENDER_ID  # mặc định, bị ghi đè khi client gửi "company|phone"
 
     try:
         async for message in websocket:
@@ -380,9 +234,9 @@ async def handle_client(websocket):
                     info = message.split("|")
                     if len(info) == 2:
                         session_company, session_phone = info
-                        SENDER_ID = message
+                        sender_id = message
                         rasa_text = await loop.run_in_executor(
-                            None, request_to_rasa, "xin chào", SENDER_ID
+                            None, request_to_rasa, "xin chào", sender_id
                         )
                         wav_bytes = await text_to_wav_bytes(rasa_text)
                         await websocket.send(wav_bytes)
@@ -401,11 +255,9 @@ async def handle_client(websocket):
                 # ==================== PIPELINE ====================
                 # 1. Nhận & validate audio
                 audio_data, sr = load_and_validate_audio_buffer(message)
-                save_audio(audio_data, "load", RESULT_PATH, sr)
 
                 # 2. Preprocess
                 processed = preprocess_audio(audio_data, sr)
-                save_audio(audio_data, "preprocess", RESULT_PATH, sr)
 
                 # 3. Speech-to-Text
                 t0 = time.perf_counter()
@@ -417,30 +269,19 @@ async def handle_client(websocket):
 
                 # 4. Rasa Dialog
                 t0 = time.perf_counter()
-                # rasa_text = await loop.run_in_executor(
-                #     None, request_to_rasa, transcript, SENDER_ID
-                # )
+                rasa_text = await loop.run_in_executor(
+                    None, request_to_rasa, transcript, sender_id
+                )
 
-                # log(f"↳ response: {rasa_text.strip()[:100]}", "RASA")
-                # log(f"Rasa : {time.perf_counter() - t0:.2f}s", "RASA")
+                log(f"↳ response: {rasa_text.strip()[:100]}", "RASA")
+                log(f"Rasa : {time.perf_counter() - t0:.2f}s", "RASA")
 
-                rasa_text ="em xác nhận thông tin đặt vé của anh chị: đón tại: hà nội, đi đến: hải phòng. giờ: 9h sáng mai; loại xe: xe limousine... số lượng: 4! họ tên: nguyễn đức cường? điện thoại: 0987654321"
+                # rasa_text ="em xác nhận thông tin đặt vé của anh chị: đón tại: hà nội, đi đến: hải phòng. giờ: 9h sáng mai; loại xe: xe limousine... số lượng: 4! họ tên: nguyễn đức cường? điện thoại: 0987654321"
 
                 # 5. Text-to-Speech
                 t0 = time.perf_counter()
-                try:
-                    sent_bytes = await asyncio.wait_for(
-                        stream_tts_to_websocket(websocket, tts, rasa_text),
-                        timeout=15,
-                    )
-                    np.log(
-                        f"TTS stream: {time.perf_counter() - t0:.2f}s, "
-                        f"{sent_bytes/1024:.1f} KB",
-                        "TTS",
-                    )
-                except asyncio.TimeoutError:
-                    np.log(f"TTS timeout sau {time.perf_counter() - t0:.2f}s", "ERROR")
-                    continue
+                wav_bytes = await text_to_wav_bytes(rasa_text)
+                log(f"TTS : {time.perf_counter() - t0:.2f}s", "TTS")
 
                 # 6. Gửi về Flutter
                 await websocket.send(wav_bytes)
@@ -478,9 +319,9 @@ async def main():
 
 
 if __name__ == "__main__":
-    if not rasa_scripts(rasa_session):
-        print("Không khởi động được Rasa, thoát.")
-        exit(1)
+    # if not rasa_scripts(rasa_session):
+    #     print("Không khởi động được Rasa, thoát.")
+    #     exit(1)
     try:
         asyncio.run(main())
     except KeyboardInterrupt:

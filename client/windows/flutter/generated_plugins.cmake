@@ -3,6 +3,7 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
+  flutter_soft_phone
   audioplayers_windows
   flutter_secure_storage_windows
   flutter_window_close

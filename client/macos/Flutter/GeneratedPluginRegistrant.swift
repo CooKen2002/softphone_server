@@ -28,3 +28,16 @@ func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
   UrlLauncherPlugin.register(with: registry.registrar(forPlugin: "UrlLauncherPlugin"))
   WindowManagerPlugin.register(with: registry.registrar(forPlugin: "WindowManagerPlugin"))
 }
+
+//
+//  Generated file. Do not edit.
+//
+
+import FlutterMacOS
+import Foundation
+
+import record_macos
+
+func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
+  RecordMacOsPlugin.register(with: registry.registrar(forPlugin: "RecordMacOsPlugin"))
+}
