@@ -9,8 +9,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_soft_phone:
-    path: ../flutter_soft_phone
   web_socket_channel: ^3.0.0
   vad: ^0.0.6
   path_provider: ^2.1.0

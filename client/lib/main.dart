@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_soft_phone/flutter_soft_phone.dart';
-import 'package:flutter_voice_chatbot/voice_chatbot_controller.dart';
+import 'package:flutter_voice_chatbot/flutter_voice_chatbot.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,7 +25,10 @@ class SoftPhonePage extends StatefulWidget {
 class _SoftPhonePageState extends State<SoftPhonePage> {
   SoftPhoneController? _phone;
   // Websocket controller
-  late final VoiceChatBotController _wsServer = VoiceChatBotController();
+  VoiceChatbot? _bot;
+  bool _botEnabled = false; // bật thì bot tự nhận cuộc gọi đến và nói chuyện
+  BotState _botState = BotState.idle;
+  final List<String> _botTexts = [];
 
   String _status = 'Chưa khởi động';
 
@@ -45,6 +48,57 @@ class _SoftPhonePageState extends State<SoftPhonePage> {
   Future<void> _start() async {
     try {
       final phone = SoftPhoneController();
+
+      final bot = VoiceChatbot(
+        // URL thật được gán lúc có cuộc gọi (xem _onCallChanged)
+        transport: ChatbotTransport(Uri.parse('ws://localhost')),
+        detector: SpeechDetector(modelPath: 'windows/libs'),
+        playReply: phone.audioOut.playWav, // giọng bot phát ra cuộc gọi
+        cancelReply: phone.audioOut.reset, // cúp máy thì xoá phần chưa phát
+      );
+      bot.states.listen((s) {
+        if (mounted) setState(() => _botState = s);
+      });
+      bot.texts.listen((t) {
+        if (!mounted) return;
+        setState(() {
+          _botTexts.add(t);
+          if (_botTexts.length > 5) _botTexts.removeAt(0);
+        });
+      });
+      bot.errors.listen((e) {
+        if (mounted) setState(() => _status = 'Bot: $e');
+      });
+      _bot = bot;
+
+      // Một callback duy nhất xử lý cả trả lời tự động lẫn bật/tắt bot
+      phone.onCallChanged = (call) async {
+        if (call == null) {
+          await bot.stop(); // cuộc gọi kết thúc
+          return;
+        }
+        if (!_botEnabled) return;
+
+        if (call.isIncoming && call.isRinging) {
+          phone.answer(); // bot tự nhận máy
+        } else if (call.isActive) {
+          final url = _ws_server.text.trim();
+          if (url.isEmpty) {
+            if (mounted) setState(() => _status = 'Chưa nhập Websocket server');
+            return;
+          }
+          try {
+            bot.transport.url = Uri.parse(url);
+          } on FormatException {
+            if (mounted) setState(() => _status = 'URL websocket không hợp lệ');
+            return;
+          }
+          // RX 8 kHz từ người gọi -> VAD -> websocket; trả lời -> audioOut
+          final ok = await bot.start(phone.audioIn.frames);
+          if (!ok) phone.hangup(); // không kết nối được server thì cúp máy
+        }
+      };
+
       await phone.init();
       setState(() {
         _phone = phone;
@@ -57,6 +111,8 @@ class _SoftPhonePageState extends State<SoftPhonePage> {
 
   @override
   void dispose() {
+    _bot?.dispose(); // trước khi shutdown phone
+    _phone?.onCallChanged = null;
     _phone?.shutdown();
     _phone?.dispose();
     for (final c in [_server, _ws_server, _hotline, _password, _number]) {
@@ -129,13 +185,12 @@ class _SoftPhonePageState extends State<SoftPhonePage> {
                           child: const Text('Huỷ đăng ký'),
                         ),
                         const SizedBox(width: 16),
-                        Text(
-                          phone.isOnline ? 'Online' : 'Offline',
-                        ), // Thay phone bằng ws
+                        Text(phone.isOnline ? 'Online' : 'Offline'),
                       ],
                     ),
                     const Divider(height: 32),
-                    // MARK: CONNECT WS SV
+
+                    // MARK: BOT + WEBSOCKET
                     TextField(
                       controller: _ws_server,
                       decoration: const InputDecoration(
@@ -143,33 +198,16 @@ class _SoftPhonePageState extends State<SoftPhonePage> {
                         hintText: 'ws://your_server_ip:port',
                       ),
                     ),
-                    const SizedBox(height: 8),
-                    Row(
-                      children: [
-                        FilledButton(
-                          onPressed: () async {
-                            // Gán URL từ TextField vào controller trước khi kết nối
-                            _wsServer.webSocketURL = _ws_server.text.trim();
-                            await _wsServer.connectWebSocketChatBot();
-                            setState(() {}); // Cập nhật lại giao diện trạng thái Online/Offline
-                          },
-                          child: const Text('Kết nối'),
-                        ),
-                        const SizedBox(width: 16),
-                        FilledButton(
-                          onPressed: () async {
-                            // Gán URL từ TextField vào controller trước khi kết nối
-                            _wsServer.webSocketURL = _ws_server.text.trim();
-                            await _wsServer.disconnectWebSocketChatBot();
-                            setState(() {}); // Cập nhật lại giao diện trạng thái Online/Offline
-                          },
-                          child: const Text('Đóng kết nối'),
-                        ),
-                        const SizedBox(width: 16),
-                        Text(_wsServer.isConnected ? 'Online' : 'Offline'),
-                      ],
+                    SwitchListTile(
+                      contentPadding: EdgeInsets.zero,
+                      title: const Text('Bot tự trả lời cuộc gọi'),
+                      subtitle: Text('Trạng thái bot: ${_botState.name}'),
+                      value: _botEnabled,
+                      onChanged: (v) => setState(() => _botEnabled = v),
                     ),
+                    for (final t in _botTexts) Text('Bot: $t'),
                     const Divider(height: 32),
+
                     TextField(
                       controller: _number,
                       decoration: const InputDecoration(

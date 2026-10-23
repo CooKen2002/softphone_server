@@ -14,7 +14,7 @@ class VoiceChatbot {
   bool isBotPlaying = false; 
   WebSocketChannel? channel;
   // VAD
-  late final VAD vad;
+  late final SpeechDetector vad;
   // Audio buffer
   late final AudioRxStream audioIn;
 

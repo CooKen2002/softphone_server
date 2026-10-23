@@ -1,5 +1,5 @@
-// file export public
 library;
-
-export 'vad.dart';
-export 'voice_chatbot_pipeline.dart';
+export 'src/chatbot_transport.dart';
+export 'src/pcm_utils.dart';
+export 'src/speech_detector.dart';
+export 'src/voice_chatbot.dart';
