@@ -30,6 +30,7 @@ class SpeechDetector {
   final int minSpeechFrames;
 
   final VadHandler _vad;
+  static const defaultModelPath = 'packages/flutter_voice_chatbot/windows/libs/';
   final _subs = <StreamSubscription<dynamic>>[];
   final _segments = StreamController<Uint8List>.broadcast();
   final _starts = StreamController<void>.broadcast();
@@ -48,7 +49,7 @@ class SpeechDetector {
       model: 'legacy',
       frameSamples: _frameSamples,
       audioStream: _input!.stream,
-      baseAssetPath: modelPath ?? 'windows/libs',
+      baseAssetPath: modelPath ?? defaultModelPath,
       minSpeechFrames: minSpeechFrames,
       preSpeechPadFrames: (preRollMs / _msPerFrame).ceil(),
       redemptionFrames: (tailSilenceMs / _msPerFrame).ceil(),
@@ -72,7 +73,7 @@ class SpeechDetector {
 
   Future<void> stop() async {
     try {
-      await _vad.stopListening();
+      await _vad.stopListening().timeout(const Duration(seconds: 2));
     } catch (e) {
       log('VAD stop: $e');
     }

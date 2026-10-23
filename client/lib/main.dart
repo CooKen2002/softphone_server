@@ -32,6 +32,7 @@ class _SoftPhonePageState extends State<SoftPhonePage> {
 
   String _status = 'Chưa khởi động';
 
+  final _company = TextEditingController();
   final _server = TextEditingController();
   final _ws_server = TextEditingController();
   final _hotline = TextEditingController();
@@ -52,7 +53,7 @@ class _SoftPhonePageState extends State<SoftPhonePage> {
       final bot = VoiceChatbot(
         // URL thật được gán lúc có cuộc gọi (xem _onCallChanged)
         transport: ChatbotTransport(Uri.parse('ws://localhost')),
-        detector: SpeechDetector(modelPath: 'windows/libs'),
+        detector: SpeechDetector(),
         playReply: phone.audioOut.playWav, // giọng bot phát ra cuộc gọi
         cancelReply: phone.audioOut.reset, // cúp máy thì xoá phần chưa phát
       );
@@ -73,6 +74,7 @@ class _SoftPhonePageState extends State<SoftPhonePage> {
 
       // Một callback duy nhất xử lý cả trả lời tự động lẫn bật/tắt bot
       phone.onCallChanged = (call) async {
+        debugPrint('[Call] $call | botEnabled=$_botEnabled');
         if (call == null) {
           await bot.stop(); // cuộc gọi kết thúc
           return;
@@ -83,8 +85,12 @@ class _SoftPhonePageState extends State<SoftPhonePage> {
           phone.answer(); // bot tự nhận máy
         } else if (call.isActive) {
           final url = _ws_server.text.trim();
-          if (url.isEmpty) {
-            if (mounted) setState(() => _status = 'Chưa nhập Websocket server');
+          final company = _company.text.trim();
+          if (url.isEmpty || company.isEmpty) {
+            if (mounted)
+              setState(
+                () => _status = 'Cần nhập Websocket server và tên công ty',
+              );
             return;
           }
           try {
@@ -93,9 +99,12 @@ class _SoftPhonePageState extends State<SoftPhonePage> {
             if (mounted) setState(() => _status = 'URL websocket không hợp lệ');
             return;
           }
-          // RX 8 kHz từ người gọi -> VAD -> websocket; trả lời -> audioOut
-          final ok = await bot.start(phone.audioIn.frames);
-          if (!ok) phone.hangup(); // không kết nối được server thì cúp máy
+          final ok = await bot.start(
+            phone.audioIn.frames,
+            company: company,
+            phone: call.remoteNumber, // số người gọi (cuộc gọi đến) hoặc số mình gọi (cuộc gọi ra)
+          );
+          if (!ok) phone.hangup();
         }
       };
 
@@ -115,7 +124,14 @@ class _SoftPhonePageState extends State<SoftPhonePage> {
     _phone?.onCallChanged = null;
     _phone?.shutdown();
     _phone?.dispose();
-    for (final c in [_server, _ws_server, _hotline, _password, _number]) {
+    for (final c in [
+      _server,
+      _ws_server,
+      _company,
+      _hotline,
+      _password,
+      _number,
+    ]) {
       c.dispose();
     }
     super.dispose();
@@ -196,6 +212,12 @@ class _SoftPhonePageState extends State<SoftPhonePage> {
                       decoration: const InputDecoration(
                         labelText: 'Websocket IP server',
                         hintText: 'ws://your_server_ip:port',
+                      ),
+                    ),
+                    TextField(
+                      controller: _company,
+                      decoration: const InputDecoration(
+                        labelText: 'Tên công ty',
                       ),
                     ),
                     SwitchListTile(

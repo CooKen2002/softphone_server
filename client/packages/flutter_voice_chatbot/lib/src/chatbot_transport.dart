@@ -4,10 +4,23 @@ import 'dart:typed_data';
 import 'package:web_socket_channel/status.dart' as status;
 import 'package:web_socket_channel/web_socket_channel.dart';
 
-sealed class ServerMessage { const ServerMessage(); }
-class TextReply extends ServerMessage { const TextReply(this.text); final String text; }
-class AudioReply extends ServerMessage { const AudioReply(this.wav); final Uint8List wav; }
-class ServerClosed extends ServerMessage { const ServerClosed(); }
+sealed class ServerMessage {
+  const ServerMessage();
+}
+
+class TextReply extends ServerMessage {
+  const TextReply(this.text);
+  final String text;
+}
+
+class AudioReply extends ServerMessage {
+  const AudioReply(this.wav);
+  final Uint8List wav;
+}
+
+class ServerClosed extends ServerMessage {
+  const ServerClosed();
+}
 
 class ChatbotTransport {
   ChatbotTransport(this.url);
@@ -24,12 +37,15 @@ class ChatbotTransport {
     if (_channel != null) return true;
     try {
       final ch = WebSocketChannel.connect(url);
-      await ch.ready;                       // chỉ gán sau khi kết nối thật
+      await ch.ready; // chỉ gán sau khi kết nối thật
       _channel = ch;
       _sub = ch.stream.listen(
         _onData,
         onError: (Object e) => log('WS error: $e'),
-        onDone: () { _channel = null; _messages.add(const ServerClosed()); },
+        onDone: () {
+          _channel = null;
+          _messages.add(const ServerClosed());
+        },
       );
       return true;
     } catch (e) {
@@ -47,11 +63,16 @@ class ChatbotTransport {
   }
 
   void send(Uint8List bytes) => _channel?.sink.add(bytes);
+  void sendText(String text) => _channel?.sink.add(text);
 
   Future<void> disconnect() async {
     await _sub?.cancel();
     _sub = null;
-    await _channel?.sink.close(status.normalClosure);
+    try {
+      await _channel?.sink
+          .close(status.normalClosure)
+          .timeout(const Duration(seconds: 2));
+    } catch (_) {}
     _channel = null;
   }
 }
