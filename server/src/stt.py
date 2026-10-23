@@ -502,8 +502,8 @@ def correct(text: str, all_dicts):
 #         print("Decode :", decoded)
 
 if __name__ == "__main__":
-    model_path = "../model/wav2vec2_vietnamese.onnx"
-    audio_data, sample_rate = sf.read("2.mp3")
+    model_path = "./models/wav2vec2_vietnamese.onnx"
+    audio_data, sample_rate = sf.read("./test/5.wav")
 
     channels = audio_data.ndim
     audio_data, channels = ensure_channels(audio_data, channels)
