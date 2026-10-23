@@ -1,4 +1,4 @@
-# talkie_v2
+# client
 
 A new Flutter project.
 
