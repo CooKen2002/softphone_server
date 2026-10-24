@@ -9,9 +9,9 @@ class SpeechDetector {
     this.modelPath, // thư mục chứa silero_vad_legacy.onnx
     this.preRollMs = 400,
     this.tailSilenceMs = 700,
-    this.positiveThreshold = 0.5,
-    this.negativeThreshold = 0.35,
-    this.minSpeechFrames = 4,
+    this.positiveThreshold = 0.4,
+    this.negativeThreshold = 0.3,
+    this.minSpeechFrames = 3,
     bool debug = false,
   }) : _vad = VadHandler.create(isDebug: debug, onLog: log) {
     _subs
