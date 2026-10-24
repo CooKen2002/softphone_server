@@ -46,3 +46,4 @@ app.*.map.json
 assets/
 recordings/
 recordings/pcm_test.pcm
+*.pcm
