@@ -62,6 +62,29 @@ def rasa_scripts(rasa_session=None, wait_seconds=90, poll_interval=3):
             return True
     return False
 
+def parse_nlu_with_rasa(text, rasa_url="http://localhost:5005"):
+    endpoint = f"{rasa_url}/model/parse"
+    payload = {
+        "text": text
+    }
+    
+    try:
+        response = requests.post(endpoint, json=payload)
+        
+        # Kiểm tra nếu request thành công (HTTP Status Code 200)
+        if response.status_code == 200:
+            return response.json()
+        else:
+            print(f"Lỗi từ Rasa server: {response.status_code} - {response.text}")
+            return None
+            
+    except requests.exceptions.ConnectionError:
+        print("Lỗi: Không thể kết nối đến Rasa server. Hãy đảm bảo server đang chạy.")
+        return None
+    except Exception as e:
+        print(f"Đã xảy ra lỗi: {e}")
+        return None
+
 # def save_audio(audio_data, name: str, output_path: str, samplerate: int = 16000):
 #     """
 #     Hàm tổng quát lưu mọi loại dữ liệu âm thanh ra file WAV 16-bit.
