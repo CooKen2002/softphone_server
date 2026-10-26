@@ -297,7 +297,6 @@ async def handle_client(websocket):
     except websockets.exceptions.ConnectionClosed:
         log(f"Client disconnected: {client_addr}", "INFO")
     finally:
-        reset_rasa_conversation(sender_id, RASA_BASE_URL)
         log(f"Đóng kết nối với {client_addr}", "INFO")
 
 
