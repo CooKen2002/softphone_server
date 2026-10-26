@@ -6,6 +6,7 @@ from pathlib import Path
 import subprocess
 import requests
 import time
+import urllib.parse
 from config import *
 
 def log(msg: str, level: str = "INFO"):
@@ -84,7 +85,34 @@ def parse_nlu_with_rasa(text, rasa_url="http://localhost:5005"):
     except Exception as e:
         print(f"Đã xảy ra lỗi: {e}")
         return None
+    
+def reset_rasa_conversation(sender_id, rasa_url="http://localhost:5005"):
+    """
+    Gửi event 'restart' để xóa toàn bộ lịch sử và đưa hội thoại về trạng thái ban đầu.
+    """
 
+    # Mã hóa sender_id an toàn cho URL (tránh lỗi ký tự đặc biệt, tiếng Việt, khoảng trắng)
+    encoded_sender_id = urllib.parse.quote(sender_id, safe='')
+    endpoint = f"{rasa_url}/conversations/{encoded_sender_id}/tracker/events"
+    
+    # Event restart trong Rasa dùng để reset tracker
+    payload = [
+        {
+            "event": "restart"
+        }
+    ]
+    
+    try:
+        response = requests.post(endpoint, json=payload)
+        if response.status_code == 200:
+            log(f"Đã reset hội thoại thành công cho user: {sender_id}", "RASA")
+            return response.json()
+        else:
+            print(f"Lỗi: {response.status_code} - {response.text}")
+            return None
+    except Exception as e:
+        log(f"Không thể kết nối đến Rasa: {e}", "ERROR")
+        return None
 # def save_audio(audio_data, name: str, output_path: str, samplerate: int = 16000):
 #     """
 #     Hàm tổng quát lưu mọi loại dữ liệu âm thanh ra file WAV 16-bit.
