@@ -47,3 +47,5 @@ assets/
 recordings/
 recordings/pcm_test.pcm
 *.pcm
+
+*.7z
