@@ -302,14 +302,14 @@ async def handle_client(websocket):
 
                 # 4. Rasa Dialog
                 t0 = time.perf_counter()
-                # rasa_text = await loop.run_in_executor(
-                #     None, request_to_rasa, transcript, sender_id
-                # )
+                rasa_text = await loop.run_in_executor(
+                    None, request_to_rasa, transcript, sender_id
+                )
 
                 log(f"↳ response: {rasa_text.strip()[:100]}", "RASA")
                 log(f"Rasa : {time.perf_counter() - t0:.2f}s", "RASA")
 
-                rasa_text ="em xác nhận thông tin đặt vé của anh chị: đón tại: hà nội, đi đến: hải phòng. giờ: 9h sáng mai; loại xe: xe limousine... số lượng: 4! họ tên: nguyễn đức cường? điện thoại: 0987654321"
+                # rasa_text ="em xác nhận thông tin đặt vé của anh chị: đón tại: hà nội, đi đến: hải phòng. giờ: 9h sáng mai; loại xe: xe limousine... số lượng: 4! họ tên: nguyễn đức cường? điện thoại: 0987654321"
                 # rasa_text = "xin chào quý khách, em giúp gì cho anh chị ạ"
 
                 # 5. Text-to-Speech
