@@ -14,6 +14,7 @@ import scipy.signal as signal
 import noisereduce as nr
 import numpy as np
 
+from faster_whisper import WhisperModel
 from vieneu import Vieneu
 
 from config import *
@@ -23,8 +24,10 @@ from tts import *
 
 # MARK: LOAD MODELS
 
-model = init_model("./models/wav2vec2_vietnamese.onnx", None, None)
-log(f"LOADED model W2V", "INFO")
+# model = init_model("./models/wav2vec2_vietnamese.onnx", None, None)
+# log(f"LOADED model W2V", "INFO")
+model = WhisperModel(model_size_or_path="E:/workspace/Cuong/softphone_server/server/src/models/PhoWhisper-medium-ct2-fasterWhisper", device=DEVICE, compute_type="int8")
+log(f"LOADED model PhoWhisper", "INFO")
 
 if DEVICE == "cpu":
     tts_model = Vieneu()
@@ -167,6 +170,31 @@ def wav_bytes_to_text(audio_data: np.ndarray) -> str:
     log(f"Correct từ '{transcription}' -> '{output_text}'.", "STT")
     return output_text
 
+def faster_whisper_transcribe(audio_data: np.ndarray, initial_prompt: str = None, hotwords: str = None) -> str:
+    start = time.perf_counter()
+    segments, info = model.transcribe(
+        audio_data,
+        language="vi",
+        beam_size=2,
+        vad_filter=True,
+        vad_parameters=dict(min_silence_duration_ms=300),
+        condition_on_previous_text=False,
+        initial_prompt=initial_prompt or "Đây là cuộc hội thoại tiếng Việt.",
+        hotwords=hotwords,
+        # no_speech_threshold=0.6,
+    )
+    text = ""
+    for seg in segments:
+        text += seg.text.strip() + " "
+        log(f"[{seg.start:.1f}s → {seg.end:.1f}s] {seg.text.strip()}", "STT")
+
+    duration = len(audio_data) / 16000
+
+    log(
+        f"STT hoàn thành: '{text.strip()}' | {(time.perf_counter()-start):.2f} | {duration}",
+        "STT",
+    )
+    return text
 
 def request_to_rasa(text: str, sender_id: str) -> str:
     if not text or not text.strip():
@@ -204,7 +232,8 @@ def warmup_models():
         processed = preprocess_audio(dummy, SAMPLE_RATE)
 
         t0 = time.perf_counter()
-        wav_bytes_to_text(processed)
+        # wav_bytes_to_text(processed)
+        faster_whisper_transcribe(processed)
         log(f" Warmup W2V : {time.perf_counter() - t0:.2f}s", "STT")
 
         t0 = time.perf_counter()
@@ -261,8 +290,11 @@ async def handle_client(websocket):
 
                 # 3. Speech-to-Text
                 t0 = time.perf_counter()
+                # transcript = await loop.run_in_executor(
+                #     None, wav_bytes_to_text, processed
+                # )
                 transcript = await loop.run_in_executor(
-                    None, wav_bytes_to_text, processed
+                    None, faster_whisper_transcribe, processed
                 )
                 log(f"STT : {time.perf_counter() - t0:.2f}s", "STT")
                 log(f"↳ response: {transcript.strip()}", "STT")
@@ -270,14 +302,14 @@ async def handle_client(websocket):
 
                 # 4. Rasa Dialog
                 t0 = time.perf_counter()
-                rasa_text = await loop.run_in_executor(
-                    None, request_to_rasa, transcript, sender_id
-                )
+                # rasa_text = await loop.run_in_executor(
+                #     None, request_to_rasa, transcript, sender_id
+                # )
 
                 log(f"↳ response: {rasa_text.strip()[:100]}", "RASA")
                 log(f"Rasa : {time.perf_counter() - t0:.2f}s", "RASA")
 
-                # rasa_text ="em xác nhận thông tin đặt vé của anh chị: đón tại: hà nội, đi đến: hải phòng. giờ: 9h sáng mai; loại xe: xe limousine... số lượng: 4! họ tên: nguyễn đức cường? điện thoại: 0987654321"
+                rasa_text ="em xác nhận thông tin đặt vé của anh chị: đón tại: hà nội, đi đến: hải phòng. giờ: 9h sáng mai; loại xe: xe limousine... số lượng: 4! họ tên: nguyễn đức cường? điện thoại: 0987654321"
                 # rasa_text = "xin chào quý khách, em giúp gì cho anh chị ạ"
 
                 # 5. Text-to-Speech
